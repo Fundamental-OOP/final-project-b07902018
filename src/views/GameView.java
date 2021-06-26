@@ -54,12 +54,12 @@ public class GameView extends JFrame {
                         game.moveCharacter(P1, Direction.RIGHT);
                         break;
                     
-                    case KeyEvent.VK_Q:
-                        game.pickUpItem(P1);
-                        break;
-                    case KeyEvent.VK_E:
-                        game.releaseItem(P1);
-                        break;
+                    // case KeyEvent.VK_Q:
+                    //     game.pickUpItem(P1);
+                    //     break;
+                    // case KeyEvent.VK_E:
+                    //     game.releaseItem(P1);
+                    //     break;
                     
                     case KeyEvent.VK_I:
                         game.moveCharacter(P2, Direction.UP);
@@ -110,7 +110,17 @@ public class GameView extends JFrame {
                     case KeyEvent.VK_L:
                         game.stopCharacter(P2, Direction.RIGHT);
                         break;
+                    case KeyEvent.VK_Q:
+                        game.pickUpItem(P1);
+                        break;
+                    case KeyEvent.VK_E:
+                        game.releaseItem(P1);
+                        break;
                 }
+            }
+            @Override
+            public void keyTyped(KeyEvent e) {
+
             }
         });
     }
