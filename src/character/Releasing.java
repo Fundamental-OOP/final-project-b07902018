@@ -54,8 +54,7 @@ public class Releasing extends Sequence {
         for (Sprite sprite : sprites) {
             if (character != sprite && sprite instanceof PlaceItemOn) {
                 PlaceItemOn place = (PlaceItemOn) sprite;
-                sprite.setLocation(place.itemPlaceLocation());
-                character.releaseMobileItem();
+                character.releaseMobileItem(place.itemPlaceLocation());
             }
         }
 

@@ -95,7 +95,8 @@ public class Character extends Sprite {
         return mobileItem;
     }
 
-    public void releaseMobileItem(){
+    public void releaseMobileItem(Point location){
+        mobileItem.setLocation(location);
         mobileItem = null;
     }
 
