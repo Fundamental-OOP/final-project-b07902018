@@ -1,5 +1,5 @@
 package fsm;
 
 public enum Event {
-    WALK, STOP, PICK, MOVE
+    WALK, STOP, PICK, MOVE, RELEASE
 }

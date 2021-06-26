@@ -42,10 +42,13 @@ public class Character extends Sprite {
                 new Walking(this, imageStatesFromFolder("assets/character/walking", imageRenderer)));
         State picking = new WaitingPerFrame(2,
                 new Picking(this, fsm, imageStatesFromFolder("assets/character/idle", imageRenderer)));
+        State releasing = new WaitingPerFrame(2,
+                new Releasing(this, fsm, imageStatesFromFolder("assets/character/idle", imageRenderer)));
         fsm.setInitialState(idle);
         fsm.addTransition(from(idle).when(WALK).to(walking));
         fsm.addTransition(from(walking).when(STOP).to(idle));
         fsm.addTransition(from(idle).when(PICK).to(picking));
+        fsm.addTransition(from(idle).when(RELEASE).to(releasing));
     }
 
     public void move(Direction direction) {
@@ -70,6 +73,10 @@ public class Character extends Sprite {
         fsm.trigger(PICK);
     }
 
+    public void release(){
+        fsm.trigger(RELEASE);
+    }
+
     public void update() {
         fsm.update();
     }
@@ -86,6 +93,10 @@ public class Character extends Sprite {
 
     public MobileItem getMobileItem(){
         return mobileItem;
+    }
+
+    public void releaseMobileItem(){
+        mobileItem = null;
     }
 
     @Override

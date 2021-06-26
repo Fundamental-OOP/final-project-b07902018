@@ -43,6 +43,10 @@ public class Game extends GameLoop {
         getPlayer(playerNumber).pickUp();
     }
 
+    public void releaseItem(int playerNumber) {
+        getPlayer(playerNumber).release();
+    }
+
     public Character getPlayer(int playerNumber) {
         return playerNumber == 1 ? p1 : p2;
     }

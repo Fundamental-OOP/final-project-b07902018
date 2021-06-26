@@ -31,11 +31,6 @@ public class Item extends Sprite {
                 new Dimension(33, 38), new Dimension(66, 105));
         fsm = new FiniteStateMachine();
 
-        ImageRenderer imageRenderer = new ItemImageRenderer(this);
-        State idle = new WaitingPerFrame(4,
-                new Idle(imageStatesFromFolder("assets/item/idle", imageRenderer)));
-
-        fsm.setInitialState(idle);
     }
 
 

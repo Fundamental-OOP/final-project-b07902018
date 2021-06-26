@@ -20,25 +20,11 @@ import static utils.ImageStateUtils.imageStatesFromFolder;
 /**
  * @author - johnny850807@gmail.com (Waterball)
  */
-public class MobileItem extends Item {
+public abstract class MobileItem extends Item {
     private final Set<Direction> directions = new CopyOnWriteArraySet<>();
-
-    public enum Event {
-        MOVE, STOP, ATTACK, DAMAGED
-    }
 
     public MobileItem(Point location) {
         super(location);
-
-        ImageRenderer imageRenderer = new ItemImageRenderer(this);
-        State idle = new WaitingPerFrame(4,
-                new Idle(imageStatesFromFolder("assets/mobileItem/idle", imageRenderer)));
-        State moving = new WaitingPerFrame(2,
-                new Moving(this, imageStatesFromFolder("assets/mobileItem/walking", imageRenderer)));
-
-        fsm.setInitialState(idle);
-        fsm.addTransition(from(idle).when(MOVE).to(moving));
-        fsm.addTransition(from(moving).when(STOP).to(idle));
     }
 
     public void move(Direction direction) {

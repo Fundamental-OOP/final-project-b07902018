@@ -4,6 +4,7 @@ import fsm.Sequence;
 import fsm.State;
 import fsm.StateMachine;
 import item.MobileItem;
+import item.PlaceItemOn;
 import jdk.nashorn.api.tree.SpreadTree;
 import media.AudioPlayer;
 import model.Sprite;
@@ -17,13 +18,13 @@ import java.util.Set;
 /**
  * @author - johnny850807@gmail.com (Waterball)
  */
-public class Picking extends Sequence {
+public class Releasing extends Sequence {
 
     private final Character character;
     private final StateMachine stateMachine;
     private final Set<Integer> damagingStateNumbers = new HashSet<>(List.of(6));
 
-    public Picking(Character character, StateMachine stateMachine, List<? extends State> states) {
+    public Releasing(Character character, StateMachine stateMachine, List<? extends State> states) {
         super(states);
         this.character = character;
         this.stateMachine = stateMachine;
@@ -33,33 +34,34 @@ public class Picking extends Sequence {
     public void update() {
         super.update();
         if (damagingStateNumbers.contains(currentPosition)) {
-            effectPickUp();
+            effectRelease();
         }
     }
 
     @Override
     public void render(Graphics g) {
         super.render(g);
-        Rectangle pickArea = pickArea();
+        Rectangle releaseArea = releaseArea();
         g.setColor(Color.BLUE);
-        g.drawRect(pickArea.x, pickArea.y, pickArea.width, pickArea.height);
+        g.drawRect(releaseArea.x, releaseArea.y, releaseArea.width, releaseArea.height);
     }
 
-    private void effectPickUp() {
+    private void effectRelease() {
         World world = character.getWorld();
-        Rectangle pickArea = pickArea();
-        var sprites = world.getSprites(pickArea);
+        Rectangle releaseArea = releaseArea();
+        var sprites = world.getSprites(releaseArea);
 
         for (Sprite sprite : sprites) {
-            if (character != sprite && sprite instanceof MobileItem) {
-                sprite.setLocation(new Point(character.getX() + character.getRange().width / 3, character.getY()));
-                character.addMobileItem((MobileItem) sprite);
+            if (character != sprite && sprite instanceof PlaceItemOn) {
+                PlaceItemOn place = (PlaceItemOn) sprite;
+                sprite.setLocation(place.itemPlaceLocation());
+                character.releaseMobileItem();
             }
         }
 
     }
 
-    private Rectangle pickArea() {
+    private Rectangle releaseArea() {
         return character.getArea(new Dimension(87, 70),
                 new Dimension(55, 88));
     }
