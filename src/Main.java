@@ -1,4 +1,6 @@
 import controller.Game;
+import item.Item;
+import item.MobileItem;
 import character.Character;
 import character.CharacterCollisionHandler;
 import character.Walking;
@@ -23,8 +25,9 @@ public class Main {
         // initialization procedure
         Character p1 = new Character(100, new Point(0, 0));
         Character p2 = new Character(150, new Point(300, 300));
-        World world = new World(new CharacterCollisionHandler(), p1, p2);  // model
-        Game game = new Game(world, p1, p2);  // controller
+        MobileItem m1 = new MobileItem(new Point(150, 150));
+        World world = new World(new CharacterCollisionHandler(), p1, p2, m1);  // model
+        Game game = new Game(world, p1, p2, m1);  // controller
         GameView view = new GameView(game);  // view
         game.start();  // run the game and the game loop
         view.launch(); // launch the GUI

@@ -1,10 +1,9 @@
-package character;
+package item;
 
 import fsm.FiniteStateMachine;
 import fsm.ImageRenderer;
 import fsm.State;
 import fsm.WaitingPerFrame;
-import item.MobileItem;
 import model.Direction;
 import model.Sprite;
 import model.SpriteShape;
@@ -21,31 +20,25 @@ import static utils.ImageStateUtils.imageStatesFromFolder;
 /**
  * @author - johnny850807@gmail.com (Waterball)
  */
-public class Character extends Sprite {
-    private final SpriteShape shape;
-    private final FiniteStateMachine fsm;
+public class MobileItem extends Item {
     private final Set<Direction> directions = new CopyOnWriteArraySet<>();
 
-    private MobileItem mobileItem;
+    public enum Event {
+        MOVE, STOP, ATTACK, DAMAGED
+    }
 
-    public Character(int damage, Point location) {
-        this.location = location;
-        shape = new SpriteShape(new Dimension(146, 176),
-                new Dimension(33, 38), new Dimension(66, 105));
-        fsm = new FiniteStateMachine();
-        this.mobileItem = null;
+    public MobileItem(Point location) {
+        super(location);
 
-        ImageRenderer imageRenderer = new CharacterImageRenderer(this);
+        ImageRenderer imageRenderer = new ItemImageRenderer(this);
         State idle = new WaitingPerFrame(4,
-                new Idle(imageStatesFromFolder("assets/character/idle", imageRenderer)));
-        State walking = new WaitingPerFrame(2,
-                new Walking(this, imageStatesFromFolder("assets/character/walking", imageRenderer)));
-        State picking = new WaitingPerFrame(2,
-                new Picking(this, fsm, imageStatesFromFolder("assets/character/idle", imageRenderer)));
+                new Idle(imageStatesFromFolder("assets/mobileItem/idle", imageRenderer)));
+        State moving = new WaitingPerFrame(2,
+                new Moving(this, imageStatesFromFolder("assets/mobileItem/walking", imageRenderer)));
+
         fsm.setInitialState(idle);
-        fsm.addTransition(from(idle).when(WALK).to(walking));
-        fsm.addTransition(from(walking).when(STOP).to(idle));
-        fsm.addTransition(from(idle).when(PICK).to(picking));
+        fsm.addTransition(from(idle).when(MOVE).to(moving));
+        fsm.addTransition(from(moving).when(STOP).to(idle));
     }
 
     public void move(Direction direction) {
@@ -54,7 +47,7 @@ public class Character extends Sprite {
         }
         if (!directions.contains(direction)) {
             this.directions.add(direction);
-            fsm.trigger(WALK);
+            fsm.trigger(MOVE);
         }
     }
 
@@ -65,27 +58,8 @@ public class Character extends Sprite {
         }
     }
 
-
-    public void pickUp(){
-        fsm.trigger(PICK);
-    }
-
     public void update() {
         fsm.update();
-    }
-
-    public void addMobileItem(MobileItem mobileItem){
-        if(mobileItem instanceof MobileItem){
-            this.mobileItem = mobileItem;
-        }
-    }
-
-    public boolean hasMobileItem(){
-        return mobileItem != null;
-    }
-
-    public MobileItem getMobileItem(){
-        return mobileItem;
     }
 
     @Override

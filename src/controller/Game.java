@@ -1,6 +1,8 @@
 package controller;
 
 import character.Character;
+import item.Item;
+import item.MobileItem;
 import model.Direction;
 import model.World;
 
@@ -10,20 +12,35 @@ import model.World;
 public class Game extends GameLoop {
     private final Character p1;
     private final Character p2;
+
+    private final Item m1;
+
     private final World world;
 
-    public Game(World world, Character p1, Character p2) {
+    public Game(World world, Character p1, Character p2, Item m1) {
         this.p1 = p1;
         this.p2 = p2;
+        this.m1 = m1;
         this.world = world;
     }
 
-    public void moveKnight(int playerNumber, Direction direction) {
+    public void moveCharacter(int playerNumber, Direction direction) {
         getPlayer(playerNumber).move(direction);
+        if(getPlayer(playerNumber).hasMobileItem()){
+            getPlayer(playerNumber).getMobileItem().move(direction);
+        }
+        
     }
 
-    public void stopKnight(int playerNumber, Direction direction) {
+    public void stopCharacter(int playerNumber, Direction direction) {
         getPlayer(playerNumber).stop(direction);
+        if(getPlayer(playerNumber).hasMobileItem()){
+            getPlayer(playerNumber).getMobileItem().stop(direction);
+        }
+    }
+
+    public void pickUpItem(int playerNumber) {
+        getPlayer(playerNumber).pickUp();
     }
 
     public Character getPlayer(int playerNumber) {

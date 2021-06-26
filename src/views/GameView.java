@@ -42,33 +42,33 @@ public class GameView extends JFrame {
             public void keyPressed(KeyEvent keyEvent) {
                 switch (keyEvent.getKeyCode()) {
                     case KeyEvent.VK_W:
-                        game.moveKnight(P1, Direction.UP);
+                        game.moveCharacter(P1, Direction.UP);
                         break;
                     case KeyEvent.VK_S:
-                        game.moveKnight(P1, Direction.DOWN);
+                        game.moveCharacter(P1, Direction.DOWN);
                         break;
                     case KeyEvent.VK_A:
-                        game.moveKnight(P1, Direction.LEFT);
+                        game.moveCharacter(P1, Direction.LEFT);
                         break;
                     case KeyEvent.VK_D:
-                        game.moveKnight(P1, Direction.RIGHT);
+                        game.moveCharacter(P1, Direction.RIGHT);
                         break;
-                    /*
+                    
                     case KeyEvent.VK_E:
-                        game.attack(P1);
+                        game.pickUpItem(P1);
                         break;
-                    */
+                    
                     case KeyEvent.VK_I:
-                        game.moveKnight(P2, Direction.UP);
+                        game.moveCharacter(P2, Direction.UP);
                         break;
                     case KeyEvent.VK_K:
-                        game.moveKnight(P2, Direction.DOWN);
+                        game.moveCharacter(P2, Direction.DOWN);
                         break;
                     case KeyEvent.VK_J:
-                        game.moveKnight(P2, Direction.LEFT);
+                        game.moveCharacter(P2, Direction.LEFT);
                         break;
                     case KeyEvent.VK_L:
-                        game.moveKnight(P2, Direction.RIGHT);
+                        game.moveCharacter(P2, Direction.RIGHT);
                         break;
                     /*
                     case KeyEvent.VK_U:
@@ -82,28 +82,28 @@ public class GameView extends JFrame {
             public void keyReleased(KeyEvent keyEvent) {
                 switch (keyEvent.getKeyCode()) {
                     case KeyEvent.VK_W:
-                        game.stopKnight(P1, Direction.UP);
+                        game.stopCharacter(P1, Direction.UP);
                         break;
                     case KeyEvent.VK_S:
-                        game.stopKnight(P1, Direction.DOWN);
+                        game.stopCharacter(P1, Direction.DOWN);
                         break;
                     case KeyEvent.VK_A:
-                        game.stopKnight(P1, Direction.LEFT);
+                        game.stopCharacter(P1, Direction.LEFT);
                         break;
                     case KeyEvent.VK_D:
-                        game.stopKnight(P1, Direction.RIGHT);
+                        game.stopCharacter(P1, Direction.RIGHT);
                         break;
                     case KeyEvent.VK_I:
-                        game.stopKnight(P2, Direction.UP);
+                        game.stopCharacter(P2, Direction.UP);
                         break;
                     case KeyEvent.VK_K:
-                        game.stopKnight(P2, Direction.DOWN);
+                        game.stopCharacter(P2, Direction.DOWN);
                         break;
                     case KeyEvent.VK_J:
-                        game.stopKnight(P2, Direction.LEFT);
+                        game.stopCharacter(P2, Direction.LEFT);
                         break;
                     case KeyEvent.VK_L:
-                        game.stopKnight(P2, Direction.RIGHT);
+                        game.stopCharacter(P2, Direction.RIGHT);
                         break;
                 }
             }
