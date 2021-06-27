@@ -16,6 +16,7 @@ public class TwoToOne implements Receipe{
     @Override
     public void craft(ArrayList<Item> itm) {
         itm.remove(1);
+        System.out.println("Craft one item");
         
     } 
     

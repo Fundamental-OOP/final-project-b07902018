@@ -6,7 +6,7 @@ import item.Item;
 
 public class Crafter {
     ArrayList<Item> inv;
-    ArrayList<Receipe> rcps;
+    public ArrayList<Receipe> rcps;
     public Crafter(){
         inv = new ArrayList<>();
         rcps = new ArrayList<>();
@@ -29,4 +29,5 @@ public class Crafter {
             }
         }
     }
+
 }

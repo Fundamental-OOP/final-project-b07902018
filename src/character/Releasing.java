@@ -4,6 +4,7 @@ import fsm.Sequence;
 import fsm.State;
 import fsm.StateMachine;
 import item.MobileItem;
+import item.PlaceItemIn;
 import item.PlaceItemOn;
 import jdk.nashorn.api.tree.SpreadTree;
 import media.AudioPlayer;
@@ -48,9 +49,11 @@ public class Releasing extends Sequence {
         var sprites = world.getSprites(releaseArea);
 
         for (Sprite sprite : sprites) {
-            if (character != sprite && sprite instanceof PlaceItemOn) {
+            if (character != sprite && sprite instanceof PlaceItemOn && sprite instanceof PlaceItemIn) {
                 PlaceItemOn place = (PlaceItemOn) sprite;
+                PlaceItemIn p = (PlaceItemIn) sprite;
                 character.releaseMobileItem(place.itemPlaceLocation());
+                p.putin(character.getMobileItem());
             }
         }
 

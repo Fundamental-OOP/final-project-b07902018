@@ -12,18 +12,25 @@ import java.awt.*;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
 
+import crafting.Crafter;
+import crafting.receipes.TwoToOne;
+
 import static fsm.FiniteStateMachine.Transition.from;
 import static fsm.Event.*;
 import static model.Direction.LEFT;
 import static utils.ImageStateUtils.imageStatesFromFolder;
 
-public class Tabel extends StaticItem implements PlaceItemOn {
+public class Tabel extends StaticItem implements PlaceItemOn ,PlaceItemIn{
 
     protected final SpriteShape shape;
+    public Crafter cft;
+
 
     public Tabel(Point location) {
         super(location);
-
+        cft = new Crafter();
+        cft.rcps.add(new TwoToOne());
+        
         shape = new SpriteShape(new Dimension(146, 176),
         new Dimension(40, 38), new Dimension(66, 105));
 
@@ -52,6 +59,12 @@ public class Tabel extends StaticItem implements PlaceItemOn {
     @Override
     public Dimension getBodySize() {
         return shape.bodySize;
+    }
+
+    @Override
+    public void putin(Item itm) {
+        cft.putItem(itm);
+        
     }
     
 }
