@@ -48,18 +48,14 @@ public class Game extends GameLoop {
 
         if(! character.hasMobileItem()){
             character.pickUp();
-            if(character.hasMobileItem()){
-                character.getMobileItem().picked();
-            }
         }
-        
     }
 
     public void releaseItem(int playerNumber) {
         Character character = getPlayer(playerNumber);
 
         if(character.hasMobileItem()){
-            character.getMobileItem().released();
+            //character.getMobileItem().released();
             character.tryRelease();
         }
 

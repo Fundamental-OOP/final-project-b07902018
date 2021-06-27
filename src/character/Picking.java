@@ -51,15 +51,20 @@ public class Picking extends Sequence {
         
         for (Sprite sprite : sprites) {
             if (character != sprite && sprite instanceof MobileItem) {
-                sprite.setLocation(character.mobileItemLocation());
-                character.addMobileItem((MobileItem) sprite);
-                break;
+                MobileItem pickedItem = (MobileItem) sprite;
+                if(!pickedItem.hasOwner()){
+                    pickedItem.setLocation(character.mobileItemLocation());
+                    character.addMobileItem(pickedItem);
+                    pickedItem.picked(character);
+                    break;
+                }
             }
             else if (character != sprite && sprite instanceof Factory) {
                 Factory itemFactory = (Factory) sprite;
                 MobileItem newItem = itemFactory.produceItem();
                 newItem.setLocation(character.mobileItemLocation());
                 character.addMobileItem(newItem);
+                newItem.picked(character);
                 break;
             }
         }

@@ -8,6 +8,8 @@ import model.Direction;
 import model.Sprite;
 import model.SpriteShape;
 
+import character.Character;
+
 import java.awt.*;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
@@ -52,11 +54,13 @@ public abstract class MobileItem extends Item {
         }
     }
 
-    public void picked(){
+    public void picked(character.Character character){
+        owner = character;
         fsm.trigger(ISPICKED);
     }
 
     public void released(){
+        owner = null;
         fsm.trigger(ISRELEASED);
     }
 
@@ -66,6 +70,10 @@ public abstract class MobileItem extends Item {
 
     public Set<Direction> getDirections() {
         return directions;
+    }
+
+    public boolean hasOwner(){
+        return owner != null;
     }
 
     @Override

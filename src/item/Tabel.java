@@ -20,7 +20,7 @@ import static fsm.Event.*;
 import static model.Direction.LEFT;
 import static utils.ImageStateUtils.imageStatesFromFolder;
 
-public class Tabel extends StaticItem implements PlaceItemOn ,PlaceItemIn{
+public class Tabel extends StaticItem implements PlaceItemOn, PlaceItemIn{
 
     protected final SpriteShape shape;
     public Crafter cft;

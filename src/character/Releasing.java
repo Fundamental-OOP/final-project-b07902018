@@ -52,6 +52,7 @@ public class Releasing extends Sequence {
             if (character != sprite && sprite instanceof PlaceItemOn && sprite instanceof PlaceItemIn) {
                 PlaceItemOn place = (PlaceItemOn) sprite;
                 PlaceItemIn p = (PlaceItemIn) sprite;
+                character.getMobileItem().released();
                 character.releaseMobileItem(place.itemPlaceLocation());
                 p.putin(character.getMobileItem());
             }
