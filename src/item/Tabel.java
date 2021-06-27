@@ -19,8 +19,13 @@ import static utils.ImageStateUtils.imageStatesFromFolder;
 
 public class Tabel extends StaticItem implements PlaceItemOn {
 
+    protected final SpriteShape shape;
+
     public Tabel(Point location) {
         super(location);
+
+        shape = new SpriteShape(new Dimension(146, 176),
+        new Dimension(33, 38), new Dimension(66, 105));
 
         ImageRenderer imageRenderer = new ItemImageRenderer(this);
         State idle = new WaitingPerFrame(4,
@@ -32,6 +37,21 @@ public class Tabel extends StaticItem implements PlaceItemOn {
     @Override
     public Point itemPlaceLocation() {
         return this.getLocation();
+    }
+
+    @Override
+    public Rectangle getRange() {
+        return new Rectangle(location, shape.size);
+    }
+
+    @Override
+    public Dimension getBodyOffset() {
+        return shape.bodyOffset;
+    }
+
+    @Override
+    public Dimension getBodySize() {
+        return shape.bodySize;
     }
     
 }

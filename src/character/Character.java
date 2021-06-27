@@ -28,10 +28,10 @@ public class Character extends Sprite {
 
     private MobileItem mobileItem;
 
-    public Character(int damage, Point location) {
+    public Character(Point location) {
         this.location = location;
         shape = new SpriteShape(new Dimension(146, 176),
-                new Dimension(33, 38), new Dimension(66, 105));
+                new Dimension(40, 38), new Dimension(66, 105));
         fsm = new FiniteStateMachine();
         this.mobileItem = null;
 
@@ -129,6 +129,14 @@ public class Character extends Sprite {
 
     public Set<Direction> getDirections() {
         return directions;
+    }
+
+    @Override
+    public void setLocation(Point location) {
+        this.location = location;
+        if(hasMobileItem()){
+            mobileItem.setLocation(mobileItemLocation());
+        }
     }
 
     @Override

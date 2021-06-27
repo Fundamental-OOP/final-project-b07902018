@@ -22,10 +22,10 @@ public class Main {
 
 
         // initialization procedure
-        Character p1 = new Character(100, new Point(0, 0));
-        Character p2 = new Character(150, new Point(300, 300));
+        Character p1 = new Character(new Point(0, 0));
+        Character p2 = new Character(new Point(300, 300));
         Knight m1 = new Knight(new Point(150, 150));
-        Tabel t1 = new Tabel(new Point(300, 0));
+        Tabel t1 = new Tabel(new Point(300, 150));
         World world = new World(new CharacterCollisionHandler(), p1, p2, m1, t1);  // model
         Game game = new Game(world, p1, p2, m1);  // controller
         GameView view = new GameView(game);  // view

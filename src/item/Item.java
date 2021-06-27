@@ -20,53 +20,10 @@ import static utils.ImageStateUtils.imageStatesFromFolder;
 /**
  * @author - johnny850807@gmail.com (Waterball)
  */
-public class Item extends Sprite {
-    protected final SpriteShape shape;
-    protected final FiniteStateMachine fsm;
-
+public abstract class Item extends Sprite {
 
     public Item(Point location) {
         this.location = location;
-        shape = new SpriteShape(new Dimension(146, 176),
-                new Dimension(33, 38), new Dimension(66, 105));
-        fsm = new FiniteStateMachine();
-
     }
-
-
-    @Override
-    public void update() {
-        fsm.update();
-    }
-
-    @Override
-    public void render(Graphics g) {
-        //super.render(g);
-        fsm.render(g);
-    }
-
-
-    @Override
-    public Point getLocation() {
-        return location;
-    }
-
-    @Override
-    public Rectangle getRange() {
-        return new Rectangle(location, shape.size);
-    }
-
-    @Override
-    public Dimension getBodyOffset() {
-        return shape.bodyOffset;
-    }
-
-    @Override
-    public Dimension getBodySize() {
-        return shape.bodySize;
-    }
-
-
-
-
+    
 }
