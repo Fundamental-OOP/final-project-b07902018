@@ -28,10 +28,10 @@ public class KnightFactory extends StaticItem implements Factory {
         new Dimension(40, 38), new Dimension(66, 105));
 
         ImageRenderer imageRenderer = new ItemImageRenderer(this);
-        State idle = new WaitingPerFrame(4,
+        idle = new WaitingPerFrame(4,
                 new Idle(imageStatesFromFolder("assets/item/knightFactory/idle", imageRenderer)));
 
-        fsm.setInitialState(idle);
+        
     }
 
     @Override

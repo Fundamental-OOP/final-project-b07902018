@@ -19,54 +19,21 @@ import static utils.ImageStateUtils.imageStatesFromFolder;
 
 public abstract class StaticItem extends Item {
 
-
-    protected final FiniteStateMachine fsm;
-
-    private final Set<Direction> directions = new CopyOnWriteArraySet<>();
-
+    State idle;
 
     public StaticItem(Point location) {
         super(location);
-        fsm = new FiniteStateMachine();
     }
 
-    public void move(Direction direction) {
-        if (direction == LEFT || direction == Direction.RIGHT) {
-            face = direction;
-        }
-        if (!directions.contains(direction)) {
-            this.directions.add(direction);
-            fsm.trigger(MOVE);
-        }
-    }
-
-    public void stop(Direction direction) {
-        directions.remove(direction);
-        if (directions.isEmpty()) {
-            fsm.trigger(STOP);
-        }
-    }
-
-    public void picked(){
-        fsm.trigger(ISPICKED);
-    }
-
-    public void released(){
-        fsm.trigger(ISRELEASED);
-    }
 
     public void update() {
-        fsm.update();
-    }
-
-    public Set<Direction> getDirections() {
-        return directions;
+        //fsm.update();
     }
 
     @Override
     public void render(Graphics g) {
         //super.render(g);
-        fsm.render(g);
+        idle.render(g);
     }
 
     @Override
@@ -75,5 +42,4 @@ public abstract class StaticItem extends Item {
     }
 
 
-    
 }

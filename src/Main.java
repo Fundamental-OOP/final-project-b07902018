@@ -24,11 +24,12 @@ public class Main {
         // initialization procedure
         Character p1 = new Character(new Point(0, 0));
         Character p2 = new Character(new Point(300, 300));
-        Knight m1 = new Knight(new Point(150, 150));
-        Tabel t1 = new Tabel(new Point(300, 150));
-        KnightFactory f1 = new KnightFactory(new Point(0, 150));
-        World world = new World(new CharacterCollisionHandler(), p1, p2, m1, t1, f1);  // model
-        Game game = new Game(world, p1, p2, m1);  // controller
+        Table t1 = new Table(new Point(300, 0));
+        ApplePieStove s1 = new ApplePieStove(new Point(300, 150));
+        AppleFactory f1 = new AppleFactory(new Point(0, 150));
+        PieFactory f2 = new PieFactory(new Point(0, 300));
+        World world = new World(new CharacterCollisionHandler(), p1, p2, t1, s1, f1, f2);  // model
+        Game game = new Game(world, p1, p2);  // controller
         GameView view = new GameView(game);  // view
         game.start();  // run the game and the game loop
         view.launch(); // launch the GUI

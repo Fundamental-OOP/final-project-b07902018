@@ -6,7 +6,7 @@ import model.Sprite;
 import java.awt.*;
 
 import item.StaticItem;
-import item.Tabel;
+import item.Table;
 
 /**
  * @author - johnny850807@gmail.com (Waterball)

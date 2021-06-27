@@ -8,38 +8,48 @@ import model.Direction;
 import model.Sprite;
 import model.SpriteShape;
 
-
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
-import item.*;
+
+import crafting.Crafter;
+import crafting.recipe.TwoToOne;
+
 import static fsm.FiniteStateMachine.Transition.from;
 import static fsm.Event.*;
 import static model.Direction.LEFT;
 import static utils.ImageStateUtils.imageStatesFromFolder;
 
-public class Knight extends MobileItem {
+public class Table extends StaticItem implements PlaceItemOn {
+
+    private ArrayList<MobileItem> itemOntable;
 
     protected final SpriteShape shape;
 
-    public Knight(Point location) {
+
+    public Table(Point location) {
         super(location);
+        itemOntable = new ArrayList<>();
+        
         shape = new SpriteShape(new Dimension(146, 176),
-        new Dimension(33, 38), new Dimension(66, 105));
+        new Dimension(40, 38), new Dimension(66, 105));
 
         ImageRenderer imageRenderer = new ItemImageRenderer(this);
-        State idle = new WaitingPerFrame(4,
-                new Idle(imageStatesFromFolder("assets/item/knight/idle", imageRenderer)));
-        State moving = new WaitingPerFrame(2,
-                new Moving(this, imageStatesFromFolder("assets/item/knight/walking", imageRenderer)));
-        State freeze = new WaitingPerFrame(0,
-                new Freeze(this, fsm, imageStatesFromFolder("assets/item/knight/freeze", imageRenderer)));
-        
-        fsm.setInitialState(idle);
-        fsm.addTransition(from(idle).when(MOVE).to(moving));
-        fsm.addTransition(from(moving).when(STOP).to(idle));
-        fsm.addTransition(from(idle).when(FREEZE).to(freeze));
-        fsm.addTransition(from(moving).when(FREEZE).to(freeze));
+        idle = new WaitingPerFrame(4,
+                new Idle(imageStatesFromFolder("assets/item/table", imageRenderer)));
+    }
+
+    @Override
+    public Point itemPlaceLocation() {
+        return this.getLocation();
+    }
+
+
+    @Override
+    public void tryAcquireItem(MobileItem item) {
+        itemOntable.add(item);
+        item.setLocation(itemPlaceLocation());
     }
 
     @Override
@@ -56,5 +66,5 @@ public class Knight extends MobileItem {
     public Dimension getBodySize() {
         return shape.bodySize;
     }
-    
+
 }

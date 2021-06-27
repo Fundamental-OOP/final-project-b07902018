@@ -49,12 +49,12 @@ public class Releasing extends Sequence {
         var sprites = world.getSprites(releaseArea);
 
         for (Sprite sprite : sprites) {
-            if (character != sprite && sprite instanceof PlaceItemOn && sprite instanceof PlaceItemIn) {
+            if (character != sprite && sprite instanceof PlaceItemOn) {
                 PlaceItemOn place = (PlaceItemOn) sprite;
-                PlaceItemIn p = (PlaceItemIn) sprite;
+                //PlaceItemIn p = (PlaceItemIn) sprite;
                 character.getMobileItem().beReleased();
-                character.releaseMobileItem(place.itemPlaceLocation());
-                p.putin(character.getMobileItem());
+                character.releaseMobileItem(place);
+                //p.putin(character.getMobileItem());
             }
         }
 

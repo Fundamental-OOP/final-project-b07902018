@@ -5,6 +5,7 @@ import fsm.ImageRenderer;
 import fsm.State;
 import fsm.WaitingPerFrame;
 import item.MobileItem;
+import item.PlaceItemOn;
 import model.Direction;
 import model.Sprite;
 import model.SpriteShape;
@@ -59,7 +60,7 @@ public class Character extends Sprite {
         if (direction == LEFT || direction == Direction.RIGHT) {
             face = direction;
         }
-        if(hasMobileItem() && mobileItem.getFace() != face){
+        if(hasMobileItem() && mobileItem.getLocation() != mobileItemLocation()){
             mobileItem.setLocation(mobileItemLocation());
         }
         if (!directions.contains(direction)) {
@@ -68,7 +69,7 @@ public class Character extends Sprite {
         }
         if(hasMobileItem()){
             mobileItem.move(direction);
-        }
+        } 
     }
 
     public void stop(Direction direction) {
@@ -118,8 +119,8 @@ public class Character extends Sprite {
         return mobileItem;
     }
 
-    public void releaseMobileItem(Point location){
-        mobileItem.setLocation(location);
+    public void releaseMobileItem(PlaceItemOn place){
+        place.tryAcquireItem(mobileItem);
         mobileItem = null;
     }
 

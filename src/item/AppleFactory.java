@@ -8,38 +8,37 @@ import model.Direction;
 import model.Sprite;
 import model.SpriteShape;
 
-
 import java.awt.*;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
-import item.*;
+
 import static fsm.FiniteStateMachine.Transition.from;
 import static fsm.Event.*;
 import static model.Direction.LEFT;
 import static utils.ImageStateUtils.imageStatesFromFolder;
 
-public class Knight extends MobileItem {
+public class AppleFactory extends StaticItem implements Factory {
 
     protected final SpriteShape shape;
 
-    public Knight(Point location) {
+    public AppleFactory(Point location) {
         super(location);
+
         shape = new SpriteShape(new Dimension(146, 176),
-        new Dimension(33, 38), new Dimension(66, 105));
+        new Dimension(40, 38), new Dimension(66, 105));
 
         ImageRenderer imageRenderer = new ItemImageRenderer(this);
-        State idle = new WaitingPerFrame(4,
-                new Idle(imageStatesFromFolder("assets/item/knight/idle", imageRenderer)));
-        State moving = new WaitingPerFrame(2,
-                new Moving(this, imageStatesFromFolder("assets/item/knight/walking", imageRenderer)));
-        State freeze = new WaitingPerFrame(0,
-                new Freeze(this, fsm, imageStatesFromFolder("assets/item/knight/freeze", imageRenderer)));
+        idle = new WaitingPerFrame(4,
+                new Idle(imageStatesFromFolder("assets/item/knightFactory/idle", imageRenderer)));
+
         
-        fsm.setInitialState(idle);
-        fsm.addTransition(from(idle).when(MOVE).to(moving));
-        fsm.addTransition(from(moving).when(STOP).to(idle));
-        fsm.addTransition(from(idle).when(FREEZE).to(freeze));
-        fsm.addTransition(from(moving).when(FREEZE).to(freeze));
+    }
+
+    @Override
+    public MobileItem produceItem() {
+        Apple newItem = new Apple(new Point(150, 150));
+        this.world.addSprite(newItem);
+        return newItem;
     }
 
     @Override
@@ -56,5 +55,7 @@ public class Knight extends MobileItem {
     public Dimension getBodySize() {
         return shape.bodySize;
     }
-    
+
+
+
 }

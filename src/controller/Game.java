@@ -13,14 +13,14 @@ public class Game extends GameLoop {
     private final Character p1;
     private final Character p2;
 
-    private final Item m1;
+
 
     private final World world;
 
-    public Game(World world, Character p1, Character p2, Item m1) {
+    public Game(World world, Character p1, Character p2) {
         this.p1 = p1;
         this.p2 = p2;
-        this.m1 = m1;
+
         this.world = world;
     }
 

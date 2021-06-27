@@ -41,6 +41,9 @@ public abstract class MobileItem extends Item {
         if (direction == LEFT || direction == Direction.RIGHT) {
             face = direction;
         }
+        if(owner.mobileItemLocation() != getLocation()){
+            this.setLocation(owner.mobileItemLocation());
+        }
         if (!directions.contains(direction)) {
             this.directions.add(direction);
             fsm.trigger(MOVE);

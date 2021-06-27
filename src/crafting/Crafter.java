@@ -3,19 +3,18 @@ package crafting;
 import java.util.ArrayList;
 
 import item.Item;
+import item.MobileItem;
 
 public class Crafter {
-    ArrayList<Item> inv;
-    public ArrayList<Receipe> rcps;
+    ArrayList<MobileItem> inv;
+    public ArrayList<Recipe> rcps;
     public Crafter(){
         inv = new ArrayList<>();
         rcps = new ArrayList<>();
     }
-    public void putItem(Item i){
+    public void putItem(MobileItem i){
         inv.add(i);
         checkEnv();
-
-
     }
     public boolean isEmpty(){
         return inv.isEmpty();
@@ -33,5 +32,4 @@ public class Crafter {
             }
         }
     }
-
 }

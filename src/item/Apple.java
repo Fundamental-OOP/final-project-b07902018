@@ -18,22 +18,22 @@ import static fsm.Event.*;
 import static model.Direction.LEFT;
 import static utils.ImageStateUtils.imageStatesFromFolder;
 
-public class Knight extends MobileItem {
+public class Apple extends MobileItem {
 
     protected final SpriteShape shape;
 
-    public Knight(Point location) {
+    public Apple(Point location) {
         super(location);
-        shape = new SpriteShape(new Dimension(146, 176),
+        shape = new SpriteShape(new Dimension(50, 50),
         new Dimension(33, 38), new Dimension(66, 105));
 
         ImageRenderer imageRenderer = new ItemImageRenderer(this);
         State idle = new WaitingPerFrame(4,
-                new Idle(imageStatesFromFolder("assets/item/knight/idle", imageRenderer)));
+                new Idle(imageStatesFromFolder("assets/item/apple", imageRenderer)));
         State moving = new WaitingPerFrame(2,
-                new Moving(this, imageStatesFromFolder("assets/item/knight/walking", imageRenderer)));
+                new Moving(this, imageStatesFromFolder("assets/item/apple", imageRenderer)));
         State freeze = new WaitingPerFrame(0,
-                new Freeze(this, fsm, imageStatesFromFolder("assets/item/knight/freeze", imageRenderer)));
+                new Freeze(this, fsm, imageStatesFromFolder("assets/item/apple", imageRenderer)));
         
         fsm.setInitialState(idle);
         fsm.addTransition(from(idle).when(MOVE).to(moving));
