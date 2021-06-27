@@ -26,11 +26,13 @@ public abstract class MobileItem extends Item {
 
     private final Set<Direction> directions = new CopyOnWriteArraySet<>();
 
+    private Character owner;
+
 
     public MobileItem(Point location) {
         super(location);
-
         fsm = new FiniteStateMachine();
+        owner = null;
     }
 
     public void move(Direction direction) {
@@ -76,8 +78,5 @@ public abstract class MobileItem extends Item {
     public Point getLocation() {
         return location;
     }
-
-
-
-
+    
 }

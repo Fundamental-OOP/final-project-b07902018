@@ -28,7 +28,9 @@ public class Game extends GameLoop {
         Character character = getPlayer(playerNumber);
 
         character.move(direction);
-        character.getMobileItem().move(direction);
+        if(character.hasMobileItem()){
+            character.getMobileItem().move(direction);
+        }
         
     }
 
@@ -36,7 +38,9 @@ public class Game extends GameLoop {
         Character character = getPlayer(playerNumber);
 
         character.stop(direction);
-        character.getMobileItem().stop(direction);
+        if(character.hasMobileItem()){
+            character.getMobileItem().stop(direction);
+        }
     }
 
     public void pickUpItem(int playerNumber) {
@@ -44,7 +48,11 @@ public class Game extends GameLoop {
 
         if(! character.hasMobileItem()){
             character.pickUp();
+            if(character.hasMobileItem()){
+                character.getMobileItem().picked();
+            }
         }
+        
     }
 
     public void releaseItem(int playerNumber) {

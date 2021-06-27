@@ -36,7 +36,7 @@ public class KnightFactory extends StaticItem implements Factory {
 
     @Override
     public MobileItem produceItem() {
-        Knight newKnight =  new Knight(new Point(150, 150));
+        Knight newKnight = new Knight(new Point(150, 150));
         this.world.addSprite(newKnight);
         return newKnight;
     }
