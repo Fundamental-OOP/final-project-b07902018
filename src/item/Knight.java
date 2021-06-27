@@ -8,6 +8,7 @@ import model.Direction;
 import model.Sprite;
 import model.SpriteShape;
 
+
 import java.awt.*;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
@@ -32,9 +33,9 @@ public class Knight extends MobileItem {
         State moving = new WaitingPerFrame(2,
                 new Moving(this, imageStatesFromFolder("assets/item/knight/walking", imageRenderer)));
         State gettingPicked = new WaitingPerFrame(0,
-               new GettingPicked(this, fsm, imageStatesFromFolder("assets/item/knight/gettingPicked", imageRenderer)));
+                new GettingPicked(this, fsm, imageStatesFromFolder("assets/item/knight/gettingPicked", imageRenderer)));
         State gettingReleased = new WaitingPerFrame(0,
-               new GettingReleased(this, fsm, imageStatesFromFolder("assets/item/knight/gettingReleased", imageRenderer)));
+                new GettingReleased(this, fsm, imageStatesFromFolder("assets/item/knight/gettingReleased", imageRenderer)));
 
         fsm.setInitialState(idle);
         fsm.addTransition(from(idle).when(MOVE).to(moving));

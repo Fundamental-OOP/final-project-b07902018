@@ -4,6 +4,7 @@ import fsm.Sequence;
 import fsm.State;
 import fsm.StateMachine;
 import item.Factory;
+import item.KnightFactory;
 import item.MobileItem;
 import jdk.nashorn.api.tree.SpreadTree;
 import media.AudioPlayer;
