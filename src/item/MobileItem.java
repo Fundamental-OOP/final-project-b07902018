@@ -54,14 +54,18 @@ public abstract class MobileItem extends Item {
         }
     }
 
-    public void picked(character.Character character){
+    public void setOwner(Character character){
         owner = character;
-        fsm.trigger(ISPICKED);
+        //fsm.trigger(ISPICKED);
     }
 
-    public void released(){
+    public void beReleased(){
         owner = null;
-        fsm.trigger(ISRELEASED);
+        //fsm.trigger(ISRELEASED);
+    }
+
+    public void freeze() {
+        fsm.trigger(FREEZE);
     }
 
     public void update() {
@@ -86,5 +90,5 @@ public abstract class MobileItem extends Item {
     public Point getLocation() {
         return location;
     }
-    
+
 }

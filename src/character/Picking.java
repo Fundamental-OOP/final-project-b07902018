@@ -55,7 +55,7 @@ public class Picking extends Sequence {
                 if(!pickedItem.hasOwner()){
                     pickedItem.setLocation(character.mobileItemLocation());
                     character.addMobileItem(pickedItem);
-                    pickedItem.picked(character);
+                    pickedItem.setOwner(character);
                     break;
                 }
             }
@@ -64,7 +64,8 @@ public class Picking extends Sequence {
                 MobileItem newItem = itemFactory.produceItem();
                 newItem.setLocation(character.mobileItemLocation());
                 character.addMobileItem(newItem);
-                newItem.picked(character);
+                newItem.setOwner(character);
+
                 break;
             }
         }
@@ -78,7 +79,6 @@ public class Picking extends Sequence {
     @Override
     protected void onSequenceEnd() {
         effectPickUp();
-        
         currentPosition = 0;
         stateMachine.reset();
     }

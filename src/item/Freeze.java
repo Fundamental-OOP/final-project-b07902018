@@ -17,12 +17,12 @@ import java.util.Set;
 /**
  * @author - johnny850807@gmail.com (Waterball)
  */
-public class GettingPicked extends Sequence {
+public class Freeze extends Sequence {
 
     private final Item item;
     private final StateMachine stateMachine;
 
-    public GettingPicked(Item item, StateMachine stateMachine, List<? extends State> states) {
+    public Freeze(Item item, StateMachine stateMachine, List<? extends State> states) {
         super(states);
         this.item = item;
         this.stateMachine = stateMachine;

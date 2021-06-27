@@ -58,13 +58,16 @@ public class Character extends Sprite {
     public void move(Direction direction) {
         if (direction == LEFT || direction == Direction.RIGHT) {
             face = direction;
-            if(hasMobileItem() && mobileItem.getFace() != face){
-                mobileItem.setLocation(mobileItemLocation());
-            }
+        }
+        if(hasMobileItem() && mobileItem.getFace() != face){
+            mobileItem.setLocation(mobileItemLocation());
         }
         if (!directions.contains(direction)) {
             this.directions.add(direction);
             fsm.trigger(WALK);
+        }
+        if(hasMobileItem()){
+            mobileItem.move(direction);
         }
     }
 
@@ -73,15 +76,23 @@ public class Character extends Sprite {
         if (directions.isEmpty()) {
             fsm.trigger(STOP);
         }
+        if(hasMobileItem()){
+            mobileItem.stop(direction);
+        }
     }
-
 
     public void pickUp(){
         fsm.trigger(PICK);
+        if(hasMobileItem()){
+            mobileItem.freeze();
+        }
     }
 
     public void tryRelease(){
         fsm.trigger(RELEASE);
+        if(hasMobileItem()){
+            mobileItem.freeze();
+        }
     }
 
     public void update() {
