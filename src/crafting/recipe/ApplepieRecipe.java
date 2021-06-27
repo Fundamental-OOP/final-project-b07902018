@@ -35,19 +35,18 @@ public class ApplepieRecipe implements Recipe{
     public MobileItem craft(ArrayList<MobileItem> items) {
         int removeApple = 1;
         int removePie = 1;
-        for(int i = 0; i < items.size(); ++i){
-            MobileItem item = items.get(i);
+        for(MobileItem item : items){
             if(item instanceof Apple && removeApple > 0){
                 item.getWorld().removeSprite(item);
                 items.remove(item);
-                removeApple--;
-                i--;
+                break;
             }
+        }
+        for(MobileItem item : items){
             if(item instanceof Pie && removePie > 0){
                 item.getWorld().removeSprite(item);
                 items.remove(item);
-                removePie--;
-                i--;
+                break;
             }
         }
         return new ApplePie(new Point(0,0));

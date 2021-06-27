@@ -1,7 +1,9 @@
 package item;
 
-public interface Maker extends Factory {
+public interface Maker {
 
     public abstract void checkRecipes();
+
+    public abstract void evokeCurrentRecipe();
     
 }

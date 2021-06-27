@@ -68,14 +68,13 @@ public class Stove extends StaticItem implements PlaceItemOn, Maker {
     }
 
     @Override
-    public MobileItem produceItem() {
+    public void evokeCurrentRecipe() {
         if(currentRecipe != null){
             MobileItem newItem = currentRecipe.craft(itemOnStove);
             newItem.setLocation(getLocation());
             newItem.setWorld(this.getWorld());
             this.getWorld().addSprite(newItem);
         }
-        return null;
     } 
 
     @Override
@@ -108,7 +107,7 @@ public class Stove extends StaticItem implements PlaceItemOn, Maker {
     @Override  
     public void update() {
         checkRecipes();
-        produceItem();
+        evokeCurrentRecipe();
         currentRecipe = null;
     }
 
