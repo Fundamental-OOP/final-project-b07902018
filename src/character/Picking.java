@@ -21,7 +21,6 @@ public class Picking extends Sequence {
 
     private final Character character;
     private final StateMachine stateMachine;
-    private final Set<Integer> damagingStateNumbers = new HashSet<>(List.of(6));
 
     public Picking(Character character, StateMachine stateMachine, List<? extends State> states) {
         super(states);
@@ -32,9 +31,6 @@ public class Picking extends Sequence {
     @Override
     public void update() {
         super.update();
-        if (damagingStateNumbers.contains(currentPosition)) {
-            effectPickUp();
-        }
     }
 
     @Override
@@ -52,11 +48,10 @@ public class Picking extends Sequence {
 
         for (Sprite sprite : sprites) {
             if (character != sprite && sprite instanceof MobileItem) {
-                sprite.setLocation(new Point(character.getX() + character.getRange().width / 3, character.getY()));
+                sprite.setLocation(character.mobileItemLocation());
                 character.addMobileItem((MobileItem) sprite);
             }
         }
-
     }
 
     private Rectangle pickArea() {
@@ -66,6 +61,8 @@ public class Picking extends Sequence {
 
     @Override
     protected void onSequenceEnd() {
+        effectPickUp();
+        
         currentPosition = 0;
         stateMachine.reset();
     }

@@ -55,8 +55,8 @@ public class GameView extends JFrame {
                         break;
                     
                     // case KeyEvent.VK_Q:
-                    //     game.pickUpItem(P1);
-                    //     break;
+                    //    game.pickUpItem(P1);
+                    //    break;
                     // case KeyEvent.VK_E:
                     //     game.releaseItem(P1);
                     //     break;

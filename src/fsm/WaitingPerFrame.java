@@ -15,6 +15,10 @@ public class WaitingPerFrame implements State {
         this.state = state;
     }
 
+    public State getCurrentState(){
+        return state;
+    }
+
     @Override
     public void update() {
         if (--remaining <= 0) {

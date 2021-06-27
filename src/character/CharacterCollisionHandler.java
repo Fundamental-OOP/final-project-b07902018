@@ -5,6 +5,8 @@ import model.Sprite;
 
 import java.awt.*;
 
+import item.Tabel;
+
 /**
  * @author - johnny850807@gmail.com (Waterball)
  */
@@ -20,7 +22,14 @@ public class CharacterCollisionHandler implements CollisionHandler {
             } else {
                 to.setLocation(new Point(to.getX() + offsetRight / 3, to.getY()));
             }
-
+        }
+        else if (from instanceof Character && to instanceof Tabel) {
+            int offsetLeft = to.getX() - from.getBody().x;
+            if (offsetLeft < 0) {
+                from.setLocation(new Point(to.getX() + to.getBody().width, from.getY()));
+            } else {
+                from.setLocation(new Point(to.getX() - to.getBody().width, from.getY()));
+            }
         }
     }
 }

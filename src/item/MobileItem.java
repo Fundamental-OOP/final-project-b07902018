@@ -44,6 +44,14 @@ public abstract class MobileItem extends Item {
         }
     }
 
+    public void picked(){
+        fsm.trigger(ISPICKED);
+    }
+
+    public void released(){
+        fsm.trigger(ISRELEASED);
+    }
+
     public void update() {
         fsm.update();
     }

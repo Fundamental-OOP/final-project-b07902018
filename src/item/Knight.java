@@ -26,10 +26,18 @@ public class Knight extends MobileItem {
                 new Idle(imageStatesFromFolder("assets/item/knight/idle", imageRenderer)));
         State moving = new WaitingPerFrame(2,
                 new Moving(this, imageStatesFromFolder("assets/item/knight/walking", imageRenderer)));
+        State gettingPicked = new WaitingPerFrame(0,
+               new GettingPicked(this, fsm, imageStatesFromFolder("assets/item/knight/gettingPicked", imageRenderer)));
+        State gettingReleased = new WaitingPerFrame(0,
+               new GettingReleased(this, fsm, imageStatesFromFolder("assets/item/knight/gettingReleased", imageRenderer)));
 
         fsm.setInitialState(idle);
         fsm.addTransition(from(idle).when(MOVE).to(moving));
         fsm.addTransition(from(moving).when(STOP).to(idle));
+        fsm.addTransition(from(idle).when(ISPICKED).to(gettingPicked));
+        fsm.addTransition(from(moving).when(ISPICKED).to(gettingPicked));
+        fsm.addTransition(from(idle).when(ISRELEASED).to(gettingReleased));
+        fsm.addTransition(from(moving).when(ISRELEASED).to(gettingReleased));
     }
     
 }

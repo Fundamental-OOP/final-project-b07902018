@@ -25,26 +25,36 @@ public class Game extends GameLoop {
     }
 
     public void moveCharacter(int playerNumber, Direction direction) {
-        getPlayer(playerNumber).move(direction);
-        if(getPlayer(playerNumber).hasMobileItem()){
-            getPlayer(playerNumber).getMobileItem().move(direction);
-        }
+        Character character = getPlayer(playerNumber);
+
+        character.move(direction);
+        character.getMobileItem().move(direction);
         
     }
 
     public void stopCharacter(int playerNumber, Direction direction) {
-        getPlayer(playerNumber).stop(direction);
-        if(getPlayer(playerNumber).hasMobileItem()){
-            getPlayer(playerNumber).getMobileItem().stop(direction);
-        }
+        Character character = getPlayer(playerNumber);
+
+        character.stop(direction);
+        character.getMobileItem().stop(direction);
     }
 
     public void pickUpItem(int playerNumber) {
-        getPlayer(playerNumber).pickUp();
+        Character character = getPlayer(playerNumber);
+
+        if(! character.hasMobileItem()){
+            character.pickUp();
+        }
     }
 
     public void releaseItem(int playerNumber) {
-        getPlayer(playerNumber).release();
+        Character character = getPlayer(playerNumber);
+
+        if(character.hasMobileItem()){
+            character.getMobileItem().released();
+            character.tryRelease();
+        }
+
     }
 
     public Character getPlayer(int playerNumber) {

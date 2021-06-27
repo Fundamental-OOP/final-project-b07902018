@@ -40,20 +40,27 @@ public class Character extends Sprite {
                 new Idle(imageStatesFromFolder("assets/character/idle", imageRenderer)));
         State walking = new WaitingPerFrame(2,
                 new Walking(this, imageStatesFromFolder("assets/character/walking", imageRenderer)));
-        State picking = new WaitingPerFrame(2,
-                new Picking(this, fsm, imageStatesFromFolder("assets/character/idle", imageRenderer)));
+        State picking = new WaitingPerFrame(0,
+                new Picking(this, fsm, imageStatesFromFolder("assets/character/picking", imageRenderer)));
         State releasing = new WaitingPerFrame(2,
-                new Releasing(this, fsm, imageStatesFromFolder("assets/character/idle", imageRenderer)));
+                new Releasing(this, fsm, imageStatesFromFolder("assets/character/releasing", imageRenderer)));
         fsm.setInitialState(idle);
         fsm.addTransition(from(idle).when(WALK).to(walking));
         fsm.addTransition(from(walking).when(STOP).to(idle));
         fsm.addTransition(from(idle).when(PICK).to(picking));
+        fsm.addTransition(from(walking).when(PICK).to(picking));
         fsm.addTransition(from(idle).when(RELEASE).to(releasing));
+        fsm.addTransition(from(walking).when(RELEASE).to(releasing));
+
+        //fsm.addTransition(from(picking).when(WALK).to(walking));
     }
 
     public void move(Direction direction) {
         if (direction == LEFT || direction == Direction.RIGHT) {
             face = direction;
+            if(hasMobileItem() && mobileItem.getFace() != face){
+                mobileItem.setLocation(mobileItemLocation());
+            }
         }
         if (!directions.contains(direction)) {
             this.directions.add(direction);
@@ -73,14 +80,19 @@ public class Character extends Sprite {
         fsm.trigger(PICK);
     }
 
-    public void release(){
+    public void tryRelease(){
         fsm.trigger(RELEASE);
     }
 
     public void update() {
         fsm.update();
     }
-
+/*
+    public boolean isPerforming(){
+        State currentState = fsm.currentState();
+        return (currentState instanceof Picking) || (currentState instanceof Releasing);
+    }
+*/
     public void addMobileItem(MobileItem mobileItem){
         if(mobileItem instanceof MobileItem){
             this.mobileItem = mobileItem;
@@ -98,6 +110,15 @@ public class Character extends Sprite {
     public void releaseMobileItem(Point location){
         mobileItem.setLocation(location);
         mobileItem = null;
+    }
+
+    public Point mobileItemLocation(){
+        if(this.getFace() == Direction.RIGHT){
+            return new Point(this.getX() + this.getRange().width / 3, this.getY());
+        }
+        else{
+            return new Point(this.getX() - this.getRange().width / 3, this.getY());
+        }
     }
 
     @Override

@@ -22,7 +22,6 @@ public class Releasing extends Sequence {
 
     private final Character character;
     private final StateMachine stateMachine;
-    private final Set<Integer> damagingStateNumbers = new HashSet<>(List.of(6));
 
     public Releasing(Character character, StateMachine stateMachine, List<? extends State> states) {
         super(states);
@@ -33,9 +32,6 @@ public class Releasing extends Sequence {
     @Override
     public void update() {
         super.update();
-        if (damagingStateNumbers.contains(currentPosition)) {
-            effectRelease();
-        }
     }
 
     @Override
@@ -67,6 +63,7 @@ public class Releasing extends Sequence {
 
     @Override
     protected void onSequenceEnd() {
+        effectRelease();
         currentPosition = 0;
         stateMachine.reset();
     }
