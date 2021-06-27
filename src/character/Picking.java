@@ -3,6 +3,7 @@ package character;
 import fsm.Sequence;
 import fsm.State;
 import fsm.StateMachine;
+import item.Factory;
 import item.MobileItem;
 import jdk.nashorn.api.tree.SpreadTree;
 import media.AudioPlayer;
@@ -46,10 +47,19 @@ public class Picking extends Sequence {
         Rectangle pickArea = pickArea();
         var sprites = world.getSprites(pickArea);
 
+        
         for (Sprite sprite : sprites) {
             if (character != sprite && sprite instanceof MobileItem) {
                 sprite.setLocation(character.mobileItemLocation());
                 character.addMobileItem((MobileItem) sprite);
+                break;
+            }
+            else if (character != sprite && sprite instanceof Factory) {
+                Factory itemFactory = (Factory) sprite;
+                MobileItem newItem = itemFactory.produceItem();
+                newItem.setLocation(character.mobileItemLocation());
+                character.addMobileItem(newItem);
+                break;
             }
         }
     }

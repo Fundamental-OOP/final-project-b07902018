@@ -26,7 +26,8 @@ public class Main {
         Character p2 = new Character(new Point(300, 300));
         Knight m1 = new Knight(new Point(150, 150));
         Tabel t1 = new Tabel(new Point(300, 150));
-        World world = new World(new CharacterCollisionHandler(), p1, p2, m1, t1);  // model
+        KnightFactory f1 = new KnightFactory(new Point(0, 150));
+        World world = new World(new CharacterCollisionHandler(), p1, p2, m1, t1, f1);  // model
         Game game = new Game(world, p1, p2, m1);  // controller
         GameView view = new GameView(game);  // view
         game.start();  // run the game and the game loop
