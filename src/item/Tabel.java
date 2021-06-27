@@ -25,7 +25,7 @@ public class Tabel extends StaticItem implements PlaceItemOn {
         super(location);
 
         shape = new SpriteShape(new Dimension(146, 176),
-        new Dimension(33, 38), new Dimension(66, 105));
+        new Dimension(40, 38), new Dimension(66, 105));
 
         ImageRenderer imageRenderer = new ItemImageRenderer(this);
         State idle = new WaitingPerFrame(4,
