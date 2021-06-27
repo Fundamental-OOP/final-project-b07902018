@@ -12,7 +12,7 @@ import model.SpriteShape;
 import java.awt.*;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
-
+import item.*;
 import static fsm.FiniteStateMachine.Transition.from;
 import static fsm.Event.*;
 import static model.Direction.LEFT;

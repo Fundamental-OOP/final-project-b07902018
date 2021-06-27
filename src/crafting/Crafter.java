@@ -15,6 +15,10 @@ public class Crafter {
         inv.add(i);
         checkEnv();
 
+
+    }
+    public boolean isEmpty(){
+        return inv.isEmpty();
     }
     public Item getItem(){
         var i = inv.get(0);
