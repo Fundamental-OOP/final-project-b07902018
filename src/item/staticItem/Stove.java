@@ -27,6 +27,10 @@ import static utils.ImageStateUtils.imageStatesFromFolder;
 
 public class Stove extends StaticItem implements PlaceItemOn, Maker {
 
+    protected final long cookTime = 3000;
+
+    protected long readyTime = Long.MAX_VALUE;
+
     protected ArrayList<MobileItem> itemOnStove;
 
     protected Recipe currentRecipe;
@@ -34,6 +38,11 @@ public class Stove extends StaticItem implements PlaceItemOn, Maker {
     protected ArrayList<Recipe> recipes;
 
     protected final SpriteShape shape;
+
+    protected boolean isCooking = false;
+
+    protected MobileItem pendingItem = null;
+    
 
     //public Crafter cft;
 
@@ -63,20 +72,29 @@ public class Stove extends StaticItem implements PlaceItemOn, Maker {
 
     @Override
     public void checkRecipes(){
+        if(isCooking) return;
         for(Recipe recipe : recipes){
             if(recipe.craftAble(itemOnStove)){
                 currentRecipe = recipe;
+                readyTime = System.currentTimeMillis()+cookTime;
+                isCooking = true;
+                pendingItem = currentRecipe.craft(itemOnStove);
+                System.out.println(readyTime);
+                //TODO: add a cooking sprite
             }
         }
     }
 
     @Override
     public void evokeCurrentRecipe() {
-        if(currentRecipe != null){
-            MobileItem newItem = currentRecipe.craft(itemOnStove);
-            newItem.setLocation(getLocation());
-            newItem.setWorld(this.getWorld());
-            this.getWorld().addSprite(newItem);
+        if(isCooking && pendingItem!= null && System.currentTimeMillis() >= readyTime){
+            readyTime = Long.MAX_VALUE;
+            isCooking = false;
+            //TODO: remove cooking sprite
+            pendingItem.setLocation(getLocation());
+            pendingItem.setWorld(this.getWorld());
+            this.getWorld().addSprite(pendingItem);
+            pendingItem = null;
         }
     } 
 
