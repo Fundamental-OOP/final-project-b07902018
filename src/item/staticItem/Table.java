@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
 
-import crafting.Crafter;
+
 import crafting.recipe.TwoToOne;
 
 import static fsm.FiniteStateMachine.Transition.from;

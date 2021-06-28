@@ -1,4 +1,4 @@
-package crafting;
+package scoring;
 
 import item.mobileItem.MobileItem;
 

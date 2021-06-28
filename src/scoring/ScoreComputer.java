@@ -1,9 +1,8 @@
-package crafting;
+package scoring;
 
 import java.util.ArrayList;
 
 import item.mobileItem.MobileItem;
-import scoring.Score;
 
 public class ScoreComputer {
     

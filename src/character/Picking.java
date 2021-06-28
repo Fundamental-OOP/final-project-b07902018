@@ -52,6 +52,7 @@ public class Picking extends Sequence {
         
         for (Sprite sprite : sprites) {
             if (character != sprite && sprite instanceof PlaceItemOn) {
+                
                 PlaceItemOn place = (PlaceItemOn) sprite;
                 if(place.canPickUpItem() && place.hasItem()){
                     MobileItem pickedUpItem = place.popItem();
@@ -60,14 +61,7 @@ public class Picking extends Sequence {
                     pickedUpItem.setOwner(character);
                     break;
                 }
-                /*
-                if(!pickedItem.hasOwner()){
-                    pickedItem.setLocation(character.mobileItemLocation());
-                    character.addMobileItem(pickedItem);
-                    pickedItem.setOwner(character);
-                    break;
-                }
-                */
+                
             }
             else if (character != sprite && sprite instanceof Factory) {
                 Factory itemFactory = (Factory) sprite;
@@ -77,6 +71,16 @@ public class Picking extends Sequence {
                 newItem.setOwner(character);
                 break;
             }
+            /*
+            else if (character != sprite && sprite instanceof MobileItem) {
+                MobileItem pickedItem = (MobileItem) sprite;
+                if(!pickedItem.hasOwner()){
+                    pickedItem.setLocation(character.mobileItemLocation());
+                    character.addMobileItem(pickedItem);
+                    pickedItem.setOwner(character);
+                    break;
+                }
+            }*/
         }
     }
 

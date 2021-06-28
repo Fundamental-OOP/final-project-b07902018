@@ -11,6 +11,7 @@ import model.Direction;
 import model.Sprite;
 import model.SpriteShape;
 import order.OrderList;
+import scoring.ScoreComputer;
 import scoring.Scoreboard;
 
 import java.awt.*;
@@ -18,8 +19,6 @@ import java.util.ArrayList;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
 
-import crafting.Crafter;
-import crafting.ScoreComputer;
 import crafting.recipe.TwoToOne;
 
 import static fsm.FiniteStateMachine.Transition.from;

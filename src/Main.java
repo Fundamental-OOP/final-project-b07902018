@@ -1,6 +1,4 @@
 import controller.Game;
-import crafting.ScoreApplePie;
-import crafting.ScoreComputer;
 import item.*;
 import item.mobileItem.ApplePie;
 import item.staticItem.AppleFactory;
@@ -16,6 +14,8 @@ import character.Walking;
 import model.World;
 import model.Sprite;
 import order.OrderList;
+import scoring.ScoreApplePie;
+import scoring.ScoreComputer;
 import scoring.Scoreboard;
 import views.GameView;
 

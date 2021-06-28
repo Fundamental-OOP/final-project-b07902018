@@ -1,13 +1,15 @@
 package controller;
 
 import model.World;
+import views.View;
 
 /**
  * @author - johnny850807@gmail.com (Waterball)
  */
 public abstract class GameLoop {
-    private boolean running;
-    private View view;
+    
+    protected boolean running;
+    protected View view;
 
     public void setView(View view) {
         this.view = view;
@@ -42,8 +44,4 @@ public abstract class GameLoop {
     }
 
 
-    public interface View {
-
-        void render(World world);
-    }
 }

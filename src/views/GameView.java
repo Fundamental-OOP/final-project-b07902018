@@ -125,7 +125,7 @@ public class GameView extends JFrame {
         });
     }
 
-    public static class Canvas extends JPanel implements GameLoop.View {
+    public static class Canvas extends JPanel implements View {
         private World world;
 
         @Override
