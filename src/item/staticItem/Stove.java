@@ -39,6 +39,8 @@ public class Stove extends StaticItem implements PlaceItemOn, Maker {
 
     protected final SpriteShape shape;
 
+    private State cookingState;
+
     protected boolean isCooking = false;
 
     protected MobileItem pendingItem = null;
@@ -61,8 +63,9 @@ public class Stove extends StaticItem implements PlaceItemOn, Maker {
 
         ImageRenderer imageRenderer = new ItemImageRenderer(this);
         idle = new WaitingPerFrame(4,
-                new Idle(imageStatesFromFolder("assets/item/stove", imageRenderer)));
-
+                new Idle(imageStatesFromFolder("assets/item/stove/idle", imageRenderer)));
+        cookingState = new WaitingPerFrame(4,
+        new Idle(imageStatesFromFolder("assets/item/stove/cooking", imageRenderer)));
     }
 
     @Override
@@ -118,12 +121,16 @@ public class Stove extends StaticItem implements PlaceItemOn, Maker {
     public Dimension getBodySize() {
         return shape.bodySize;
     }
-/*
-    @Override
-    public void putin(Item itm) {
-        cft.putItem(itm);
-    }
-*/
+
+    @Override 
+    public void render(Graphics g) {
+        if(isCooking){
+            cookingState.render(g);
+        }
+        else{
+            idle.render(g);
+        }
+    } 
 
     @Override  
     public void update() {
