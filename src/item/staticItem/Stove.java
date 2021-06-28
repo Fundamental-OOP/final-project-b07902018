@@ -139,6 +139,12 @@ public class Stove extends StaticItem implements PlaceItemOn, Maker {
         currentRecipe = null;
     }
 
+    @Override
+    public boolean hasSpace() {
+        // TODO Auto-generated method stub
+        return !isCooking;
+    }
+
 
 
 }
