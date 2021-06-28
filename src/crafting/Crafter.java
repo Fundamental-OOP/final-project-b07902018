@@ -24,7 +24,7 @@ public class Crafter {
         inv.remove(i);
         return i;
     }
-    private void checkEnv(){
+    void checkEnv(){
         for (var r : rcps){
             if(r.craftAble(inv)){
                 r.craft(inv);
