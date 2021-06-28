@@ -105,4 +105,22 @@ public class PickupWindow extends StaticItem implements PlaceItemOn {
         return true;
     }
 
+    @Override
+    public boolean hasItem() {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public boolean canPickUpItem() {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public MobileItem popItem() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
 }

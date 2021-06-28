@@ -6,6 +6,7 @@ import fsm.StateMachine;
 import item.mobileItem.MobileItem;
 import item.staticItem.Factory;
 import item.staticItem.KnightFactory;
+import item.staticItem.PlaceItemOn;
 import jdk.nashorn.api.tree.SpreadTree;
 import media.AudioPlayer;
 import model.Sprite;
@@ -50,14 +51,23 @@ public class Picking extends Sequence {
 
         
         for (Sprite sprite : sprites) {
-            if (character != sprite && sprite instanceof MobileItem) {
-                MobileItem pickedItem = (MobileItem) sprite;
+            if (character != sprite && sprite instanceof PlaceItemOn) {
+                PlaceItemOn place = (PlaceItemOn) sprite;
+                if(place.canPickUpItem() && place.hasItem()){
+                    MobileItem pickedUpItem = place.popItem();
+                    pickedUpItem.setLocation(character.mobileItemLocation());
+                    character.addMobileItem(pickedUpItem);
+                    pickedUpItem.setOwner(character);
+                    break;
+                }
+                /*
                 if(!pickedItem.hasOwner()){
                     pickedItem.setLocation(character.mobileItemLocation());
                     character.addMobileItem(pickedItem);
                     pickedItem.setOwner(character);
                     break;
                 }
+                */
             }
             else if (character != sprite && sprite instanceof Factory) {
                 Factory itemFactory = (Factory) sprite;
@@ -65,7 +75,6 @@ public class Picking extends Sequence {
                 newItem.setLocation(character.mobileItemLocation());
                 character.addMobileItem(newItem);
                 newItem.setOwner(character);
-
                 break;
             }
         }

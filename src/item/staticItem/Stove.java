@@ -31,7 +31,7 @@ public class Stove extends StaticItem implements PlaceItemOn, Maker {
 
     protected long readyTime = Long.MAX_VALUE;
 
-    protected ArrayList<MobileItem> itemOnStove;
+    protected ArrayList<MobileItem> items;
 
     protected Recipe currentRecipe;
 
@@ -51,7 +51,7 @@ public class Stove extends StaticItem implements PlaceItemOn, Maker {
     public Stove(Point location) {
         super(location);
 
-        itemOnStove = new ArrayList<>();
+        items = new ArrayList<>();
 
         recipes = new ArrayList<>();
 
@@ -75,15 +75,16 @@ public class Stove extends StaticItem implements PlaceItemOn, Maker {
 
     @Override
     public void checkRecipes(){
-        if(isCooking) return;
+        if(isCooking) {
+            return;
+        }
         for(Recipe recipe : recipes){
-            if(recipe.craftAble(itemOnStove)){
+            if(recipe.craftAble(items)){
                 currentRecipe = recipe;
                 readyTime = System.currentTimeMillis() + cookTime;
                 isCooking = true;
-                pendingItem = currentRecipe.craft(itemOnStove);
+                pendingItem = currentRecipe.craft(items);
                 System.out.println(readyTime);
-                //TODO: add a cooking sprite
             }
         }
     }
@@ -103,7 +104,7 @@ public class Stove extends StaticItem implements PlaceItemOn, Maker {
 
     @Override
     public void tryAcquireItem(MobileItem item) {
-        itemOnStove.add(item);
+        items.add(item);
         item.setLocation(itemPlaceLocation());
     }
 
@@ -140,8 +141,27 @@ public class Stove extends StaticItem implements PlaceItemOn, Maker {
 
     @Override
     public boolean hasSpace() {
-        // TODO Auto-generated method stub
         return !isCooking;
+    }
+
+    @Override
+    public boolean hasItem() {
+        return !items.isEmpty();
+    }
+
+    @Override
+    public boolean canPickUpItem() {
+        return !isCooking;
+    }
+
+    @Override
+    public MobileItem popItem() {
+        if(hasItem()){
+            MobileItem pop = items.get(0);
+            items.remove(0);
+            return pop;
+        }
+        return null;
     }
 
 

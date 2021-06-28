@@ -85,8 +85,22 @@ public class TrashCan extends StaticItem implements PlaceItemOn {
 
     @Override
     public boolean hasSpace() {
-        // TODO Auto-generated method stub
         return true;
+    }
+
+    @Override
+    public boolean canPickUpItem() {
+        return false;
+    }
+
+    @Override
+    public MobileItem popItem() {
+        return null;
+    }
+
+    @Override
+    public boolean hasItem() {
+        return false;
     }
 
 }

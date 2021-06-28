@@ -26,14 +26,14 @@ import static utils.ImageStateUtils.imageStatesFromFolder;
 
 public class Table extends StaticItem implements PlaceItemOn {
 
-    private ArrayList<MobileItem> itemOntable;
+    private ArrayList<MobileItem> items;
 
     protected final SpriteShape shape;
 
 
     public Table(Point location) {
         super(location);
-        itemOntable = new ArrayList<>();
+        items = new ArrayList<>();
         
         shape = new SpriteShape(new Dimension(146, 176),
         new Dimension(40, 38), new Dimension(66, 105));
@@ -51,7 +51,7 @@ public class Table extends StaticItem implements PlaceItemOn {
 
     @Override
     public void tryAcquireItem(MobileItem item) {
-        itemOntable.add(item);
+        items.add(item);
         item.setLocation(itemPlaceLocation());
     }
 
@@ -72,8 +72,27 @@ public class Table extends StaticItem implements PlaceItemOn {
 
     @Override
     public boolean hasSpace() {
-        // TODO Auto-generated method stub
         return true;
+    }
+
+    @Override
+    public boolean hasItem() {
+        return !items.isEmpty();
+    }
+
+    @Override
+    public boolean canPickUpItem() {
+        return true;
+    }
+
+    @Override
+    public MobileItem popItem() {
+        if(hasItem()){
+            MobileItem pop = items.get(0);
+            items.remove(0);
+            return pop;
+        }
+        return null;
     }
 
 }
