@@ -20,9 +20,12 @@ public class World {
     private final CollisionHandler collisionHandler;
     protected Scoreboard scoreboard;
 
-    public World(CollisionHandler collisionHandler, Sprite... sprites) {
+    public World(CollisionHandler collisionHandler, Scoreboard scoreboard, List<Sprite> sprites) {
         this.collisionHandler = collisionHandler;
-        addSprites(sprites);
+        for(Sprite sprite: sprites){
+            addSprite(sprite);
+        }
+        setScoreboard(scoreboard);
         //scoreBoard = new ScoreBoard(0, 10, 10);
         //addSprite(scoreboard);
     }
