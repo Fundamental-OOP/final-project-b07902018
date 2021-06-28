@@ -24,7 +24,7 @@ import model.SpriteShape;
 public class VegetableFactory extends StaticItem implements Factory {
 
     protected final SpriteShape shape;
-    protected final List<Ingredient> possibleIngredient;
+    protected final Point thisLocation;
 
     public VegetableFactory(Point location) {
         super(location);
@@ -33,21 +33,32 @@ public class VegetableFactory extends StaticItem implements Factory {
 
         ImageRenderer imageRenderer = new ItemImageRenderer(this);
         idle = new WaitingPerFrame(4, new Idle(imageStatesFromFolder("assets/item/knightFactory/idle", imageRenderer)));
-        possibleIngredient = new ArrayList<>();
-        for (int i = 0; i < 100; ++i) {
-            possibleIngredient.add(new Onion(location));
-            possibleIngredient.add(new Maiz(location));
-            possibleIngredient.add(new Lechuga(location));
-            possibleIngredient.add(new Pepino(location));
-            possibleIngredient.add(new Tomato(location));
-        }
+        thisLocation = location;
     }
 
     @Override
     public MobileItem produceItem() {
-        int random = (int) (Math.random() * possibleIngredient.size());
-        Ingredient ingredient = possibleIngredient.get(random);
-        possibleIngredient.remove(ingredient);
+        int random = (int) (Math.random() * 5);
+        Ingredient ingredient;
+        switch (random) {
+            case 0:
+                ingredient = new Onion(thisLocation);
+                break;
+            case 1:
+                ingredient = new Maiz(thisLocation);
+                break;
+            case 2:
+                ingredient = new Lechuga(thisLocation);
+                break;
+            case 3:
+                ingredient = new Pepino(thisLocation);
+                break;
+            case 4:
+                ingredient = new Tomato(thisLocation);
+                break;
+            default:
+                ingredient = null;
+        }
         this.world.addSprite(ingredient);
         return ingredient;
     }

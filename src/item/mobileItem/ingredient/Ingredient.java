@@ -57,4 +57,7 @@ public class Ingredient extends MobileItem {
         return shape.bodySize;
     }
 
+    public String getIngredientName() {
+        return ingredientName;
+    }
 }
