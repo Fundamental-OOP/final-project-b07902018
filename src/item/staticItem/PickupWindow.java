@@ -11,7 +11,7 @@ import model.Direction;
 import model.Sprite;
 import model.SpriteShape;
 import order.OrderList;
-import scoring.ScoreBoard;
+import scoring.Scoreboard;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -31,7 +31,7 @@ public class PickupWindow extends StaticItem implements PlaceItemOn {
 
     private OrderList pendingOrders;
 
-    private ScoreBoard scoreboard;
+    private Scoreboard scoreboard;
 
     private ScoreComputer scoreComputer;
 
@@ -39,17 +39,19 @@ public class PickupWindow extends StaticItem implements PlaceItemOn {
 
     protected final SpriteShape shape;
 
-    public PickupWindow(Point location, OrderList pendingOrders) {
+    public PickupWindow(Point location, OrderList pendingOrders, Scoreboard scoreboard, ScoreComputer scoreComputer) {
         super(location);
         items = new ArrayList<>();
         this.pendingOrders = pendingOrders;
+        this.scoreboard = scoreboard;
+        this.scoreComputer = scoreComputer;
         
         shape = new SpriteShape(new Dimension(146, 176),
         new Dimension(40, 38), new Dimension(66, 105));
 
         ImageRenderer imageRenderer = new ItemImageRenderer(this);
         idle = new WaitingPerFrame(4,
-                new Idle(imageStatesFromFolder("assets/item/table", imageRenderer)));
+                new Idle(imageStatesFromFolder("assets/item/pickupwindow", imageRenderer)));
     }
 
     @Override
@@ -79,14 +81,23 @@ public class PickupWindow extends StaticItem implements PlaceItemOn {
         return shape.bodySize;
     }
 
+    public void clearItems(){
+        for(MobileItem item : items){
+            item.getWorld().removeSprite(item);
+            //item.setWorld(null);
+        }
+        items.clear();
+    }
+
     @Override
     public void update(){
         for(MobileItem item : items){
             if(pendingOrders.contain(item)){
                 pendingOrders.completeOrder(item);
-                
+                scoreboard.increaseScore(scoreComputer.computeScore(item));
             }
         }
+        clearItems();
     }
 
     @Override

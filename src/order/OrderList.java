@@ -12,8 +12,8 @@ public class OrderList {
         pendingOrders = new ArrayList<>();
     }
 
-    public void addOrder(Order order){
-        pendingOrders.add(order);
+    public void addOrder(MobileItem item){
+        pendingOrders.add(new Order(item));
     }
 
     public void removeOrder(Order order){

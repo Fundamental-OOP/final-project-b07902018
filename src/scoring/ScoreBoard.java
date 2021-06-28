@@ -8,27 +8,32 @@ import java.awt.Rectangle;
 import model.Sprite;
 import model.SpriteShape;
 
-public class ScoreBoard extends Sprite{
+public class Scoreboard extends Sprite{
 
-    private Score score;
-    private int x;
-    private int y;
+    private int score;
+
+    private int x, y;
+
     protected final SpriteShape shape;
 
-    public ScoreBoard(Score s, int x, int y){
+    public Scoreboard(int s, int x, int y){
         shape = new SpriteShape(new Dimension(146, 176),
         new Dimension(40, 38), new Dimension(66, 105));
-        score =s;
+        score = s;
         this.x = x;
         this.y = y;
     }
 
-    public Score getScore() {
+    //public Score getScore() {
+    //  return score;
+    //}
+
+    public int getScore() {
         return score;
     }
 
-    public void increaseScore() {
-        
+    public void increaseScore(int increment) {
+        score += increment;
     }
 
 
@@ -42,7 +47,7 @@ public class ScoreBoard extends Sprite{
     @Override
     public void render(Graphics g) {
         g.setColor(Color.BLACK);
-        g.drawString(String.format("Time: %d, Score: %d",System.currentTimeMillis(),score.getScore()), x, y);
+        g.drawString(String.format("Time: %d, Score: %d", System.currentTimeMillis(), getScore()), x, y);
     }
 
     @Override

@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import scoring.Score;
-import scoring.ScoreBoard;
+import scoring.Scoreboard;
 
 import static java.util.Arrays.stream;
 import static java.util.stream.Collectors.toSet;
@@ -15,15 +15,16 @@ import static java.util.stream.Collectors.toSet;
  * @author - johnny850807@gmail.com (Waterball)
  */
 public class World {
+
     private final List<Sprite> sprites = new CopyOnWriteArrayList<>();
     private final CollisionHandler collisionHandler;
-    protected ScoreBoard scoreBoard;
+    protected Scoreboard scoreboard;
 
     public World(CollisionHandler collisionHandler, Sprite... sprites) {
         this.collisionHandler = collisionHandler;
         addSprites(sprites);
-        scoreBoard = new ScoreBoard(new Score(), 10, 10);
-        addSprite(scoreBoard);
+        //scoreBoard = new ScoreBoard(0, 10, 10);
+        //addSprite(scoreboard);
     }
 
     public void update() {
@@ -69,8 +70,13 @@ public class World {
         return sprites;
     }
 
-    public Score getScore(){
-        return this.scoreBoard.getScore();
+    public int getScore(){
+        return this.scoreboard.getScore();
+    }
+
+    public void setScoreboard(Scoreboard scoreboard){
+        this.scoreboard = scoreboard;
+        addSprite(scoreboard);
     }
 
     // Actually, directly couple your model with the class "java.awt.Graphics" is not a good design
