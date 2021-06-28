@@ -1,4 +1,4 @@
-package item.ingredient;
+package item.mobileItem.ingredient;
 
 import fsm.FiniteStateMachine;
 import fsm.ImageRenderer;
@@ -12,6 +12,8 @@ import java.awt.*;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
 import item.*;
+import item.mobileItem.MobileItem;
+
 import static fsm.FiniteStateMachine.Transition.from;
 import static fsm.Event.*;
 import static model.Direction.LEFT;

@@ -1,24 +1,25 @@
-package item;
+package item.staticItem;
 
-import fsm.FiniteStateMachine;
-import fsm.ImageRenderer;
-import fsm.State;
-import fsm.WaitingPerFrame;
-import item.ingredient.*;
-import model.Direction;
-import model.Sprite;
-import model.SpriteShape;
+import static utils.ImageStateUtils.imageStatesFromFolder;
 
-import java.awt.*;
+import java.awt.Dimension;
+import java.awt.Point;
+import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
-import java.util.concurrent.CopyOnWriteArraySet;
 
-import static fsm.FiniteStateMachine.Transition.from;
-import static fsm.Event.*;
-import static model.Direction.LEFT;
-import static utils.ImageStateUtils.imageStatesFromFolder;
+import fsm.ImageRenderer;
+import fsm.WaitingPerFrame;
+import item.Idle;
+import item.ItemImageRenderer;
+import item.mobileItem.MobileItem;
+import item.mobileItem.ingredient.Ingredient;
+import item.mobileItem.ingredient.Lechuga;
+import item.mobileItem.ingredient.Maiz;
+import item.mobileItem.ingredient.Onion;
+import item.mobileItem.ingredient.Pepino;
+import item.mobileItem.ingredient.Tomato;
+import model.SpriteShape;
 
 public class VegetableFactory extends StaticItem implements Factory {
 

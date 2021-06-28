@@ -5,6 +5,7 @@ import item.staticItem.ApplePieStove;
 import item.staticItem.PieFactory;
 import item.staticItem.Table;
 import item.staticItem.TrashCan;
+import item.staticItem.VegetableFactory;
 import character.Character;
 import character.CharacterCollisionHandler;
 import character.Walking;

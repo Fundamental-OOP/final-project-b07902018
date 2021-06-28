@@ -1,4 +1,4 @@
-package item.ingredient;
+package item.mobileItem.ingredient;
 
 import java.awt.*;
 
