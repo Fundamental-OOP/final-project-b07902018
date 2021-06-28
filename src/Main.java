@@ -28,7 +28,8 @@ public class Main {
         ApplePieStove s1 = new ApplePieStove(new Point(300, 150));
         AppleFactory f1 = new AppleFactory(new Point(0, 150));
         PieFactory f2 = new PieFactory(new Point(0, 300));
-        World world = new World(new CharacterCollisionHandler(), p1, p2, t1, s1, f1, f2);  // model
+        TrashCan tc1 = new TrashCan(new Point(150, 300));
+        World world = new World(new CharacterCollisionHandler(), p1, p2, t1, s1, f1, f2, tc1);  // model
         Game game = new Game(world, p1, p2);  // controller
         GameView view = new GameView(game);  // view
         game.start();  // run the game and the game loop
