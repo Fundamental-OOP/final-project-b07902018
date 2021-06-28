@@ -69,6 +69,10 @@ public class World {
         return sprites;
     }
 
+    public Score getScore(){
+        return this.scoreBoard.getScore();
+    }
+
     // Actually, directly couple your model with the class "java.awt.Graphics" is not a good design
     // If you want to decouple them, create an interface that encapsulates the variation of the Graphics.
     public void render(Graphics g) {
