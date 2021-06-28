@@ -1,5 +1,6 @@
 package scoring;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Rectangle;
@@ -31,6 +32,7 @@ public class ScoreBoard extends Sprite{
 
     @Override
     public void render(Graphics g) {
+        g.setColor(Color.BLACK);
         g.drawString(String.format("Time: %d, Score: %d",System.currentTimeMillis(),score.getScore()), x, y);
         
     }
