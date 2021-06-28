@@ -1,0 +1,19 @@
+package order;
+
+import java.util.ArrayList;
+
+import item.mobileItem.MobileItem;
+
+public class Order {
+    
+    private MobileItem orderContent;
+
+    public Order(MobileItem item){
+        this.orderContent = item;
+    }
+
+    public boolean compatibleWithOrder(MobileItem item){
+        return item.getClass().equals(orderContent.getClass());
+    }
+
+}

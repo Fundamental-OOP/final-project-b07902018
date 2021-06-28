@@ -1,11 +1,15 @@
 package scoring;
 
 public class Score {
-    public int scr=0;
+
+    public int score = 0;
+
     public int getScore() {
-        return scr;
+        return score;
     }
-    public void setScore(int scr) {
-        this.scr = scr;
+
+    public void setScore(int score) {
+        this.score = score;
     }
+    
 }
