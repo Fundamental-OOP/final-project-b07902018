@@ -3,7 +3,7 @@ package item;
 import fsm.Sequence;
 import fsm.State;
 import fsm.StateMachine;
-import item.MobileItem;
+import item.mobileItem.MobileItem;
 import jdk.nashorn.api.tree.SpreadTree;
 import media.AudioPlayer;
 import model.Sprite;

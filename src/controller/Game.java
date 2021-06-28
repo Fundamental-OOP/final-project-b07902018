@@ -2,7 +2,7 @@ package controller;
 
 import character.Character;
 import item.Item;
-import item.MobileItem;
+import item.mobileItem.MobileItem;
 import model.Direction;
 import model.World;
 

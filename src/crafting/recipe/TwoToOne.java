@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import crafting.Recipe;
 import item.Item;
-import item.MobileItem;
+import item.mobileItem.MobileItem;
 
 public class TwoToOne implements Recipe {
 

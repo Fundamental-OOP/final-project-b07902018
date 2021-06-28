@@ -1,9 +1,12 @@
-package item;
+package item.staticItem;
 
 import fsm.FiniteStateMachine;
 import fsm.ImageRenderer;
 import fsm.State;
 import fsm.WaitingPerFrame;
+import item.Idle;
+import item.ItemImageRenderer;
+import item.mobileItem.MobileItem;
 import model.Direction;
 import model.Sprite;
 import model.SpriteShape;

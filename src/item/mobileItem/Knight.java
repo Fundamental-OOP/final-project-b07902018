@@ -1,4 +1,4 @@
-package item;
+package item.mobileItem;
 
 import fsm.FiniteStateMachine;
 import fsm.ImageRenderer;

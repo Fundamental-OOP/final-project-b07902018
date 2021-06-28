@@ -1,9 +1,13 @@
-package item;
+package item.staticItem;
 
 import fsm.FiniteStateMachine;
 import fsm.ImageRenderer;
 import fsm.State;
 import fsm.WaitingPerFrame;
+import item.Idle;
+import item.ItemImageRenderer;
+import item.mobileItem.Apple;
+import item.mobileItem.MobileItem;
 import model.Direction;
 import model.Sprite;
 import model.SpriteShape;
@@ -17,11 +21,11 @@ import static fsm.Event.*;
 import static model.Direction.LEFT;
 import static utils.ImageStateUtils.imageStatesFromFolder;
 
-public class PieFactory extends StaticItem implements Factory {
+public class AppleFactory extends StaticItem implements Factory {
 
     protected final SpriteShape shape;
 
-    public PieFactory(Point location) {
+    public AppleFactory(Point location) {
         super(location);
 
         shape = new SpriteShape(new Dimension(146, 176),
@@ -36,7 +40,7 @@ public class PieFactory extends StaticItem implements Factory {
 
     @Override
     public MobileItem produceItem() {
-        Pie newItem = new Pie(new Point(150, 150));
+        Apple newItem = new Apple(new Point(150, 150));
         this.world.addSprite(newItem);
         return newItem;
     }

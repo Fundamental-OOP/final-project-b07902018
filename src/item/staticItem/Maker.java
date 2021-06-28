@@ -1,4 +1,4 @@
-package item;
+package item.staticItem;
 
 public interface Maker {
 

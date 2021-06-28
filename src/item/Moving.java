@@ -2,6 +2,7 @@ package item;
 
 import fsm.CyclicSequence;
 import fsm.ImageState;
+import item.mobileItem.MobileItem;
 import model.Direction;
 
 import java.util.List;

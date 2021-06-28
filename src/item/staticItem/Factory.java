@@ -1,4 +1,6 @@
-package item;
+package item.staticItem;
+
+import item.mobileItem.MobileItem;
 
 public interface Factory {
     

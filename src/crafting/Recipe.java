@@ -2,7 +2,7 @@ package crafting;
 
 import java.util.ArrayList;
 import item.Item;
-import item.MobileItem;
+import item.mobileItem.MobileItem;
 
 public interface Recipe {
 

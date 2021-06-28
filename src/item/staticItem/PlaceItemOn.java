@@ -1,6 +1,8 @@
-package item;
+package item.staticItem;
 
 import java.awt.Point;
+
+import item.mobileItem.MobileItem;
 
 public interface PlaceItemOn {
     

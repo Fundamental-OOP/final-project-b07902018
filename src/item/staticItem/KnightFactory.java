@@ -1,9 +1,13 @@
-package item;
+package item.staticItem;
 
 import fsm.FiniteStateMachine;
 import fsm.ImageRenderer;
 import fsm.State;
 import fsm.WaitingPerFrame;
+import item.Idle;
+import item.ItemImageRenderer;
+import item.mobileItem.Knight;
+import item.mobileItem.MobileItem;
 import model.Direction;
 import model.Sprite;
 import model.SpriteShape;
@@ -17,11 +21,11 @@ import static fsm.Event.*;
 import static model.Direction.LEFT;
 import static utils.ImageStateUtils.imageStatesFromFolder;
 
-public class AppleFactory extends StaticItem implements Factory {
+public class KnightFactory extends StaticItem implements Factory {
 
     protected final SpriteShape shape;
 
-    public AppleFactory(Point location) {
+    public KnightFactory(Point location) {
         super(location);
 
         shape = new SpriteShape(new Dimension(146, 176),
@@ -36,9 +40,9 @@ public class AppleFactory extends StaticItem implements Factory {
 
     @Override
     public MobileItem produceItem() {
-        Apple newItem = new Apple(new Point(150, 150));
-        this.world.addSprite(newItem);
-        return newItem;
+        Knight newKnight = new Knight(new Point(150, 150));
+        this.world.addSprite(newKnight);
+        return newKnight;
     }
 
     @Override
