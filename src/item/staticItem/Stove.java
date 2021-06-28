@@ -98,6 +98,7 @@ public class Stove extends StaticItem implements PlaceItemOn, Maker {
             pendingItem.setLocation(getLocation());
             pendingItem.setWorld(this.getWorld());
             this.getWorld().addSprite(pendingItem);
+            items.add(pendingItem);
             pendingItem = null;
         }
     } 
