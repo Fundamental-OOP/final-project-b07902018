@@ -9,4 +9,6 @@ public interface PlaceItemOn {
     public abstract Point itemPlaceLocation();
 
     public abstract void tryAcquireItem(MobileItem item);
+
+    public abstract boolean hasSpace();
 }

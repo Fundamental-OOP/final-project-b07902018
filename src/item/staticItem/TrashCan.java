@@ -83,4 +83,10 @@ public class TrashCan extends StaticItem implements PlaceItemOn {
         clearTrashCan();
     }
 
+    @Override
+    public boolean hasSpace() {
+        // TODO Auto-generated method stub
+        return true;
+    }
+
 }
