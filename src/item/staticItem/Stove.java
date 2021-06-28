@@ -79,7 +79,7 @@ public class Stove extends StaticItem implements PlaceItemOn, Maker {
         for(Recipe recipe : recipes){
             if(recipe.craftAble(itemOnStove)){
                 currentRecipe = recipe;
-                readyTime = System.currentTimeMillis()+cookTime;
+                readyTime = System.currentTimeMillis() + cookTime;
                 isCooking = true;
                 pendingItem = currentRecipe.craft(itemOnStove);
                 System.out.println(readyTime);
@@ -90,7 +90,7 @@ public class Stove extends StaticItem implements PlaceItemOn, Maker {
 
     @Override
     public void evokeCurrentRecipe() {
-        if(isCooking && pendingItem!= null && System.currentTimeMillis() >= readyTime){
+        if(isCooking && pendingItem != null && System.currentTimeMillis() >= readyTime){
             readyTime = Long.MAX_VALUE;
             isCooking = false;
             //TODO: remove cooking sprite
@@ -124,12 +124,11 @@ public class Stove extends StaticItem implements PlaceItemOn, Maker {
 
     @Override 
     public void render(Graphics g) {
+        idle.render(g); 
         if(isCooking){
             cookingState.render(g);
         }
-        else{
-            idle.render(g);
-        }
+        
     } 
 
     @Override  

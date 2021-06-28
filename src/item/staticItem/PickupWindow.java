@@ -10,15 +10,16 @@ import item.mobileItem.MobileItem;
 import model.Direction;
 import model.Sprite;
 import model.SpriteShape;
-import scoring.Score;
+import order.OrderList;
+import scoring.ScoreBoard;
 
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
 
-import controller.OrderList;
 import crafting.Crafter;
+import crafting.ScoreComputer;
 import crafting.recipe.TwoToOne;
 
 import static fsm.FiniteStateMachine.Transition.from;
@@ -30,7 +31,9 @@ public class PickupWindow extends StaticItem implements PlaceItemOn {
 
     private OrderList pendingOrders;
 
-    private Score scoreboard;
+    private ScoreBoard scoreboard;
+
+    private ScoreComputer scoreComputer;
 
     private ArrayList<MobileItem> items;
 
@@ -81,14 +84,13 @@ public class PickupWindow extends StaticItem implements PlaceItemOn {
         for(MobileItem item : items){
             if(pendingOrders.contain(item)){
                 pendingOrders.completeOrder(item);
-
+                
             }
         }
     }
 
     @Override
     public boolean hasSpace() {
-        // TODO Auto-generated method stub
         return true;
     }
 

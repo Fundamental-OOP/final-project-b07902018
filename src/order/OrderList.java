@@ -1,9 +1,8 @@
-package controller;
+package order;
 
 import java.util.ArrayList;
 
 import item.mobileItem.MobileItem;
-import order.Order;
 
 public class OrderList {
     

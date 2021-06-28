@@ -1,8 +1,7 @@
-package crafting.order;
+package crafting;
 
 import java.util.ArrayList;
 
-import crafting.Recipe;
 import item.Item;
 import item.mobileItem.MobileItem;
 import scoring.Score;

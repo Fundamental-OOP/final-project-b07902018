@@ -54,6 +54,7 @@ public class Releasing extends Sequence {
                 if(place.hasSpace()){
                     character.getMobileItem().beReleased();
                     character.releaseMobileItem(place);
+                    break;
                 } 
             }
         }
