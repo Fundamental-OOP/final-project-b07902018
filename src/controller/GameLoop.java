@@ -7,8 +7,9 @@ import views.View;
  * @author - johnny850807@gmail.com (Waterball)
  */
 public abstract class GameLoop {
-    
+
     protected boolean running;
+    
     protected View view;
 
     public void setView(View view) {

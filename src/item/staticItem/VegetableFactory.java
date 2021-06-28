@@ -29,10 +29,11 @@ public class VegetableFactory extends StaticItem implements Factory {
     public VegetableFactory(Point location) {
         super(location);
 
-        shape = new SpriteShape(new Dimension(146, 176), new Dimension(40, 38), new Dimension(66, 105));
+        shape = new SpriteShape(new Dimension(100, 100),
+        new Dimension(10, 10), new Dimension(80, 80));
 
         ImageRenderer imageRenderer = new ItemImageRenderer(this);
-        idle = new WaitingPerFrame(4, new Idle(imageStatesFromFolder("assets/item/knightFactory/idle", imageRenderer)));
+        idle = new WaitingPerFrame(4, new Idle(imageStatesFromFolder("assets/item/box", imageRenderer)));
         thisLocation = location;
     }
 

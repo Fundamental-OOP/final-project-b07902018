@@ -125,11 +125,15 @@ public class Character extends Sprite {
     }
 
     public Point mobileItemLocation(){
+        int x = this.getX();
+        int y = this.getY();
+        int w = this.getRange().width;
+        int h = this.getRange().height;
         if(this.getFace() == Direction.RIGHT){
-            return new Point(this.getX() + this.getRange().width / 3, this.getY());
+            return new Point(x + w * 2 / 3, y + h * 3 / 5);
         }
         else{
-            return new Point(this.getX() - this.getRange().width / 3, this.getY());
+            return new Point(x, y + h * 3 / 5);
         }
     }
 

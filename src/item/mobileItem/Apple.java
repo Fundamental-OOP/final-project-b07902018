@@ -25,7 +25,7 @@ public class Apple extends MobileItem {
     public Apple(Point location) {
         super(location);
         shape = new SpriteShape(new Dimension(50, 50),
-        new Dimension(33, 38), new Dimension(66, 105));
+        new Dimension(5, 5), new Dimension(40, 40));
 
         ImageRenderer imageRenderer = new ItemImageRenderer(this);
         State idle = new WaitingPerFrame(4,

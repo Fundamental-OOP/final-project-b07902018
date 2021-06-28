@@ -35,8 +35,8 @@ public class Table extends StaticItem implements PlaceItemOn {
         super(location);
         items = new ArrayList<>();
         
-        shape = new SpriteShape(new Dimension(146, 176),
-        new Dimension(40, 38), new Dimension(66, 105));
+        shape = new SpriteShape(new Dimension(100, 100),
+        new Dimension(10, 10), new Dimension(80, 80));
 
         ImageRenderer imageRenderer = new ItemImageRenderer(this);
         idle = new WaitingPerFrame(4,
@@ -72,7 +72,7 @@ public class Table extends StaticItem implements PlaceItemOn {
 
     @Override
     public boolean hasSpace() {
-        return true;
+        return items.size() < 1;
     }
 
     @Override
