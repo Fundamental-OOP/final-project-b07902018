@@ -31,7 +31,7 @@ public class SandwichMaker extends Crafter {
         else if (index == 1){
             index = 0;
         }
-        return new Point(x - 15 + index * 40, y - (h / 3)); 
+        return new Point(x - 15 + index * 40, y + (h * 3 / 10)); 
     }
 
     

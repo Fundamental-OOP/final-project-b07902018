@@ -82,7 +82,7 @@ public class WorldExample2 extends World {
         //ScoreBoard scoreboard = new ScoreBoard(0, 100, 100);
         var w = new PickupWindow(new Point(900, 400), scoreboard, scoreComputer);
         addSprite(w);
-        var o = new OrderDiplayer(1000, 200, w,panel);
+        var o = new OrderDiplayer(1050, 200, w, panel);
         //o.setColor(Color.DARK_GRAY);
         addSprite(o);
     }

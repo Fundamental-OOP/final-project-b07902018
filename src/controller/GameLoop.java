@@ -48,11 +48,11 @@ public abstract class GameLoop {
         List<Character> players = new ArrayList<>();
         List<Sprite> Sprites = new ArrayList<>();
         if(gameview.getMenu().getPlayernum()==1){
-            Character p1 = new Character(new Point(100, 100));
+            Character p1 = new Character(new Point(200, 100));
             players.add(p1);
             Sprites.add(p1);
         }else{
-            Character p1 = new Character(new Point(100, 100));
+            Character p1 = new Character(new Point(200, 100));
             Character p2 = new Character(new Point(500, 100));
             players.add(p1);
             players.add(p2);
