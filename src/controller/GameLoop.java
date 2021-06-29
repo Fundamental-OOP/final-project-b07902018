@@ -55,8 +55,11 @@ public abstract class GameLoop {
         ScoreBoard scoreboard = new ScoreBoard(0, 100, 100);
         //Sprites.add(new PickupWindow(new Point(450, 450), o1, scoreboard, scoreComputer));
 
-        World world = new WorldExample1(new CharacterCollisionHandler(), scoreboard, Sprites);
-        game.construct(world, p1, p2);
+        World world1 = new WorldExample1(new CharacterCollisionHandler(), scoreboard, Sprites);
+        // World w2;
+        
+        // based on menu 
+        game.construct(world1, p1, p2);
         
         new Thread(this::gameLoop).start();
         gameview.launch();
