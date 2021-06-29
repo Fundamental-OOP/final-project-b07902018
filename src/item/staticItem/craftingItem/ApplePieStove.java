@@ -8,7 +8,7 @@ public class ApplePieStove extends Crafter {
 
     public ApplePieStove(Point location) {
         super(location, "applepiestove");
-        recipes.add(new ApplePieRecipe());
+        recipes.add(new ApplepieRecipe());
         recipes.add(new EnsaladaCompletaRecipe());
         recipes.add(new EnsaladaDeLechugaMaizYCebollaRecipe());
         recipes.add(new EnsaladaDeLechugaPepinoYCebollaRecipe());

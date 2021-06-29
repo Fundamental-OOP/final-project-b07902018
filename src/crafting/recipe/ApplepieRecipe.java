@@ -8,9 +8,9 @@ import item.mobileItem.ingredient.EnsaladaDeLechugaMaizYCebolla;
 import item.mobileItem.ingredient.FriedEgg;
 import item.mobileItem.ingredient.Ingredient;
 
-public class ApplePieRecipe extends ConcreteRecipe {
+public class ApplepieRecipe extends ConcreteRecipe {
 
-    public ApplePieRecipe() {
+    public ApplepieRecipe() {
         super("apple", "pie");
     }
 
