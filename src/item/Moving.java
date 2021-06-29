@@ -25,11 +25,11 @@ public class Moving extends CyclicSequence {
         super.update();
         for (Direction direction : mobileItem.getDirections()) {
             mobileItem.getWorld().move(mobileItem, direction.translate());
-        }  
+        }   
     }
 
     @Override
     public String toString() {
-        return "Walking";
+        return "Moving";
     }
 }

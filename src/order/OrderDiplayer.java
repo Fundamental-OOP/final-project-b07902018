@@ -21,11 +21,11 @@ public class OrderDiplayer extends TextDisplayer {
     private String getOrderString(){
         String s = "Order: ";
         try{
-            for (var v : pickupWindow.getPendingOrders().pendingOrders) {
-                s += v.getOrderContent().getClass().getName();
-                s += ", ";
-            }
-        }catch(Exception e){
+        for (var v:pickupWindow.getPendingOrders().pendingOrders){
+            s+=v.getOrderContent().getClass().getSimpleName();
+            s+=", ";
+        }}catch(Exception e){
+            
         }
         return s;
     }

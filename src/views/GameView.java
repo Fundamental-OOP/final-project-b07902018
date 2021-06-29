@@ -17,8 +17,8 @@ import menu.Menu;
  * @author - johnny850807@gmail.com (Waterball)
  */
 public class GameView extends JFrame {
-    public static final int HEIGHT = 600;
-    public static final int WIDTH = 1024;
+    public static final int HEIGHT = 720;
+    public static final int WIDTH = 800;
     public static final int P1 = 1;
     public static final int P2 = 2;
     private final Canvas canvas = new Canvas();
@@ -36,9 +36,9 @@ public class GameView extends JFrame {
         setVisible(true);
 
         Scanner sc = new Scanner (System.in);
-        //System.out.println("Press enter to Start");
+        // System.out.println("Press enter to Start");
 
-        //sc.nextLine();
+        // sc.nextLine();
         System.out.println("Game Start");
         sc.close();
         
@@ -154,7 +154,7 @@ public class GameView extends JFrame {
         protected void paintComponent(Graphics g /*paintbrush*/) {
             super.paintComponent(g);
             // Now, let's paint
-            g.setColor(Color.WHITE); // paint background with all white
+            g.setColor(Color.decode("#cf9c69")); // paint background with all white
             g.fillRect(0, 0, GameView.WIDTH, GameView.HEIGHT);
             //g.drawImage(img, x, y, observer)
 
