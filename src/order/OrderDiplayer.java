@@ -17,7 +17,7 @@ public class OrderDiplayer extends TextDisplayer{
         String s = "Order: ";
         try{
         for (var v:pickupWindow.getPendingOrders().pendingOrders){
-            s+=v.getOrderContent().getClass().getName();
+            s+=v.getOrderContent().getClass().getSimpleName();
             s+=", ";
         }}catch(Exception e){
             
