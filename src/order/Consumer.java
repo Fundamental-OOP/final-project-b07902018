@@ -13,58 +13,28 @@ public abstract class Consumer {
     protected List<Order> pendingOrders;
 
     public void produceOrder() {
-        int random = (int) (Math.random() * 14);
-        MobileItem item = new Apple(null);
-        String itemName = "no";
+        int random = (int) (Math.random() * 5);
+        MobileItem item;
         switch (random) {
             case 0:
-                item = new Apple(null);
-                itemName = "Apple";
+                item = new FriedEgg(null);
                 break;
             case 1:
-                item = new Pie(null);
-                itemName = "Pie";
+                item = new CheeseEggSandwich(null);
                 break;
             case 2:
-                item = new ApplePie(null);
-                itemName = "ApplePie";
+                item = new Salad(null);
                 break;
             case 3:
-                item = new EnsaladaCompleta(null);
+                item = new RawEgg(null);
                 break;
             case 4:
-                item = new EnsaladaDeLechugaMaizYCebolla(null);
+                item = new ApplePie(null);
                 break;
-            case 5:
-                item = new EnsaladaDeLechugaPepinoYCebolla(null);
-                break;
-            case 6:
-                item = new EnsaladaDeLechugaTomateYCebolla(null);
-                break;
-            case 7:
-                item = new EnsaladaDeTomateMaizYCebolla(null);
-                break;
-            case 8:
-                item = new EnsaladaDeTomatePepinoYCebolla(null);
-                break;
-            case 9:
-                item = new Lechuga(null);
-                break;
-            case 10:
-                item = new Maiz(null);
-                break;
-            case 11:
-                item = new Onion(null);
-                break;
-            case 12:
-                item = new Pepino(null);
-                break;
-            case 13:
-                item = new Tomato(null);
-                break;
+            default:
+                item = new Apple(null);
         }
-        if (item instanceof Ingredient)
-            itemName = ((Ingredient) item).getIngredientName();
+        String itemName = ((Ingredient) item).getIngredientName();
         System.out.printf("Order: %s%n", itemName);
         addOrder(item);
     }
