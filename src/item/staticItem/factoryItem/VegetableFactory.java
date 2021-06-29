@@ -25,15 +25,31 @@ import model.SpriteShape;
 public class VegetableFactory extends Factory {
 
     protected final Point thisLocation;
+    protected int[] history;
 
     public VegetableFactory(Point location) {
         super(location, "box");
         thisLocation = location;
+        history = new int[2];
+        history[0] = -1;
+        history[1] = -1;
     }
 
     @Override
     public MobileItem produceItem() {
-        int random = (int) (Math.random() * 5);
+        int random;
+        while (true) {
+            random = (int) (Math.random() * 5);
+            int flag = 0;
+            for (int i : history)
+                if (random == i)
+                    flag = 1;
+            if (flag != 1) {
+                history[0] = history[1];
+                history[1] = random;
+                break;
+            }
+        }
         Ingredient ingredient;
         switch (random) {
             case 0:
