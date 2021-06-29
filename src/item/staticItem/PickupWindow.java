@@ -6,6 +6,7 @@ import fsm.State;
 import fsm.WaitingPerFrame;
 import item.Idle;
 import item.ItemImageRenderer;
+import item.mobileItem.ApplePie;
 import item.mobileItem.MobileItem;
 import model.Direction;
 import model.Sprite;
@@ -38,10 +39,10 @@ public class PickupWindow extends StaticItem implements PlaceItemOn {
 
     protected final SpriteShape shape;
 
-    public PickupWindow(Point location, OrderList pendingOrders, ScoreBoard scoreboard, ScoreComputer scoreComputer) {
+    public PickupWindow(Point location, ScoreBoard scoreboard, ScoreComputer scoreComputer) {
         super(location);
         items = new ArrayList<>();
-        this.pendingOrders = pendingOrders;
+        this.pendingOrders = new OrderList();
         this.scoreboard = scoreboard;
         this.scoreComputer = scoreComputer;
         
@@ -90,8 +91,8 @@ public class PickupWindow extends StaticItem implements PlaceItemOn {
 
     @Override
     public void update(){
-        for(MobileItem item : items){
-            if(pendingOrders.contain(item)){
+        for (MobileItem item : items) {
+            if (pendingOrders.contain(item)) {
                 pendingOrders.completeOrder(item);
                 scoreboard.increaseScore(scoreComputer.computeScore(item));
             }

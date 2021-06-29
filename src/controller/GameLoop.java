@@ -1,6 +1,7 @@
 package controller;
 
 import model.World;
+import model.WorldExample1;
 import views.GameView;
 import views.View;
 import controller.Game;
@@ -13,6 +14,7 @@ import model.Sprite;
 import character.Character;
 import java.awt.*;
 import item.mobileItem.*;
+import item.mobileItem.ingredient.*;
 import item.staticItem.*;
 import order.OrderList;
 import scoring.*;

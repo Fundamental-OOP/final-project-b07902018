@@ -45,7 +45,11 @@ public class Table extends StaticItem implements PlaceItemOn {
 
     @Override
     public Point itemPlaceLocation() {
-        return this.getLocation();
+        int x = this.getX();
+        int y = this.getY();
+        int w = this.getRange().width;
+        int h = this.getRange().height;
+        return new Point(x + 25, y - (h / 5));
     }
 
 

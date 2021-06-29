@@ -43,13 +43,11 @@ public class Main {
         Sprites.add(new VegetableFactory(new Point(150, 0)));
         Sprites.add(new TrashCan(new Point(150, 300)));
 
-        OrderList o1 = new OrderList();
-        o1.addOrder(new ApplePie(new Point(0, 0)));
         ScoreComputer scoreComputer = new ScoreComputer(new ArrayList<>());
         scoreComputer.addScoreConversion(new ScoreApplePie(new ApplePie(null)));
 
         ScoreBoard scoreboard = new ScoreBoard(0, 100, 100);
-        Sprites.add(new PickupWindow(new Point(450, 450), o1, scoreboard, scoreComputer));
+        Sprites.add(new PickupWindow(new Point(450, 450), scoreboard, scoreComputer));
         World world = new World(new CharacterCollisionHandler(), scoreboard, Sprites);  // model
         Game game = new Game(world);  // controller
         // GameView view = new GameView(game);  // view
