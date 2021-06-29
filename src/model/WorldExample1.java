@@ -19,8 +19,8 @@ public class WorldExample1 extends World {
         super(collisionHandler, scoreboard, sprites);
         
         for(int i = 0; i < 8; ++i){
-            addSprite(new Table(new Point(i * 100, 0)));
-            addSprite(new Table(new Point(i * 100, 600)));
+            addSprite(new WoodPlatform(new Point(i * 100, 0)));
+            addSprite(new WoodPlatform(new Point(i * 100, 600)));
         }
         for(int i = 1; i < 6; ++i){
             addSprite(new StorageTable(new Point(0, i * 100)));
