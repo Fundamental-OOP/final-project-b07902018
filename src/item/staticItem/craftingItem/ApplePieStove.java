@@ -7,7 +7,7 @@ import crafting.recipe.*;
 public class ApplePieStove extends Crafter {
 
     public ApplePieStove(Point location) {
-        super(location);
+        super(location, "applepiestove");
         recipes.add(new ApplepieRecipe());
         recipes.add(new EnsaladaCompletaRecipe());
         recipes.add(new EnsaladaDeLechugaMaizYCebollaRecipe());

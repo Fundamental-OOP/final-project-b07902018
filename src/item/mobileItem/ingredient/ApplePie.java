@@ -20,12 +20,12 @@ import static fsm.Event.*;
 import static model.Direction.LEFT;
 import static utils.ImageStateUtils.imageStatesFromFolder;
 
-public class ApplePie extends MobileItem {
+public class ApplePie extends Ingredient {
 
     protected final SpriteShape shape;
 
     public ApplePie(Point location) {
-        super(location);
+        super(location, "applepie");
         shape = new SpriteShape(new Dimension(50, 50),
         new Dimension(33, 38), new Dimension(66, 105));
 

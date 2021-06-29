@@ -27,15 +27,16 @@ import static fsm.Event.*;
 import static model.Direction.LEFT;
 import static utils.ImageStateUtils.imageStatesFromFolder;
 
-public class Crafter extends StaticItem implements PlaceItemOn, Maker {
+public abstract class Crafter extends StaticItem implements PlaceItemOn, Maker {
 
-    protected final long cookTime = 3000;
+    protected long cookTime = 3000;
+
+    protected int maxItemNumber = 3;
+
 
     protected long readyTime = Long.MAX_VALUE;
 
     protected ArrayList<MobileItem> items;
-
-    protected int maxItemNumber = 3;
 
     protected Recipe currentRecipe;
 
@@ -50,24 +51,21 @@ public class Crafter extends StaticItem implements PlaceItemOn, Maker {
     protected MobileItem pendingItem = null;
     
 
-    //public Crafter cft;
-
-    public Crafter(Point location) {
+    public Crafter(Point location, String name) {
         super(location);
 
         items = new ArrayList<>();
 
         recipes = new ArrayList<>();
 
-        
         shape = new SpriteShape(new Dimension(100, 100),
         new Dimension(10, 10), new Dimension(80, 80));
 
         ImageRenderer imageRenderer = new ItemImageRenderer(this);
         idle = new WaitingPerFrame(4,
-                new Idle(imageStatesFromFolder("assets/item/stove/idle", imageRenderer)));
+                new Idle(imageStatesFromFolder("assets/item/" + name + "/idle", imageRenderer)));
         cookingState = new WaitingPerFrame(4,
-        new Idle(imageStatesFromFolder("assets/item/stove/cooking", imageRenderer)));
+        new Idle(imageStatesFromFolder("assets/item/" + name + "/cooking", imageRenderer)));
     }
 
     @Override
