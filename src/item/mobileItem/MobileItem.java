@@ -28,7 +28,6 @@ public abstract class MobileItem extends Item {
     protected final FiniteStateMachine fsm;
 
     private final Set<Direction> directions = new CopyOnWriteArraySet<>();
-
     private Character owner;
 
 
@@ -37,7 +36,9 @@ public abstract class MobileItem extends Item {
         fsm = new FiniteStateMachine();
         owner = null;
     }
-
+    public FiniteStateMachine getFsm() {
+        return fsm;
+    }
     public void move(Direction direction) {
         if (direction == LEFT || direction == Direction.RIGHT) {
             face = direction;

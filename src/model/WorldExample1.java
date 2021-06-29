@@ -5,6 +5,8 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JPanel;
+
 import item.mobileItem.ingredient.ApplePie;
 import item.staticItem.*;
 import item.staticItem.abandoningItem.PickupWindow;
@@ -23,7 +25,7 @@ import scoring.ScoreComputer;
 
 public class WorldExample1 extends World {
 
-    public WorldExample1(CollisionHandler collisionHandler, ScoreBoard scoreboard, List<Sprite> sprites) {
+    public WorldExample1(CollisionHandler collisionHandler, ScoreBoard scoreboard, List<Sprite> sprites,JPanel panel) {
         super(collisionHandler, scoreboard, sprites);
         
         for(int i = 0; i < 8; ++i){
@@ -52,8 +54,8 @@ public class WorldExample1 extends World {
         //ScoreBoard scoreboard = new ScoreBoard(0, 100, 100);
         var w = new PickupWindow(new Point(700, 400), scoreboard, scoreComputer);
         addSprite(w);
-        var o = new OrderDiplayer(800,200, w);
-        o.setColor(Color.DARK_GRAY);
+        var o = new OrderDiplayer(800,200, w,panel);
+        //o.setColor(Color.DARK_GRAY);
         addSprite(o);
     }
     

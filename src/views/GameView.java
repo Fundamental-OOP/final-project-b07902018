@@ -25,6 +25,9 @@ public class GameView extends JFrame {
     public static final int P2 = 2;
     private final Canvas canvas = new Canvas();
     private Game game;
+    public Canvas getCanvas() {
+        return canvas;
+    }
 
     public GameView(Game game) throws HeadlessException {
         this.game = game;
@@ -50,7 +53,7 @@ public class GameView extends JFrame {
         // GUI Stuff
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setContentPane(canvas);
-        setSize(WIDTH, HEIGHT);
+        setSize(WIDTH+400, HEIGHT);
         setContentPane(canvas);
         setVisible(true);
 
