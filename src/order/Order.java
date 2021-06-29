@@ -15,5 +15,8 @@ public class Order {
     public boolean compatibleWithOrder(MobileItem item){
         return item.getClass().equals(orderContent.getClass());
     }
+    public MobileItem getOrderContent() {
+        return orderContent;
+    }
 
 }
