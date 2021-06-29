@@ -28,7 +28,8 @@ public class Game extends GameLoop {
         if(players.size()==1){
             this.p1 = players.get(0);
             world.addSprite(players.get(0));
-        }else{
+        }
+        else{
             this.p1 = players.get(0);
             this.p2 = players.get(1);
             world.addSprite(players.get(0));
