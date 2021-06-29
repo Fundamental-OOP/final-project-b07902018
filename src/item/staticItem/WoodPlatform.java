@@ -26,5 +26,14 @@ public class WoodPlatform extends Table {
         idle = new WaitingPerFrame(4,
                 new Idle(imageStatesFromFolder("assets/item/woodplatform", imageRenderer)));
     }
+
+    @Override
+    public Point itemPlaceLocation(MobileItem item) {
+        int x = this.getX();
+        int y = this.getY();
+        int w = this.getRange().width;
+        int h = this.getRange().height;
+        return new Point(x + 25, y + (h / 5));
+    }
     
 }
