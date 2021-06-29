@@ -2,6 +2,7 @@ package controller;
 
 import model.World;
 import model.WorldExample1;
+import model.WorldExample2;
 import views.GameView;
 import views.View;
 import controller.Game;
@@ -46,8 +47,11 @@ public abstract class GameLoop {
         ScoreBoard scoreboard = new ScoreBoard(0, 800, 100);
         Sprites.add(p1);
         Sprites.add(p2);
-        World world1 = new WorldExample1(new CharacterCollisionHandler(), scoreboard, Sprites,gameview.getCanvas());
-        game.setWorld(world1);
+        //World world1 = new WorldExample1(new CharacterCollisionHandler(), scoreboard, Sprites,gameview.getCanvas());
+        //game.setWorld(world1);
+
+        World world2 = new WorldExample2(new CharacterCollisionHandler(), scoreboard, Sprites,gameview.getCanvas());
+        game.setWorld(world2);
         
         game.setPlayers(players);
 

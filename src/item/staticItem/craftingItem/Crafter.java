@@ -31,7 +31,7 @@ public abstract class Crafter extends StaticItem implements PlaceItemOn, Maker {
 
     protected long cookTime = 3000;
 
-    protected int maxItemNumber = 3;
+    protected int maxItemNumber = 2;
 
 
     protected long readyTime = Long.MAX_VALUE;
@@ -75,13 +75,8 @@ public abstract class Crafter extends StaticItem implements PlaceItemOn, Maker {
         int w = this.getRange().width;
         int h = this.getRange().height;
         int index = items.indexOf(item);
-        if(index == 0){
-            index = 1;
-        }
-        else if (index == 1){
-            index = 0;
-        }
-        return new Point(x - 15 + index * 40, y - (h / 3)); 
+
+        return new Point(x + 10 + index * 30, y - (h / 3)); 
     }
 
 
