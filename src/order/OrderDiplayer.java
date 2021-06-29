@@ -1,8 +1,5 @@
 package order;
 
-import java.awt.Dimension;
-import java.awt.Graphics;
-
 import javax.swing.JPanel;
 
 import java.awt.*;
@@ -58,8 +55,11 @@ public class OrderDiplayer extends Sprite{
 
     @Override
     public void render(Graphics g) {
-        if(image!=null)
-        g.drawImage(image, x, y, panel);
+        if(image!=null){
+            g.setColor(Color.BLACK);
+            g.drawString("Order:", x, y);
+            g.drawImage(image, x+10, y+20,75,75, panel);
+        }
         else g.drawString(text,x,y);
         
     }

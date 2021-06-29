@@ -25,6 +25,7 @@ public class GameView extends JFrame {
     public static final int P2 = 2;
     private final Canvas canvas = new Canvas();
     private Game game;
+    private Menu menu;
     public Canvas getCanvas() {
         return canvas;
     }
@@ -34,19 +35,26 @@ public class GameView extends JFrame {
         game.setView(canvas);
     }
     
-    public void menu(){
+    public void launchMenu(){
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(WIDTH, HEIGHT);
-        setContentPane(new Menu());
+        Menu menu = new Menu(game);
+        this.menu = menu;
+        setContentPane(menu);
         setVisible(true);
 
-        Scanner sc = new Scanner (System.in);
-        // System.out.println("Press enter to Start");
+        while(game.isStart()!=true){
+            try {
+                Thread.sleep(10);
+                menu.render();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        };
+    }
 
-        // sc.nextLine();
-        System.out.println("Game Start");
-        sc.close();
-        
+    public Menu getMenu(){
+        return menu;
     }
 
     public void launch() {
