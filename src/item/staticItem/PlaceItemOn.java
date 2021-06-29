@@ -6,7 +6,7 @@ import item.mobileItem.MobileItem;
 
 public interface PlaceItemOn {
     
-    public abstract Point itemPlaceLocation();
+    public abstract Point itemPlaceLocation(MobileItem item);
 
     public abstract void tryAcquireItem(MobileItem item);
 

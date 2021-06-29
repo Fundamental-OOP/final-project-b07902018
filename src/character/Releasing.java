@@ -51,8 +51,8 @@ public class Releasing extends Sequence {
             if (character != sprite && sprite instanceof PlaceItemOn) {
                 PlaceItemOn place = (PlaceItemOn) sprite;
                 if(place.hasSpace()){
-                    character.getMobileItem().beReleased();
-                    character.releaseMobileItem(place);
+                    character.getMobileItem().beReleased(); // set item owner = null
+                    character.releaseMobileItem(place); 
                     break;
                 } 
             }

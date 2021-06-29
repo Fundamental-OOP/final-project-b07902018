@@ -33,6 +33,8 @@ public class Stove extends StaticItem implements PlaceItemOn, Maker {
 
     protected ArrayList<MobileItem> items;
 
+    protected int maxItemNumber = 3;
+
     protected Recipe currentRecipe;
 
     protected ArrayList<Recipe> recipes;
@@ -55,8 +57,6 @@ public class Stove extends StaticItem implements PlaceItemOn, Maker {
 
         recipes = new ArrayList<>();
 
-        //cft = new Crafter();
-        //cft.rcps.add(new TwoToOne());
         
         shape = new SpriteShape(new Dimension(100, 100),
         new Dimension(10, 10), new Dimension(80, 80));
@@ -69,9 +69,21 @@ public class Stove extends StaticItem implements PlaceItemOn, Maker {
     }
 
     @Override
-    public Point itemPlaceLocation() {
-        return this.getLocation();
+    public Point itemPlaceLocation(MobileItem item) {
+        int x = this.getX();
+        int y = this.getY();
+        int w = this.getRange().width;
+        int h = this.getRange().height;
+        int index = items.indexOf(item);
+        if(index == 0){
+            index = 1;
+        }
+        else if (index == 1){
+            index = 0;
+        }
+        return new Point(x - 15 + index * 40, y - (h / 3)); 
     }
+
 
     @Override
     public void checkRecipes(){
@@ -84,6 +96,9 @@ public class Stove extends StaticItem implements PlaceItemOn, Maker {
                 readyTime = System.currentTimeMillis() + cookTime;
                 isCooking = true;
                 pendingItem = currentRecipe.craft(items);
+                for(var item : items){
+                    item.setLocation(itemPlaceLocation(item));
+                }
                 System.out.println(readyTime);
             }
         }
@@ -94,11 +109,13 @@ public class Stove extends StaticItem implements PlaceItemOn, Maker {
         if(isCooking && pendingItem != null && System.currentTimeMillis() >= readyTime){
             readyTime = Long.MAX_VALUE;
             isCooking = false;
-            //TODO: remove cooking sprite
-            pendingItem.setLocation(getLocation());
+
             pendingItem.setWorld(this.getWorld());
             this.getWorld().addSprite(pendingItem);
+            
             items.add(pendingItem);
+            pendingItem.setLocation(itemPlaceLocation(pendingItem));
+            
             pendingItem = null;
         }
     } 
@@ -106,7 +123,7 @@ public class Stove extends StaticItem implements PlaceItemOn, Maker {
     @Override
     public void tryAcquireItem(MobileItem item) {
         items.add(item);
-        item.setLocation(itemPlaceLocation());
+        item.setLocation(itemPlaceLocation(item));
     }
 
     @Override
@@ -142,7 +159,7 @@ public class Stove extends StaticItem implements PlaceItemOn, Maker {
 
     @Override
     public boolean hasSpace() {
-        return !isCooking;
+        return !isCooking && items.size() < maxItemNumber;
     }
 
     @Override
@@ -158,13 +175,11 @@ public class Stove extends StaticItem implements PlaceItemOn, Maker {
     @Override
     public MobileItem popItem() {
         if(hasItem()){
-            MobileItem pop = items.get(0);
-            items.remove(0);
+            MobileItem pop = items.get(items.size() - 1);
+            items.remove(items.size() - 1);
             return pop;
         }
         return null;
     }
-
-
 
 }

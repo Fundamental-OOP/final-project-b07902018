@@ -44,7 +44,7 @@ public class Table extends StaticItem implements PlaceItemOn {
     }
 
     @Override
-    public Point itemPlaceLocation() {
+    public Point itemPlaceLocation(MobileItem item) {
         int x = this.getX();
         int y = this.getY();
         int w = this.getRange().width;
@@ -56,7 +56,7 @@ public class Table extends StaticItem implements PlaceItemOn {
     @Override
     public void tryAcquireItem(MobileItem item) {
         items.add(item);
-        item.setLocation(itemPlaceLocation());
+        item.setLocation(itemPlaceLocation(item));
     }
 
     @Override
@@ -98,5 +98,6 @@ public class Table extends StaticItem implements PlaceItemOn {
         }
         return null;
     }
+
 
 }
