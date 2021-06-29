@@ -11,6 +11,7 @@ import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.Collection;
+import java.util.Scanner;
 
 /**
  * @author - johnny850807@gmail.com (Waterball)
@@ -29,6 +30,11 @@ public class GameView extends JFrame {
     }
 
     public void launch() {
+        Scanner sc = new Scanner (System.in);
+        sc.nextLine();
+        System.out.println("Game Start");
+        sc.close();
+
         // GUI Stuff
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setContentPane(canvas);
