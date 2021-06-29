@@ -35,17 +35,7 @@ public class Main {
         addAudioByFilePath(Walking.AUDIO_STEP1, new File("assets/audio/step1.wav"));
         addAudioByFilePath(Walking.AUDIO_STEP2, new File("assets/audio/step2.wav"));
 
-        List<Sprite> Sprites = new ArrayList<>();
-
-
-        ScoreBoard scoreboard = new ScoreBoard(0, 100, 100);
-        //Sprites.add(new PickupWindow(new Point(450, 450), o1, scoreboard, scoreComputer));
-        World world1 = new WorldExample1(new CharacterCollisionHandler(), scoreboard, Sprites);
-        // World w2;
-
-
-        //World world = new World(new CharacterCollisionHandler(), scoreboard, Sprites);  // model
-        Game game = new Game(world1);  // controller
+        Game game = new Game();  // controller
         // GameView view = new GameView(game);  // view
         game.start(game);  // run the game and the game loop
         // view.launch(); // launch the GUI

@@ -36,7 +36,7 @@ public abstract class GameLoop {
         GameView gameview = new GameView(game);
         gameview.menu();
 
-        List<Sprite> Sprites = new ArrayList<>();
+        
 
         //Sprites.add(new Table(new Point(300, 0)));
         //Sprites.add(new ApplePieStove(new Point(300, 150)));
@@ -48,18 +48,22 @@ public abstract class GameLoop {
         //o1.addOrder(new ApplePie(new Point(0, 0)));
         //ScoreComputer scoreComputer = new ScoreComputer(new ArrayList<>());
         //scoreComputer.addScoreConversion(new ScoreApplePie(new ApplePie(null)));
-
-
-
-
+        
         Character p1 = new Character(new Point(100, 100));
         Character p2 = new Character(new Point(500, 100));
         List<Character> players = new ArrayList<>();
         players.add(p1);
         players.add(p2);
 
-        game.setPlayers(players);
+        List<Sprite> Sprites = new ArrayList<>();
+        ScoreBoard scoreboard = new ScoreBoard(0, 100, 100);
+        Sprites.add(p1);
+        Sprites.add(p2);
+        World world1 = new WorldExample1(new CharacterCollisionHandler(), scoreboard, Sprites);
+        game.setWorld(world1);
         
+        game.setPlayers(players);
+
         new Thread(this::gameLoop).start();
         gameview.launch();
     }
