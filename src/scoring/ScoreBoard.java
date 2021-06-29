@@ -8,7 +8,7 @@ import java.awt.Rectangle;
 import model.Sprite;
 import model.SpriteShape;
 
-public class Scoreboard extends Sprite{
+public class ScoreBoard extends Sprite{
 
     private int score;
 
@@ -16,7 +16,7 @@ public class Scoreboard extends Sprite{
 
     protected final SpriteShape shape;
 
-    public Scoreboard(int s, int x, int y){
+    public ScoreBoard(int s, int x, int y){
         shape = new SpriteShape(new Dimension(146, 176),
         new Dimension(40, 38), new Dimension(66, 105));
         score = s;

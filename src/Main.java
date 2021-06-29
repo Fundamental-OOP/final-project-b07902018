@@ -16,7 +16,7 @@ import model.Sprite;
 import order.OrderList;
 import scoring.ScoreApplePie;
 import scoring.ScoreComputer;
-import scoring.Scoreboard;
+import scoring.ScoreBoard;
 import views.GameView;
 
 import java.awt.*;
@@ -52,7 +52,7 @@ public class Main {
         ScoreComputer scoreComputer = new ScoreComputer(new ArrayList<>());
         scoreComputer.addScoreConversion(new ScoreApplePie(new ApplePie(null)));
 
-        Scoreboard scoreboard = new Scoreboard(0, 100, 100);
+        ScoreBoard scoreboard = new ScoreBoard(0, 100, 100);
         // PickupWindow window = new PickupWindow(new Point(450, 450), o1, scoreboard, scoreComputer);
         Sprites.add(new PickupWindow(new Point(450, 450), o1, scoreboard, scoreComputer));
         World world = new World(new CharacterCollisionHandler(), scoreboard, Sprites);  // model

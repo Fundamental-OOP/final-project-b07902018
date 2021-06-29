@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import scoring.Score;
-import scoring.Scoreboard;
+import scoring.ScoreBoard;
 
 import static java.util.Arrays.stream;
 import static java.util.stream.Collectors.toSet;
@@ -18,9 +18,9 @@ public class World {
 
     private final List<Sprite> sprites = new CopyOnWriteArrayList<>();
     private final CollisionHandler collisionHandler;
-    protected Scoreboard scoreboard;
+    protected ScoreBoard scoreboard;
 
-    public World(CollisionHandler collisionHandler, Scoreboard scoreboard, List<Sprite> sprites) {
+    public World(CollisionHandler collisionHandler, ScoreBoard scoreboard, List<Sprite> sprites) {
         this.collisionHandler = collisionHandler;
         for(Sprite sprite: sprites){
             addSprite(sprite);
@@ -77,7 +77,7 @@ public class World {
         return this.scoreboard.getScore();
     }
 
-    public void setScoreboard(Scoreboard scoreboard){
+    public void setScoreboard(ScoreBoard scoreboard){
         this.scoreboard = scoreboard;
         addSprite(scoreboard);
     }

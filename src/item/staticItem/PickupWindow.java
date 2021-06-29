@@ -12,7 +12,7 @@ import model.Sprite;
 import model.SpriteShape;
 import order.OrderList;
 import scoring.ScoreComputer;
-import scoring.Scoreboard;
+import scoring.ScoreBoard;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -30,7 +30,7 @@ public class PickupWindow extends StaticItem implements PlaceItemOn {
 
     private OrderList pendingOrders;
 
-    private Scoreboard scoreboard;
+    private ScoreBoard scoreboard;
 
     private ScoreComputer scoreComputer;
 
@@ -38,7 +38,7 @@ public class PickupWindow extends StaticItem implements PlaceItemOn {
 
     protected final SpriteShape shape;
 
-    public PickupWindow(Point location, OrderList pendingOrders, Scoreboard scoreboard, ScoreComputer scoreComputer) {
+    public PickupWindow(Point location, OrderList pendingOrders, ScoreBoard scoreboard, ScoreComputer scoreComputer) {
         super(location);
         items = new ArrayList<>();
         this.pendingOrders = pendingOrders;
