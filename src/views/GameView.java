@@ -23,6 +23,7 @@ public class GameView extends JFrame {
     public static final int P2 = 2;
     private final Canvas canvas = new Canvas();
     private final Game game;
+ 
 
     public GameView(Game game) throws HeadlessException {
         this.game = game;
@@ -39,7 +40,7 @@ public class GameView extends JFrame {
 
         // GUI Stuff
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        //setContentPane(canvas);
+        setContentPane(canvas);
         setSize(WIDTH, HEIGHT);
         setContentPane(canvas);
         setVisible(true);
@@ -148,6 +149,7 @@ public class GameView extends JFrame {
             // Now, let's paint
             g.setColor(Color.WHITE); // paint background with all white
             g.fillRect(0, 0, GameView.WIDTH, GameView.HEIGHT);
+            //g.drawImage(img, x, y, observer)
 
             world.render(g); // ask the world to paint itself and paint the sprites on the canvas
         }
