@@ -31,6 +31,8 @@ public class GameView extends JFrame {
 
     public void launch() {
         Scanner sc = new Scanner (System.in);
+        System.out.println("Press any key to Start");
+
         sc.nextLine();
         System.out.println("Game Start");
         sc.close();
