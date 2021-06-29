@@ -4,20 +4,17 @@ import java.util.ArrayList;
 
 import item.mobileItem.MobileItem;
 
-public class OrderList {
+public class OrderList extends Consumer {
     
-    private ArrayList<Order> pendingOrders;
-
-    public OrderList(){
+    public OrderList() {
+        super();
         pendingOrders = new ArrayList<>();
-    }
-
-    public void addOrder(MobileItem item){
-        pendingOrders.add(new Order(item));
+        produceOrder();
     }
 
     public void removeOrder(Order order){
         pendingOrders.remove(order);
+        produceOrder();
     }
 
     public boolean contain(MobileItem item){
@@ -37,5 +34,4 @@ public class OrderList {
             }
         }
     }
-    
 }

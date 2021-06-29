@@ -36,7 +36,7 @@ public class WorldExample1 extends World {
         scoreComputer.addScoreConversion(new ScoreApplePie(new ApplePie(null)));
 
         //ScoreBoard scoreboard = new ScoreBoard(0, 100, 100);
-        addSprite(new PickupWindow(new Point(600, 400), o1, scoreboard, scoreComputer));
+        addSprite(new PickupWindow(new Point(600, 400), scoreboard, scoreComputer));
     }
     
 }

@@ -14,6 +14,7 @@ import model.Sprite;
 import character.Character;
 import java.awt.*;
 import item.mobileItem.*;
+import item.mobileItem.ingredient.*;
 import item.staticItem.*;
 import order.OrderList;
 import scoring.*;

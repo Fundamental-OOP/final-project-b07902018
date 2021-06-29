@@ -12,8 +12,12 @@ public class ScoreComputer {
         this.conversionList = conversionList;
     }
 
-    public void addScoreConversion(ScoreConversion conversion){
+    public void addScoreConversion(ScoreConversion conversion) {
         conversionList.add(conversion);
+    }
+
+    public void addScoreConversion(MobileItem item, int score) {
+        conversionList.add(new ScoreGeneric(item, score));
     }
 
     public boolean compatible(MobileItem item){
