@@ -60,7 +60,7 @@ public abstract class GameLoop {
         }
 
         ScoreBoard scoreboard = new ScoreBoard(0, 800, 100);
-        World world1 = new WorldExample1(new CharacterCollisionHandler(), scoreboard, Sprites);
+        World world1 = new WorldExample1(new CharacterCollisionHandler(), scoreboard, Sprites,gameview.getCanvas());
         game.setWorld(world1);
         game.setPlayers(players);
 

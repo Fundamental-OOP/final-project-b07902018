@@ -8,13 +8,13 @@ import item.mobileItem.ingredient.EnsaladaDeLechugaMaizYCebolla;
 import item.mobileItem.ingredient.FriedEgg;
 import item.mobileItem.ingredient.Ingredient;
 
-public class ApplepieRecipe extends ConcreteRecipe {
+public class FriedEggRecipe extends ConcreteRecipe {
 
-    public ApplepieRecipe() {
-        super("apple", "pie");
+    public FriedEggRecipe() {
+        super("rawegg");
     }
 
-    protected Ingredient getResult() {      
-        return new ApplePie(new Point(0, 0));
+    protected Ingredient getResult() {
+        return new FriedEgg(new Point(0, 0));
     }
 }

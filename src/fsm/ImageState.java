@@ -13,6 +13,9 @@ public class ImageState implements State {
         this.image = image;
         this.render = render;
     }
+    public Image getImage() {
+        return image;
+    }
 
     @Override
     public void update() {

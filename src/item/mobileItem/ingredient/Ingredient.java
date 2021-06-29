@@ -2,6 +2,7 @@ package item.mobileItem.ingredient;
 
 import fsm.FiniteStateMachine;
 import fsm.ImageRenderer;
+import fsm.ImageState;
 import fsm.State;
 import fsm.WaitingPerFrame;
 import model.Direction;
@@ -9,6 +10,7 @@ import model.Sprite;
 import model.SpriteShape;
 
 import java.awt.*;
+import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
 import item.*;
@@ -23,12 +25,18 @@ public class Ingredient extends MobileItem {
 
     protected final SpriteShape shape;
     protected final String ingredientName;
+    private List<ImageState> imageStates;
+
 
     public Ingredient(Point location, String name) {
         super(location);
         shape = new SpriteShape(new Dimension(50, 50), new Dimension(33, 38), new Dimension(66, 105));
         ingredientName = name;
         ImageRenderer imageRenderer = new ItemImageRenderer(this);
+        imageStates =imageStatesFromFolder("assets/item/" + ingredientName, imageRenderer);
+
+
+
         State idle = new WaitingPerFrame(4, new Idle(imageStatesFromFolder("assets/item/" + ingredientName, imageRenderer)));
         State moving = new WaitingPerFrame(2,
                 new Moving(this, imageStatesFromFolder("assets/item/" + ingredientName, imageRenderer)));
@@ -59,5 +67,8 @@ public class Ingredient extends MobileItem {
 
     public String getIngredientName() {
         return ingredientName;
+    }
+    public List<ImageState> getImageStates() {
+        return imageStates;
     }
 }

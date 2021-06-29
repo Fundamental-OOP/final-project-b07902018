@@ -18,7 +18,9 @@ public class FiniteStateMachine implements StateMachine {
         this.initialState = initialState;
         reset();
     }
-
+    public State getInitialState() {
+        return initialState;
+    }
     public void addTransition(Transition transition) {
         if (!transitionTable.containsKey(transition.from)) {
             transitionTable.put(transition.from, new HashMap<>());
