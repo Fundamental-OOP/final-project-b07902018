@@ -34,27 +34,12 @@ public abstract class GameLoop {
         GameView gameview = new GameView(game);
         gameview.menu();
 
-        List<Sprite> Sprites = new ArrayList<>();
         Character p1 = new Character(new Point(0, 0));
         Character p2 = new Character(new Point(300, 300));
-        Sprites.add(p1);
-        Sprites.add(p2);
-        Sprites.add(new Table(new Point(300, 0)));
-        Sprites.add(new ApplePieStove(new Point(300, 150)));
-        Sprites.add(new AppleFactory(new Point(0, 150)));
-        Sprites.add(new PieFactory(new Point(0, 300)));
-        Sprites.add(new VegetableFactory(new Point(150, 0)));
-        Sprites.add(new TrashCan(new Point(150, 300)));
-        OrderList o1 = new OrderList();
-        o1.addOrder(new ApplePie(new Point(0, 0)));
-        ScoreComputer scoreComputer = new ScoreComputer(new ArrayList<>());
-        scoreComputer.addScoreConversion(new ScoreApplePie(new ApplePie(null)));
-
-        ScoreBoard scoreboard = new ScoreBoard(0, 100, 100);
-        Sprites.add(new PickupWindow(new Point(450, 450), o1, scoreboard, scoreComputer));
-
-        World world = new World(new CharacterCollisionHandler(), scoreboard, Sprites);
-        game.construct(world, p1, p2);
+        List<Character> players = new ArrayList<>();
+        players.add(p1);
+        players.add(p2);
+        game.setPlayers(players);
         
         new Thread(this::gameLoop).start();
         gameview.launch();

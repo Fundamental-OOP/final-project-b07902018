@@ -18,19 +18,20 @@ public class Game extends GameLoop {
 
     private World world;
 
-    // public Game(World world, Character p1, Character p2) {
-    //     this.p1 = p1;
-    //     this.p2 = p2;
-
-    //     this.world = world;
-    // }
-
-    public Game(){}
-    
-    public void construct(World world, Character p1, Character p2){
-        this.p1 = p1;
-        this.p2 = p2;
+    public Game(World world) {
         this.world = world;
+    }
+    
+    public void setPlayers(List<Character> players){
+        if(players.size()==1){
+            this.p1 = players.get(0);
+            world.addSprite(players.get(0));
+        }else{
+            this.p1 = players.get(0);
+            this.p2 = players.get(1);
+            world.addSprite(players.get(0));
+            world.addSprite(players.get(1));
+        }
     }
 
     public void moveCharacter(int playerNumber, Direction direction) {

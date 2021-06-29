@@ -17,8 +17,8 @@ import menu.Menu;
  * @author - johnny850807@gmail.com (Waterball)
  */
 public class GameView extends JFrame {
-    public static final int HEIGHT = 1024;
-    public static final int WIDTH = 768;
+    public static final int HEIGHT = 600;
+    public static final int WIDTH = 1024;
     public static final int P1 = 1;
     public static final int P2 = 2;
     private final Canvas canvas = new Canvas();
