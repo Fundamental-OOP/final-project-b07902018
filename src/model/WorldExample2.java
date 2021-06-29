@@ -31,7 +31,7 @@ import scoring.ScoreComputer;
 
 public class WorldExample2 extends World {
 
-    public WorldExample2(CollisionHandler collisionHandler, ScoreBoard scoreboard, List<Sprite> sprites,JPanel panel) {
+    public WorldExample2(CollisionHandler collisionHandler, ScoreBoard scoreboard, List<Sprite> sprites, JPanel panel) {
         super(collisionHandler, scoreboard, sprites);
         
         for(int i = 1; i < 9; ++i){
@@ -73,18 +73,13 @@ public class WorldExample2 extends World {
         
         
 
-
-        OrderList o1 = new OrderList();
-        o1.addOrder(new ApplePie(new Point(0,0)));
         ScoreComputer scoreComputer = new ScoreComputer(new ArrayList<>());
         scoreComputer.addScoreConversion(new ScoreApplePie(new ApplePie(null)));
 
-        //ScoreBoard scoreboard = new ScoreBoard(0, 100, 100);
-        var w = new PickupWindow(new Point(900, 400), scoreboard, scoreComputer);
-        addSprite(w);
-        var o = new OrderDiplayer(1050, 200, w, panel);
-        //o.setColor(Color.DARK_GRAY);
-        addSprite(o);
+  
+        PickupWindow window = new PickupWindow(new Point(900, 400), scoreboard, scoreComputer);
+        addSprite(window); 
+        addSprite(new OrderDiplayer(1050, 200, window, panel));
     }
     
 }
