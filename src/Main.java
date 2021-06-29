@@ -52,7 +52,7 @@ public class Main {
         ScoreComputer scoreComputer = new ScoreComputer(new ArrayList<>());
         scoreComputer.addScoreConversion(new ScoreApplePie(new ApplePie(null)));
 
-        ScoreBoard scoreboard = new ScoreBoard(0, 100, 100);
+        ScoreBoard scoreboard = new ScoreBoard(0, 10, 10);
         // PickupWindow window = new PickupWindow(new Point(450, 450), o1, scoreboard, scoreComputer);
         Sprites.add(new PickupWindow(new Point(450, 450), o1, scoreboard, scoreComputer));
         World world = new World(new CharacterCollisionHandler(), scoreboard, Sprites);  // model
