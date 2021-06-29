@@ -35,19 +35,6 @@ public abstract class GameLoop {
     public void start(Game game) {
         GameView gameview = new GameView(game);
         gameview.menu();
-
-        
-
-        //Sprites.add(new Table(new Point(300, 0)));
-        //Sprites.add(new ApplePieStove(new Point(300, 150)));
-        //Sprites.add(new AppleFactory(new Point(0, 150)));
-        //Sprites.add(new PieFactory(new Point(0, 300)));
-        //Sprites.add(new VegetableFactory(new Point(150, 0)));
-        //Sprites.add(new TrashCan(new Point(150, 300)));
-        //OrderList o1 = new OrderList();
-        //o1.addOrder(new ApplePie(new Point(0, 0)));
-        //ScoreComputer scoreComputer = new ScoreComputer(new ArrayList<>());
-        //scoreComputer.addScoreConversion(new ScoreApplePie(new ApplePie(null)));
         
         Character p1 = new Character(new Point(100, 100));
         Character p2 = new Character(new Point(500, 100));
