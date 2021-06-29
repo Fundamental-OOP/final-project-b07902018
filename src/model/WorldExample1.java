@@ -22,15 +22,18 @@ public class WorldExample1 extends World {
             addSprite(new WoodPlatform(new Point(i * 100, 0)));
             addSprite(new WoodPlatform(new Point(i * 100, 600)));
         }
-        for(int i = 1; i < 6; ++i){
-            addSprite(new StorageTable(new Point(0, i * 100)));
-            addSprite(new StorageTable(new Point(700, i * 100)));
+        for(int i = 1; i < 3; ++i){
+            addSprite(new WoodPlatform(new Point(0, i * 100)));
+            addSprite(new WoodPlatform(new Point(700, i * 100)));
         }
+        addSprite(new AppleFactory(new Point(0, 300)));
+        addSprite(new PieFactory(new Point(0, 400)));
+        addSprite(new VegetableFactory(new Point(0, 500)));
+
+
         addSprite(new ApplePieStove(new Point(300, 400)));
-        addSprite(new AppleFactory(new Point(100, 300)));
-        addSprite(new PieFactory(new Point(100, 400)));
-        addSprite(new VegetableFactory(new Point(100, 500)));
-        addSprite(new TrashCan(new Point(600, 300)));
+        addSprite(new ApplePieStove(new Point(700, 500)));
+        addSprite(new TrashCan(new Point(700, 300)));
 
         OrderList o1 = new OrderList();
         o1.addOrder(new ApplePie(new Point(0,0)));
@@ -38,7 +41,7 @@ public class WorldExample1 extends World {
         scoreComputer.addScoreConversion(new ScoreApplePie(new ApplePie(null)));
 
         //ScoreBoard scoreboard = new ScoreBoard(0, 100, 100);
-        var w = new PickupWindow(new Point(600, 400), scoreboard, scoreComputer);
+        var w = new PickupWindow(new Point(700, 400), scoreboard, scoreComputer);
         addSprite(w);
         var o = new OrderDiplayer(100, 120, w);
         o.setColor(Color.DARK_GRAY);
