@@ -27,32 +27,46 @@ public abstract class GameLoop {
     protected boolean running;
     
     protected View view;
+    protected boolean gamestart = false;
 
     public void setView(View view) {
         this.view = view;
     }
 
+    public void gameStart(){
+        gamestart = true;
+    }
+
+    public Boolean isStart(){
+        return gamestart;
+    }
+
     public void start(Game game) {
         GameView gameview = new GameView(game);
-        gameview.menu();
-        
-        Character p1 = new Character(new Point(100, 100));
-        Character p2 = new Character(new Point(500, 100));
+        gameview.launchMenu();
         List<Character> players = new ArrayList<>();
-        players.add(p1);
-        players.add(p2);
-
         List<Sprite> Sprites = new ArrayList<>();
+        if(gameview.getMenu().getPlayernum()==1){
+            Character p1 = new Character(new Point(100, 100));
+            players.add(p1);
+            Sprites.add(p1);
+        }else{
+            Character p1 = new Character(new Point(100, 100));
+            Character p2 = new Character(new Point(500, 100));
+            players.add(p1);
+            players.add(p2);
+            Sprites.add(p1);
+            Sprites.add(p2);
+        }
+
         ScoreBoard scoreboard = new ScoreBoard(0, 800, 100);
-        Sprites.add(p1);
-        Sprites.add(p2);
         World world1 = new WorldExample1(new CharacterCollisionHandler(), scoreboard, Sprites);
         game.setWorld(world1);
-        
         game.setPlayers(players);
 
         new Thread(this::gameLoop).start();
         gameview.launch();
+
     }
 
     private void gameLoop() {
