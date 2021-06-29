@@ -64,7 +64,7 @@ public abstract class GameLoop {
         scoreComputer.addScoreConversion(new Pepino(null), 41);
         scoreComputer.addScoreConversion(new Tomato(null), 43);
 
-        ScoreBoard scoreboard = new ScoreBoard(0, 100, 100);
+        ScoreBoard scoreboard = new ScoreBoard(0, 10, 10);
         Sprites.add(new PickupWindow(new Point(450, 450), scoreboard, scoreComputer));
 
         World world = new World(new CharacterCollisionHandler(), scoreboard, Sprites);
