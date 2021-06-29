@@ -36,9 +36,9 @@ public class GameView extends JFrame {
         setVisible(true);
 
         Scanner sc = new Scanner (System.in);
-        System.out.println("Press enter to Start");
+        //System.out.println("Press enter to Start");
 
-        sc.nextLine();
+        //sc.nextLine();
         System.out.println("Game Start");
         sc.close();
         
