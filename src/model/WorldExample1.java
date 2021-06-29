@@ -1,11 +1,13 @@
 package model;
 
+import java.awt.Color;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 
 import item.mobileItem.ApplePie;
 import item.staticItem.*;
+import order.OrderDiplayer;
 import order.OrderList;
 import scoring.ScoreApplePie;
 import scoring.ScoreBoard;
@@ -36,7 +38,11 @@ public class WorldExample1 extends World {
         scoreComputer.addScoreConversion(new ScoreApplePie(new ApplePie(null)));
 
         //ScoreBoard scoreboard = new ScoreBoard(0, 100, 100);
-        addSprite(new PickupWindow(new Point(600, 400), scoreboard, scoreComputer));
+        var w = new PickupWindow(new Point(600, 400), scoreboard, scoreComputer);
+        addSprite(w);
+        var o = new OrderDiplayer(100, 120, w);
+        o.setColor(Color.DARK_GRAY);
+        addSprite(o);
     }
     
 }

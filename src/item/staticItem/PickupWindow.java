@@ -58,6 +58,9 @@ public class PickupWindow extends StaticItem implements PlaceItemOn {
     public Point itemPlaceLocation(MobileItem item) {
         return this.getLocation();
     }
+    public OrderList getPendingOrders() {
+        return pendingOrders;
+    }
 
 
     @Override

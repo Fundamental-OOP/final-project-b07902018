@@ -72,4 +72,8 @@ public abstract class Consumer {
     public void addOrder(MobileItem item) {
         pendingOrders.add(new Order(item));
     }
+    public List<Order> getFullList(){
+        return pendingOrders;
+    }
+
 }

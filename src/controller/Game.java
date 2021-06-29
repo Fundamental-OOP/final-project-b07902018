@@ -18,7 +18,9 @@ public class Game extends GameLoop {
 
     private World world;
 
-    public Game(World world) {
+    public Game() {}
+
+    public void setWorld(World world){
         this.world = world;
     }
     
