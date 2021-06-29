@@ -3,12 +3,13 @@ package scoring;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Font;
 import java.awt.Rectangle;
 
 import model.Sprite;
 import model.SpriteShape;
 
-public class ScoreBoard extends Sprite{
+public class ScoreBoard extends Sprite {
 
     private int score;
 
@@ -16,17 +17,16 @@ public class ScoreBoard extends Sprite{
 
     protected final SpriteShape shape;
 
-    public ScoreBoard(int s, int x, int y){
-        shape = new SpriteShape(new Dimension(146, 176),
-        new Dimension(40, 38), new Dimension(66, 105));
+    public ScoreBoard(int s, int x, int y) {
+        shape = new SpriteShape(new Dimension(146, 176), new Dimension(40, 38), new Dimension(66, 105));
         score = s;
         this.x = x;
         this.y = y;
     }
 
-    //public Score getScore() {
-    //  return score;
-    //}
+    // public Score getScore() {
+    // return score;
+    // }
 
     public int getScore() {
         return score;
@@ -36,18 +36,16 @@ public class ScoreBoard extends Sprite{
         score += increment;
     }
 
-
-    
     @Override
     public void update() {
-        
-        
+
     }
 
     @Override
     public void render(Graphics g) {
         g.setColor(Color.BLACK);
-        g.drawString(String.format("Time: %d, Score: %d", System.currentTimeMillis(), getScore()), x, y);
+        g.setFont(new Font("TimesRoman", Font.PLAIN, 30));
+        g.drawString(String.format("Score: %d", getScore()), x, y);
     }
 
     @Override
@@ -64,5 +62,5 @@ public class ScoreBoard extends Sprite{
     public Dimension getBodySize() {
         return shape.bodySize;
     }
-    
+
 }

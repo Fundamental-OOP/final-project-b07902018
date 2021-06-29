@@ -1,35 +1,57 @@
 package item.staticItem;
 
 import java.awt.*;
+import java.awt.image.*;
+import java.io.File;
+
+import javax.imageio.ImageIO;
 
 import model.Sprite;
 import model.SpriteShape;
 
-public class TextDisplayer extends Sprite{
+public class TextDisplayer extends Sprite {
 
     private int x, y;
     String text;
+    Image image;
     Color color;
+
     public Color getColor() {
         return color;
     }
+
     public void setColor(Color color) {
         this.color = color;
     }
+
     public void setText(String text) {
         this.text = text;
     }
+
     public String getText() {
         return text;
     }
+
     protected final SpriteShape shape;
 
-    public TextDisplayer( int x, int y){
-        shape = new SpriteShape(new Dimension(146, 176),
-        new Dimension(40, 38), new Dimension(66, 105));
-
+    public TextDisplayer(int x, int y) {
+        shape = new SpriteShape(new Dimension(146, 176), new Dimension(40, 38), new Dimension(66, 105));
         this.x = x;
         this.y = y;
+        this.image = null;
+    }
+    
+    public TextDisplayer(String pathName, int x, int y) {
+        shape = new SpriteShape(new Dimension(146, 176), new Dimension(40, 38), new Dimension(66, 105));
+        this.x = x;
+        this.y = y;
+        BufferedImage bufferImage = null;
+        try {
+            bufferImage = (BufferedImage) ImageIO.read(new File(pathName));
+        }
+        catch (Exception e) {
+        }
+        this.image = bufferImage;
     }
     @Override
     public Rectangle getRange() {
@@ -55,8 +77,9 @@ public class TextDisplayer extends Sprite{
     @Override
     public void render(Graphics g) {
         g.setColor(color);
-        g.drawString(text,x, y);
-        
+        g.drawString(text, x, y);
+        if (image != null)
+            g.drawImage(image, x, y + 50, 300, 300, null);
     }
     
 }
