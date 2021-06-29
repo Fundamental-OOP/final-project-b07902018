@@ -12,32 +12,39 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.Collection;
 import java.util.Scanner;
-
+import menu.Menu;
 /**
  * @author - johnny850807@gmail.com (Waterball)
  */
 public class GameView extends JFrame {
-    public static final int HEIGHT = 800;
-    public static final int WIDTH = 800;
+    public static final int HEIGHT = 1024;
+    public static final int WIDTH = 768;
     public static final int P1 = 1;
     public static final int P2 = 2;
     private final Canvas canvas = new Canvas();
-    private final Game game;
- 
+    private Game game;
 
     public GameView(Game game) throws HeadlessException {
         this.game = game;
         game.setView(canvas);
     }
+    
+    public void menu(){
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setSize(WIDTH, HEIGHT);
+        setContentPane(new Menu());
+        setVisible(true);
 
-    public void launch() {
         Scanner sc = new Scanner (System.in);
-        System.out.println("Press any key to Start");
+        System.out.println("Press enter to Start");
 
         sc.nextLine();
         System.out.println("Game Start");
         sc.close();
+        
+    }
 
+    public void launch() {
         // GUI Stuff
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setContentPane(canvas);

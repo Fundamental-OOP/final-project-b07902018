@@ -4,23 +4,32 @@ import character.Character;
 import item.Item;
 import item.mobileItem.MobileItem;
 import model.Direction;
+import model.Sprite;
 import model.World;
-
+import scoring.ScoreBoard;
+import character.CharacterCollisionHandler;
+import java.util.List;
 /**
  * @author - johnny850807@gmail.com (Waterball)
  */
 public class Game extends GameLoop {
-    private final Character p1;
-    private final Character p2;
+    private Character p1;
+    private Character p2;
 
+    private World world;
 
+    // public Game(World world, Character p1, Character p2) {
+    //     this.p1 = p1;
+    //     this.p2 = p2;
 
-    private final World world;
+    //     this.world = world;
+    // }
 
-    public Game(World world, Character p1, Character p2) {
+    public Game(){}
+    
+    public void construct(World world, Character p1, Character p2){
         this.p1 = p1;
         this.p2 = p2;
-
         this.world = world;
     }
 
