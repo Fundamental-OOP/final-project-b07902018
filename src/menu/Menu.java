@@ -39,9 +39,13 @@ public class Menu extends JPanel{
             setLayout(null);
 
             JLabel titleL = new JLabel("WELCOME");
-
             add(titleL);
             titleL.setFont(new Font("Chiller",Font.BOLD,50));
             titleL.setBounds(100, 30, 200, 50);
+
+            // JButton startB = new JButton("Start");
+            // add(startB);
+            // startB.setMnemonic(KeyEvent.VK_S);
+            // startB.setBounds(200, 80, 100, 20);
         }
 }
