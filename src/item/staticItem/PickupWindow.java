@@ -55,7 +55,7 @@ public class PickupWindow extends StaticItem implements PlaceItemOn {
     }
 
     @Override
-    public Point itemPlaceLocation() {
+    public Point itemPlaceLocation(MobileItem item) {
         return this.getLocation();
     }
 
@@ -63,7 +63,7 @@ public class PickupWindow extends StaticItem implements PlaceItemOn {
     @Override
     public void tryAcquireItem(MobileItem item) {
         items.add(item);
-        item.setLocation(itemPlaceLocation());
+        item.setLocation(itemPlaceLocation(item));
     }
 
     @Override
