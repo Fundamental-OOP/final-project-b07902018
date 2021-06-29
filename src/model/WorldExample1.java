@@ -49,7 +49,7 @@ public class WorldExample1 extends World {
         //ScoreBoard scoreboard = new ScoreBoard(0, 100, 100);
         var w = new PickupWindow(new Point(700, 400), scoreboard, scoreComputer);
         addSprite(w);
-        var o = new OrderDiplayer(100, 120, w);
+        var o = new OrderDiplayer(800,200, w);
         o.setColor(Color.DARK_GRAY);
         addSprite(o);
     }
