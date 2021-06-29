@@ -26,7 +26,7 @@ abstract public class ConcreteRecipe implements Recipe {
             if (ingredient.isEmpty())
                 return false;
         }
-        return itm.size() > 1;
+        return true;
     }
 
     @Override

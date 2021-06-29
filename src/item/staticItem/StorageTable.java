@@ -17,8 +17,6 @@ import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
 
 
-import crafting.recipe.TwoToOne;
-
 import static fsm.FiniteStateMachine.Transition.from;
 import static fsm.Event.*;
 import static model.Direction.LEFT;

@@ -20,7 +20,7 @@ import java.util.concurrent.CopyOnWriteArraySet;
 
 
 import crafting.Recipe;
-import crafting.recipe.TwoToOne;
+
 
 import static fsm.FiniteStateMachine.Transition.from;
 import static fsm.Event.*;

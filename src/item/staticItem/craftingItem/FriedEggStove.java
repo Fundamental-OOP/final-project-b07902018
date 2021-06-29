@@ -2,7 +2,7 @@ package item.staticItem.craftingItem;
 
 import java.awt.Point;
 
-import crafting.recipe.ApplepieRecipe;
+import crafting.recipe.ApplePieRecipe;
 import crafting.recipe.FriedEggRecipe;
 
 public class FriedEggStove extends Crafter {
