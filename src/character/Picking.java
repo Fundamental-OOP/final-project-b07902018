@@ -4,9 +4,8 @@ import fsm.Sequence;
 import fsm.State;
 import fsm.StateMachine;
 import item.mobileItem.MobileItem;
-import item.staticItem.Factory;
-
 import item.staticItem.PlaceItemOn;
+import item.staticItem.factoryItem.Factory;
 import jdk.nashorn.api.tree.SpreadTree;
 import media.AudioPlayer;
 import model.Sprite;

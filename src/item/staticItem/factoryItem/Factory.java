@@ -1,4 +1,4 @@
-package item.staticItem;
+package item.staticItem.factoryItem;
 
 import item.mobileItem.MobileItem;
 

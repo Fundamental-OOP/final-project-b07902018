@@ -1,4 +1,4 @@
-package item.staticItem;
+package item.staticItem.factoryItem;
 
 import static utils.ImageStateUtils.imageStatesFromFolder;
 
@@ -19,6 +19,7 @@ import item.mobileItem.ingredient.Maiz;
 import item.mobileItem.ingredient.Onion;
 import item.mobileItem.ingredient.Pepino;
 import item.mobileItem.ingredient.Tomato;
+import item.staticItem.StaticItem;
 import model.SpriteShape;
 
 public class VegetableFactory extends StaticItem implements Factory {

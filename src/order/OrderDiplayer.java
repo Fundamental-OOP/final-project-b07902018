@@ -1,7 +1,7 @@
 package order;
 
-import item.staticItem.PickupWindow;
 import item.staticItem.TextDisplayer;
+import item.staticItem.abandoningItem.PickupWindow;
 
 public class OrderDiplayer extends TextDisplayer{
     protected PickupWindow pickupWindow;

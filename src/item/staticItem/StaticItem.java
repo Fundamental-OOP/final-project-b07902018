@@ -20,7 +20,7 @@ import static utils.ImageStateUtils.imageStatesFromFolder;
 
 public abstract class StaticItem extends Item {
 
-    State idle;
+    protected State idle;
 
     public StaticItem(Point location) {
         super(location);

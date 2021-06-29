@@ -5,8 +5,14 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 
-import item.mobileItem.ApplePie;
+import item.mobileItem.ingredient.ApplePie;
 import item.staticItem.*;
+import item.staticItem.abandoningItem.PickupWindow;
+import item.staticItem.abandoningItem.TrashCan;
+import item.staticItem.craftingItem.ApplePieStove;
+import item.staticItem.factoryItem.AppleBox;
+import item.staticItem.factoryItem.PieBox;
+import item.staticItem.factoryItem.VegetableFactory;
 import order.OrderDiplayer;
 import order.OrderList;
 import scoring.ScoreApplePie;
@@ -26,8 +32,8 @@ public class WorldExample1 extends World {
             addSprite(new WoodPlatform(new Point(0, i * 100)));
             addSprite(new WoodPlatform(new Point(700, i * 100)));
         }
-        addSprite(new AppleFactory(new Point(0, 300)));
-        addSprite(new PieFactory(new Point(0, 400)));
+        addSprite(new AppleBox(new Point(0, 300)));
+        addSprite(new PieBox(new Point(0, 400)));
         addSprite(new VegetableFactory(new Point(0, 500)));
 
 

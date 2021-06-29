@@ -1,4 +1,4 @@
-package item.staticItem;
+package item.staticItem.craftingItem;
 
 import java.awt.Point;
 

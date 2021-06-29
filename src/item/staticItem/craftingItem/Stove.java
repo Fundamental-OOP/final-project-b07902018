@@ -1,4 +1,4 @@
-package item.staticItem;
+package item.staticItem.craftingItem;
 
 import fsm.FiniteStateMachine;
 import fsm.ImageRenderer;
@@ -7,6 +7,8 @@ import fsm.WaitingPerFrame;
 import item.Idle;
 import item.ItemImageRenderer;
 import item.mobileItem.MobileItem;
+import item.staticItem.PlaceItemOn;
+import item.staticItem.StaticItem;
 import model.Direction;
 import model.Sprite;
 import model.SpriteShape;

@@ -4,10 +4,10 @@ import java.awt.Point;
 import java.util.ArrayList;
 
 import crafting.Recipe;
-import item.mobileItem.Apple;
-import item.mobileItem.ApplePie;
 import item.mobileItem.MobileItem;
-import item.mobileItem.Pie;
+import item.mobileItem.ingredient.Apple;
+import item.mobileItem.ingredient.ApplePie;
+import item.mobileItem.ingredient.Pie;
 import model.World;
 
 public class ApplepieRecipe implements Recipe{
