@@ -1,7 +1,6 @@
 package order;
 
-import item.staticItem.ImageDisplayer;
-import item.staticItem.PickupWindow;
+
 import item.staticItem.TextDisplayer;
 import item.staticItem.abandoningItem.PickupWindow;
 
