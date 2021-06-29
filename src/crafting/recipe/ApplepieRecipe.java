@@ -14,7 +14,7 @@ public class ApplePieRecipe extends ConcreteRecipe {
         super("apple", "pie");
     }
 
-    protected Ingredient getResult() {
+    protected Ingredient getResult() {      
         return new ApplePie(new Point(0, 0));
     }
 }
