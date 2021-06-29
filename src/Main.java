@@ -55,7 +55,7 @@ public class Main {
         // Scoreboard scoreboard = new Scoreboard(0, 100, 100);
         // Sprites.add(new PickupWindow(new Point(450, 450), o1, scoreboard, scoreComputer));
         // World world = new World(new CharacterCollisionHandler(), scoreboard, Sprites);  // model
-        // Game game = new Game(world, p1, p2);  // controller
+        // Game game = new Game(world, p1, p2);  // controllera
         Game game = new Game();
         // GameView gameview = new GameView(game);  // view
         game.start(game);  // run the game and the game loop

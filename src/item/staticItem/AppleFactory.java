@@ -33,7 +33,7 @@ public class AppleFactory extends StaticItem implements Factory {
 
         ImageRenderer imageRenderer = new ItemImageRenderer(this);
         idle = new WaitingPerFrame(4,
-                new Idle(imageStatesFromFolder("assets/item/box", imageRenderer)));
+                new Idle(imageStatesFromFolder("assets/item/applebox", imageRenderer)));
 
         
     }

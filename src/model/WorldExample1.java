@@ -21,8 +21,8 @@ public class WorldExample1 extends World {
             addSprite(new Table(new Point(i * 100, 600)));
         }
         for(int i = 1; i < 6; ++i){
-            addSprite(new Table(new Point(0, i * 100)));
-            addSprite(new Table(new Point(700, i * 100)));
+            addSprite(new StorageTable(new Point(0, i * 100)));
+            addSprite(new StorageTable(new Point(700, i * 100)));
         }
         addSprite(new ApplePieStove(new Point(300, 400)));
         addSprite(new AppleFactory(new Point(100, 300)));
