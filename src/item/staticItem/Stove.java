@@ -182,6 +182,4 @@ public class Stove extends StaticItem implements PlaceItemOn, Maker {
         return null;
     }
 
-
-
 }

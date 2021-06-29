@@ -5,7 +5,7 @@ import fsm.State;
 import fsm.StateMachine;
 import item.mobileItem.MobileItem;
 import item.staticItem.Factory;
-import item.staticItem.KnightFactory;
+
 import item.staticItem.PlaceItemOn;
 import jdk.nashorn.api.tree.SpreadTree;
 import media.AudioPlayer;
