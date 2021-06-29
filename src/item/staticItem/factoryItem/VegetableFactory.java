@@ -1,4 +1,4 @@
-package item.staticItem;
+package item.staticItem.factoryItem;
 
 import static utils.ImageStateUtils.imageStatesFromFolder;
 
@@ -19,21 +19,15 @@ import item.mobileItem.ingredient.Maiz;
 import item.mobileItem.ingredient.Onion;
 import item.mobileItem.ingredient.Pepino;
 import item.mobileItem.ingredient.Tomato;
+import item.staticItem.StaticItem;
 import model.SpriteShape;
 
-public class VegetableFactory extends StaticItem implements Factory {
+public class VegetableFactory extends Factory {
 
-    protected final SpriteShape shape;
     protected final Point thisLocation;
 
     public VegetableFactory(Point location) {
-        super(location);
-
-        shape = new SpriteShape(new Dimension(100, 100),
-        new Dimension(10, 10), new Dimension(80, 80));
-
-        ImageRenderer imageRenderer = new ItemImageRenderer(this);
-        idle = new WaitingPerFrame(4, new Idle(imageStatesFromFolder("assets/item/box", imageRenderer)));
+        super(location, "box");
         thisLocation = location;
     }
 
@@ -62,21 +56,6 @@ public class VegetableFactory extends StaticItem implements Factory {
         }
         this.world.addSprite(ingredient);
         return ingredient;
-    }
-
-    @Override
-    public Rectangle getRange() {
-        return new Rectangle(location, shape.size);
-    }
-
-    @Override
-    public Dimension getBodyOffset() {
-        return shape.bodyOffset;
-    }
-
-    @Override
-    public Dimension getBodySize() {
-        return shape.bodySize;
     }
 
 }

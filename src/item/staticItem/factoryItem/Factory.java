@@ -1,4 +1,4 @@
-package item.staticItem;
+package item.staticItem.factoryItem;
 
 import fsm.FiniteStateMachine;
 import fsm.ImageRenderer;
@@ -7,7 +7,8 @@ import fsm.WaitingPerFrame;
 import item.Idle;
 import item.ItemImageRenderer;
 import item.mobileItem.MobileItem;
-import item.mobileItem.Pie;
+import item.mobileItem.ingredient.Apple;
+import item.staticItem.StaticItem;
 import model.Direction;
 import model.Sprite;
 import model.SpriteShape;
@@ -21,11 +22,11 @@ import static fsm.Event.*;
 import static model.Direction.LEFT;
 import static utils.ImageStateUtils.imageStatesFromFolder;
 
-public class PieFactory extends StaticItem implements Factory {
+public abstract class Factory extends StaticItem {
 
     protected final SpriteShape shape;
 
-    public PieFactory(Point location) {
+    public Factory(Point location, String factoryName) {
         super(location);
 
         shape = new SpriteShape(new Dimension(100, 100),
@@ -33,17 +34,11 @@ public class PieFactory extends StaticItem implements Factory {
 
         ImageRenderer imageRenderer = new ItemImageRenderer(this);
         idle = new WaitingPerFrame(4,
-                new Idle(imageStatesFromFolder("assets/item/box", imageRenderer)));
-
-        
+                new Idle(imageStatesFromFolder("assets/item/" + factoryName, imageRenderer)));
     }
 
-    @Override
-    public MobileItem produceItem() {
-        Pie newItem = new Pie(new Point(150, 150));
-        this.world.addSprite(newItem);
-        return newItem;
-    }
+
+    public abstract MobileItem produceItem();
 
     @Override
     public Rectangle getRange() {

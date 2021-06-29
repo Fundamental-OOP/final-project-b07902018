@@ -1,10 +1,14 @@
-package item.staticItem;
+package item.staticItem.factoryItem;
 
 import fsm.FiniteStateMachine;
 import fsm.ImageRenderer;
 import fsm.State;
 import fsm.WaitingPerFrame;
-import item.Item;
+import item.Idle;
+import item.ItemImageRenderer;
+import item.mobileItem.MobileItem;
+import item.mobileItem.ingredient.Apple;
+import item.staticItem.StaticItem;
 import model.Direction;
 import model.Sprite;
 import model.SpriteShape;
@@ -18,29 +22,17 @@ import static fsm.Event.*;
 import static model.Direction.LEFT;
 import static utils.ImageStateUtils.imageStatesFromFolder;
 
-public abstract class StaticItem extends Item {
+public class AppleBox extends Factory {
 
-    protected State idle;
-
-    public StaticItem(Point location) {
-        super(location);
-    }
-
-
-    public void update() {
-        //fsm.update();
+    public AppleBox(Point location) {
+        super(location, "applebox");
     }
 
     @Override
-    public void render(Graphics g) {
-        //super.render(g);
-        idle.render(g);
+    public MobileItem produceItem() {
+        Apple newItem = new Apple(new Point(150, 150));
+        this.world.addSprite(newItem);
+        return newItem;
     }
-
-    @Override
-    public Point getLocation() {
-        return location;
-    }
-
 
 }

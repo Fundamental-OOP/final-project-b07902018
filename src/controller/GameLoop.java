@@ -43,7 +43,7 @@ public abstract class GameLoop {
         players.add(p2);
 
         List<Sprite> Sprites = new ArrayList<>();
-        ScoreBoard scoreboard = new ScoreBoard(0, 100, 100);
+        ScoreBoard scoreboard = new ScoreBoard(0, 800, 100);
         Sprites.add(p1);
         Sprites.add(p2);
         World world1 = new WorldExample1(new CharacterCollisionHandler(), scoreboard, Sprites);

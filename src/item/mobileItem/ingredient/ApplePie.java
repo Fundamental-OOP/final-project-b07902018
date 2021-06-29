@@ -1,4 +1,4 @@
-package item.mobileItem;
+package item.mobileItem.ingredient;
 
 import fsm.FiniteStateMachine;
 import fsm.ImageRenderer;
@@ -13,27 +13,29 @@ import java.awt.*;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
 import item.*;
+import item.mobileItem.MobileItem;
+
 import static fsm.FiniteStateMachine.Transition.from;
 import static fsm.Event.*;
 import static model.Direction.LEFT;
 import static utils.ImageStateUtils.imageStatesFromFolder;
 
-public class Apple extends MobileItem {
+public class ApplePie extends MobileItem {
 
     protected final SpriteShape shape;
 
-    public Apple(Point location) {
+    public ApplePie(Point location) {
         super(location);
         shape = new SpriteShape(new Dimension(50, 50),
-        new Dimension(5, 5), new Dimension(40, 40));
+        new Dimension(33, 38), new Dimension(66, 105));
 
         ImageRenderer imageRenderer = new ItemImageRenderer(this);
         State idle = new WaitingPerFrame(4,
-                new Idle(imageStatesFromFolder("assets/item/apple", imageRenderer)));
+                new Idle(imageStatesFromFolder("assets/item/applepie", imageRenderer)));
         State moving = new WaitingPerFrame(2,
-                new Moving(this, imageStatesFromFolder("assets/item/apple", imageRenderer)));
+                new Moving(this, imageStatesFromFolder("assets/item/applepie", imageRenderer)));
         State freeze = new WaitingPerFrame(0,
-                new Freeze(this, fsm, imageStatesFromFolder("assets/item/apple", imageRenderer)));
+                new Freeze(this, fsm, imageStatesFromFolder("assets/item/applepie", imageRenderer)));
         
         fsm.setInitialState(idle);
         fsm.addTransition(from(idle).when(MOVE).to(moving));

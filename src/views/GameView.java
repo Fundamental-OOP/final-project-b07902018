@@ -6,10 +6,12 @@ import model.Direction;
 import model.Sprite;
 import model.World;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.io.File;
 import java.util.Collection;
 import java.util.Scanner;
 import menu.Menu;
@@ -17,8 +19,8 @@ import menu.Menu;
  * @author - johnny850807@gmail.com (Waterball)
  */
 public class GameView extends JFrame {
-    public static final int HEIGHT = 600;
-    public static final int WIDTH = 1024;
+    public static final int HEIGHT = 720;
+    public static final int WIDTH = 800;
     public static final int P1 = 1;
     public static final int P2 = 2;
     private final Canvas canvas = new Canvas();
@@ -143,6 +145,7 @@ public class GameView extends JFrame {
 
     public static class Canvas extends JPanel implements View {
         private World world;
+        private Image image = null;
 
         @Override
         public void render(World world) {
@@ -153,9 +156,16 @@ public class GameView extends JFrame {
         @Override
         protected void paintComponent(Graphics g /*paintbrush*/) {
             super.paintComponent(g);
+
+            if(image == null){
+                try{
+                image = ImageIO.read(new File("assets/Floor.jpeg"));}
+                catch(Exception e){}
+            }
             // Now, let's paint
-            g.setColor(Color.WHITE); // paint background with all white
+            g.setColor(Color.decode("#cf9c69")); // paint background with all white
             g.fillRect(0, 0, GameView.WIDTH, GameView.HEIGHT);
+            //if(image !=null)g.drawImage(image,0,0,this);
             //g.drawImage(img, x, y, observer)
 
             world.render(g); // ask the world to paint itself and paint the sprites on the canvas
