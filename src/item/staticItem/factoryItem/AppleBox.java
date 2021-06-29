@@ -22,7 +22,7 @@ import static fsm.Event.*;
 import static model.Direction.LEFT;
 import static utils.ImageStateUtils.imageStatesFromFolder;
 
-public class AppleBox extends FactoryItem {
+public class AppleBox extends Factory {
 
     public AppleBox(Point location) {
         super(location, "applebox");
@@ -34,5 +34,5 @@ public class AppleBox extends FactoryItem {
         this.world.addSprite(newItem);
         return newItem;
     }
-    
+
 }

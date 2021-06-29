@@ -23,7 +23,7 @@ import static fsm.Event.*;
 import static model.Direction.LEFT;
 import static utils.ImageStateUtils.imageStatesFromFolder;
 
-public class PieBox extends FactoryItem {
+public class PieBox extends Factory {
 
     public PieBox(Point location) {
         super(location, "piebox");

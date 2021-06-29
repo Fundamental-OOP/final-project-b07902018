@@ -27,7 +27,7 @@ import static fsm.Event.*;
 import static model.Direction.LEFT;
 import static utils.ImageStateUtils.imageStatesFromFolder;
 
-public class Stove extends StaticItem implements PlaceItemOn, Maker {
+public class Crafter extends StaticItem implements PlaceItemOn, Maker {
 
     protected final long cookTime = 3000;
 
@@ -52,7 +52,7 @@ public class Stove extends StaticItem implements PlaceItemOn, Maker {
 
     //public Crafter cft;
 
-    public Stove(Point location) {
+    public Crafter(Point location) {
         super(location);
 
         items = new ArrayList<>();

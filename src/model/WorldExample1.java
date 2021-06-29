@@ -11,6 +11,7 @@ import item.staticItem.abandoningItem.PickupWindow;
 import item.staticItem.abandoningItem.TrashCan;
 import item.staticItem.craftingItem.ApplePieStove;
 import item.staticItem.factoryItem.AppleBox;
+import item.staticItem.factoryItem.EggBasket;
 import item.staticItem.factoryItem.PieBox;
 import item.staticItem.factoryItem.VegetableFactory;
 import order.OrderDiplayer;
@@ -38,7 +39,7 @@ public class WorldExample1 extends World {
 
 
         addSprite(new ApplePieStove(new Point(300, 400)));
-        addSprite(new ApplePieStove(new Point(700, 500)));
+        addSprite(new EggBasket(new Point(700, 500)));
         addSprite(new TrashCan(new Point(700, 300)));
 
         OrderList o1 = new OrderList();

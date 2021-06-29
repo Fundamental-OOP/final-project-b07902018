@@ -5,9 +5,9 @@ import java.awt.Point;
 import item.mobileItem.MobileItem;
 import item.mobileItem.ingredient.RawEgg;
 
-public class EggBasket extends FactoryItem {
+public class EggBasket extends Factory {
 
-    public EggBasket(Point location, String factoryName) {
+    public EggBasket(Point location) {
         super(location, "eggbasket");
         //TODO Auto-generated constructor stub
     }

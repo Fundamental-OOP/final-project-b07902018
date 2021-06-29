@@ -22,7 +22,7 @@ import item.mobileItem.ingredient.Tomato;
 import item.staticItem.StaticItem;
 import model.SpriteShape;
 
-public class VegetableFactory extends FactoryItem {
+public class VegetableFactory extends Factory {
 
     protected final Point thisLocation;
 

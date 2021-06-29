@@ -4,7 +4,7 @@ import java.awt.Point;
 
 import crafting.recipe.*;
 
-public class ApplePieStove extends Stove {
+public class ApplePieStove extends Crafter {
 
     public ApplePieStove(Point location) {
         super(location);
