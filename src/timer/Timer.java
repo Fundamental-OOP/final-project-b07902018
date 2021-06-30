@@ -14,7 +14,7 @@ public class Timer {
             if(ended())return "00:00";
             else {
                 long s = (endTime - System.currentTimeMillis())/1000;
-                return String.format("%02d:%02d", s/60,s%60);
+                return String.format("  %02d  :  %02d  ", s/60,s%60);
             }
         }else{
             return "99:99";

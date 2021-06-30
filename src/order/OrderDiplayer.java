@@ -60,11 +60,15 @@ public class OrderDiplayer extends Sprite{
     @Override
     public void render(Graphics g) {
         g.setColor(Color.BLACK);
-        g.drawString("Order:", x, y);
+        g.setFont(new Font("TimesRoman", Font.PLAIN, 30));
+        
         for (int i = 0;i<imgs.size();i++){
             g.drawImage(imgs.get(i), x+10+85*i, y+20,75,75, panel);
 
         }
+        g.drawString("Order:", x, y+23);
+
+        
         
     }
 

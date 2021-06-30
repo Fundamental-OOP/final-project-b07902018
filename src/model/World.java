@@ -57,9 +57,9 @@ public abstract class World {
         
         timer = new Timer();
 
-        tdp = new TextDisplayer(1050, 50);
+        tdp = new TextDisplayer(970, 140);
         tdp.setText("Timer");
-
+        tdp.setFontSize(50);
         String pathName = "assets/recipeDisplay2.png";
         recipe = new FixedImageDisplayer(pathName, 900, 720 - 415 - 100, 360, 415, panel);
         for(Sprite sprite: sprites){
@@ -68,6 +68,9 @@ public abstract class World {
         setScoreboard(scoreboard);
         //scoreBoard = new ScoreBoard(0, 10, 10);
         //addSprite(scoreboard);
+        var timerbg = new FixedImageDisplayer("assets/timer.png",900,0,360,285,panel);
+
+        addSprite(timerbg);
         addSprite(tdp);
         addSprite(recipe);
     }
