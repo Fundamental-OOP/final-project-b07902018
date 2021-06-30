@@ -83,7 +83,7 @@ public class GameView extends JFrame {
         // GUI Stuff
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setContentPane(canvas);
-        setSize(WIDTH+400, HEIGHT);
+        setSize(WIDTH + 400, HEIGHT);
         setContentPane(canvas);
         setVisible(true);
 
@@ -198,7 +198,8 @@ public class GameView extends JFrame {
             }*/
             // Now, let's paint
             g.setColor(Color.decode("#cf9c69")); // paint background with all white
-            g.fillRect(0, 0, GameView.WIDTH-300, GameView.HEIGHT);
+            //g.fillRect(0, 0, GameView.WIDTH, GameView.HEIGHT);
+            g.fillRect(0, 0, 900, 600);
             //if(image !=null)g.drawImage(image,0,0,this);
             //g.drawImage(img, x, y, observer)
 

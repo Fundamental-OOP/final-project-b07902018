@@ -12,9 +12,14 @@ import model.SpriteShape;
 public class TextDisplayer extends Sprite {
 
     private int x, y;
+    private int fontSize = 30;
     String text;
     Image image;
     Color color;
+
+    public void setFontSize(int fontSize) {
+        this.fontSize = fontSize;
+    }
 
     public Color getColor() {
         return color;
@@ -77,7 +82,7 @@ public class TextDisplayer extends Sprite {
     @Override
     public void render(Graphics g) {
         g.setColor(color);
-        g.setFont(new Font("TimesRoman", Font.PLAIN, 30));
+        g.setFont(new Font("Marker Felt", Font.PLAIN, fontSize));
         g.drawString(text, x, y);
         if (image != null)
             g.drawImage(image, x, y + 50, 300, 300, null);

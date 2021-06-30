@@ -57,19 +57,24 @@ public abstract class World {
         
         timer = new Timer();
 
-        tdp = new TextDisplayer(1050, 50);
+        tdp = new TextDisplayer(935, 90);
         tdp.setText("Timer");
-
-        String pathName = "assets/recipe/1.png";
-        recipe = new FixedImageDisplayer(pathName, 1050, 300, 300, 300, panel);
+        tdp.setFontSize(25);
+        String pathName = "assets/recipeDisplay2.png";
+        recipe = new FixedImageDisplayer(pathName, 900, 720 - 207 - 100, 180, 207, panel);
         for(Sprite sprite: sprites){
             addSprite(sprite);
         }
-        setScoreboard(scoreboard);
         //scoreBoard = new ScoreBoard(0, 10, 10);
         //addSprite(scoreboard);
+        var timerbg = new FixedImageDisplayer("assets/newtimer.png", 900, 0, 180, 138, panel);
+        var scbbg = new FixedImageDisplayer("assets/scoreboard.png",900,140,180,180,panel);
+        addSprite(timerbg);
+        addSprite(scbbg);
         addSprite(tdp);
         addSprite(recipe);
+        setScoreboard(scoreboard);
+
     }
 
     public void update() {
