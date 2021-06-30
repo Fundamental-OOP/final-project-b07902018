@@ -175,7 +175,7 @@ public class GameView extends JFrame {
             }
             // Now, let's paint
             g.setColor(Color.decode("#cf9c69")); // paint background with all white
-            g.fillRect(0, 0, GameView.WIDTH, GameView.HEIGHT);
+            g.fillRect(0, 0, GameView.WIDTH-300, GameView.HEIGHT);
             //if(image !=null)g.drawImage(image,0,0,this);
             //g.drawImage(img, x, y, observer)
 
