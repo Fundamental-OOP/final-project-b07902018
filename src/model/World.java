@@ -38,7 +38,7 @@ public abstract class World {
 
     protected Timer timer;
 
-    TextDisplayer tdp;
+    protected TextDisplayer textDisplayer;
 
     protected FixedImageDisplayer recipe;
 
@@ -57,9 +57,10 @@ public abstract class World {
         
         timer = new Timer();
 
-        tdp = new TextDisplayer(935, 90);
-        tdp.setText("Timer");
-        tdp.setFontSize(25);
+        textDisplayer = new TextDisplayer(935, 90);
+        textDisplayer.setText("Timer");
+        textDisplayer.setFontSize(25);
+
         String pathName = "assets/recipe2.png";
         recipe = new FixedImageDisplayer(pathName, 900, 720 - 180 * 2043 / 915, 180, 180 * 2043 / 915, panel);
         for(Sprite sprite: sprites){
@@ -67,13 +68,15 @@ public abstract class World {
         }
         //scoreBoard = new ScoreBoard(0, 10, 10);
         //addSprite(scoreboard);
-        var timerbg = new FixedImageDisplayer("assets/newtimer.png", 900, 0, 180, 138, panel);
-        var scbbg = new FixedImageDisplayer("assets/scoreboard.png",900,140,180,180,panel);
-        var olbg = new FixedImageDisplayer("assets/orderlistbg.png", 0, 600, 900, 120, panel);
-        addSprite(timerbg);
-        addSprite(scbbg);
-        addSprite(tdp);
-        addSprite(olbg);
+
+        var timerBackground = new FixedImageDisplayer("assets/newtimer.png", 900, 0, 180, 138, panel);
+        var scoreboardBackground = new FixedImageDisplayer("assets/scoreboard.png",900,140,180,180,panel);
+        var orderListBackground = new FixedImageDisplayer("assets/orderlistbg.png", 0, 600, 900, 120, panel);
+        
+        addSprite(timerBackground);
+        addSprite(scoreboardBackground);
+        addSprite(textDisplayer);
+        addSprite(orderListBackground);
         addSprite(recipe);
         setScoreboard(scoreboard);
 
@@ -81,8 +84,8 @@ public abstract class World {
 
     public void update() {
         if(!timer.started())timer.startTimer(gameTime);
-        if(timer.getRemainTime()<=10)tdp.setColor(Color.RED);
-        tdp.setText(timer.getCountString());
+        if(timer.getRemainTime()<=10)textDisplayer.setColor(Color.RED);
+        textDisplayer.setText(timer.getCountString());
         for (Sprite sprite : sprites) {
             sprite.update();
         }
