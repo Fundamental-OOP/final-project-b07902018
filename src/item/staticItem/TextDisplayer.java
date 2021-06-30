@@ -75,7 +75,7 @@ public class TextDisplayer extends Sprite {
 
     @Override
     public void update() {
-        // TODO Auto-generated method stub
+         
         
     }
 

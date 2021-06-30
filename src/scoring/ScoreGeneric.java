@@ -9,12 +9,12 @@ public class ScoreGeneric extends ScoreConversion {
     public ScoreGeneric(MobileItem item, int score) {
         super(item);
         this.score = score;
-        //TODO Auto-generated constructor stub
+         
     }
 
     @Override
     public int getScore() {
-        // TODO Auto-generated method stub
+         
         return score;
     }
     

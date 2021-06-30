@@ -52,7 +52,6 @@ public class FixedImageDisplayer extends Sprite {
 
     @Override
     public void update() {
-        // TODO Auto-generated method stub
         
     }
 

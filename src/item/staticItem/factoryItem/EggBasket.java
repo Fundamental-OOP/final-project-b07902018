@@ -10,7 +10,6 @@ public class EggBasket extends Factory {
 
     public EggBasket(Point location, SpriteShape shape, SpriteShape productShape) {
         super(location, shape, productShape, "eggbasket");
-        //TODO Auto-generated constructor stub
     }
 
     @Override

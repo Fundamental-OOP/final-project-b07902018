@@ -1,8 +1,6 @@
 package controller;
 
-import model.World;
-import model.WorldExample1;
-import model.WorldExample3;
+import model.*;
 import views.GameView;
 import views.View;
 import java.util.List;
@@ -66,7 +64,7 @@ public abstract class GameLoop {
             worldWidth = 1080;
             worldHeight = 720;
             ScoreBoard scoreboard = new ScoreBoard(0, 970, 210);
-            world = new WorldExample1(new CharacterCollisionHandler(), worldWidth, worldHeight, scoreboard, Sprites, gameview.getCanvas());
+            world = new WorldExample4(new CharacterCollisionHandler(), worldWidth, worldHeight, scoreboard, Sprites, gameview.getCanvas());
             game.setWorld(world);
         }
 
