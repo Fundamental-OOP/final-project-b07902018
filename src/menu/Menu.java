@@ -9,7 +9,7 @@ import controller.Game;
 
 public class Menu extends JPanel {
     public static final int HEIGHT = 720;
-    public static final int WIDTH = 1080;
+    public static final int WIDTH = 1280;
     private int playernum;
     private int worldnum;
     private Game game;
@@ -105,7 +105,7 @@ public class Menu extends JPanel {
         super.paintComponent(g);
         // Now, let's paint
         g.setColor(Color.WHITE); // paint background with all white
-        g.fillRect(0, 0, WIDTH, HEIGHT);
+        g.fillRect(0, 0, WIDTH, HEIGHT+100);
         g.drawImage(im2, 100, 50, 800, HEIGHT / 2, null);
     }
 
