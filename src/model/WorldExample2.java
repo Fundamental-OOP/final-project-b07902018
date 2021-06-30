@@ -46,52 +46,55 @@ public class WorldExample2 extends World {
         super(collisionHandler, width, height, scoreboard, sprites);
         
         for(int i = 0; i < 12; ++i){
-            addSprite(new PieBox(computeCoordinate(i, 0), staticItemShape, mobileItemShape));
+            addSprite(new WoodPlatform(computeCoordinate(i, 0), staticItemShape));
         }
-        /*
-        addSprite(new Plant1(new Point(0, 100)));
-        addSprite(new Plant1(new Point(0, 600)));
-        addSprite(new WoodPlatform(new Point(100, 700)));
-        addSprite(new WoodPlatform(new Point(200, 700)));
-        addSprite(new WoodPlatform(new Point(400, 700)));
-        addSprite(new WoodPlatform(new Point(500, 700)));
-        addSprite(new WoodPlatform(new Point(700, 700)));
-        addSprite(new WoodPlatform(new Point(800, 700)));
 
-        addSprite(new ApplePieStove(new Point(0, 200)));
-        addSprite(new PieBox(new Point(0, 300)));
-        addSprite(new BreadBasket(new Point(0, 400)));
-        addSprite(new FriedEggStove(new Point(0, 500)));
+        addSprite(new ApplePieStove(computeCoordinate(0, 2), staticItemShape, mobileItemShape));
+        addSprite(new PieBox(computeCoordinate(0, 3), staticItemShape, mobileItemShape));
+        addSprite(new BreadBasket(computeCoordinate(0, 4), staticItemShape, mobileItemShape));
+        addSprite(new FriedEggStove(computeCoordinate(0, 5), staticItemShape, mobileItemShape));
+        
+        
+        addSprite(new Plant1(computeCoordinate(0, 1), staticItemShape));
+        addSprite(new Plant1(computeCoordinate(0, 6), staticItemShape));
+        addSprite(new WoodPlatform(computeCoordinate(1, 7), staticItemShape));
+        addSprite(new WoodPlatform(computeCoordinate(2, 7), staticItemShape));
+        addSprite(new WoodPlatform(computeCoordinate(4, 7), staticItemShape));
+        addSprite(new WoodPlatform(computeCoordinate(5, 7), staticItemShape));
+        addSprite(new WoodPlatform(computeCoordinate(7, 7), staticItemShape));
+        addSprite(new WoodPlatform(computeCoordinate(8, 7), staticItemShape));
 
-        addSprite(new TrashCan(new Point(100, 100)));
-        addSprite(new EggBasket(new Point(100, 600)));
 
-        addSprite(new AppleBox(new Point(300, 700)));
 
-        addSprite(new SaladBowl(new Point(400, 400)));
+        addSprite(new TrashCan(computeCoordinate(1, 1), staticItemShape));
+        addSprite(new EggBasket(computeCoordinate(1, 6), staticItemShape, mobileItemShape));
 
-        addSprite(new SandwichMaker(new Point(500, 400)));
+        addSprite(new AppleBox(computeCoordinate(3, 7), staticItemShape, mobileItemShape));
 
-        addSprite(new CheeseBlock(new Point(600, 700)));
+        addSprite(new SaladBowl(computeCoordinate(4, 4), staticItemShape, mobileItemShape));
 
-        addSprite(new SpinachGarden(new Point(800, 100)));
-        addSprite(new TomatoBasket(new Point(800, 600)));
+        addSprite(new SandwichMaker(computeCoordinate(5, 4), staticItemShape, mobileItemShape));
 
-        addSprite(new WoodPlatform(new Point(900, 100)));
-        addSprite(new WoodPlatform(new Point(900, 200)));
-        addSprite(new WoodPlatform(new Point(900, 300)));
-        addSprite(new WoodPlatform(new Point(900, 500)));
-        addSprite(new WoodPlatform(new Point(900, 600)));
+        addSprite(new CheeseBlock(computeCoordinate(6, 7), staticItemShape, mobileItemShape));
+
+        addSprite(new SpinachGarden(computeCoordinate(8, 1), staticItemShape, mobileItemShape));
+        addSprite(new TomatoBasket(computeCoordinate(8, 6), staticItemShape, mobileItemShape));
+
+        addSprite(new WoodPlatform(computeCoordinate(9, 1), staticItemShape));
+        addSprite(new WoodPlatform(computeCoordinate(9, 2), staticItemShape));
+        addSprite(new WoodPlatform(computeCoordinate(9, 3), staticItemShape));
+        addSprite(new WoodPlatform(computeCoordinate(9, 5), staticItemShape));
+        addSprite(new WoodPlatform(computeCoordinate(9, 6), staticItemShape));
         
         ScoreComputer scoreComputer = new ScoreComputer(new ArrayList<>());
-        scoreComputer.addScoreConversion(new ScoreApplePie(new ApplePie(null)));
+        scoreComputer.addScoreConversion(new ScoreApplePie(new ApplePie(null, null)));
 
 
-        PickupWindow window = new PickupWindow(new Point(900, 400), scoreboard, scoreComputer);
+        PickupWindow window = new PickupWindow(computeCoordinate(9, 6), staticItemShape, scoreboard, scoreComputer);
         addSprite(window); 
         scoreboard.setX(1050);
         addSprite(new OrderDiplayer(1050, 200, window, panel));
-        */
+        
     }
 
     public Point computeCoordinate(int Xgrid, int Ygrid){
