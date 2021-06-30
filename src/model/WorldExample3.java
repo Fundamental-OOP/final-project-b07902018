@@ -44,7 +44,7 @@ public class WorldExample3 extends World {
         = new SpriteShape(new Dimension(50, 50), new Dimension(0, 0), new Dimension(50, 50));
     
     public WorldExample3(CollisionHandler collisionHandler, int width, int height, ScoreBoard scoreboard, List<Sprite> sprites, JPanel panel) {
-        super(collisionHandler, width, height, scoreboard, sprites);
+        super(collisionHandler, width, height, scoreboard, sprites, panel);
         
         for(int i = 1; i < 11; ++i){
             addSprite(new Barrel(computeCoordinate(i, 0), staticItemShape));

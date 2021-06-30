@@ -6,10 +6,15 @@ import java.util.List;
 
 import java.util.concurrent.CopyOnWriteArrayList;
 
+import javax.swing.JPanel;
+
 import scoring.Score;
 import scoring.ScoreBoard;
 import timer.Timer;
+import item.staticItem.FixedImageDisplayer;
 import item.staticItem.TextDisplayer;
+
+import java.awt.image.*;
 
 import static java.util.Arrays.stream;
 import static java.util.stream.Collectors.toSet;
@@ -32,7 +37,10 @@ public class World {
     protected Timer timer;
     TextDisplayer tdp;
 
-    public World(CollisionHandler collisionHandler, int width, int height, ScoreBoard scoreboard, List<Sprite> sprites) {
+    protected FixedImageDisplayer recipe;
+
+    public World(CollisionHandler collisionHandler, int width, int height, ScoreBoard scoreboard, List<Sprite> sprites,
+            JPanel panel) {
         
         worldWidth = width;
 
@@ -44,8 +52,9 @@ public class World {
 
         tdp = new TextDisplayer(1050, 400);
         tdp.setText("Timer");
-        
 
+        String pathName = "assets/recipe/1.png";
+        recipe = new FixedImageDisplayer(pathName, 1050, 300, 300, 300, panel);
         for(Sprite sprite: sprites){
             addSprite(sprite);
         }
@@ -53,6 +62,7 @@ public class World {
         //scoreBoard = new ScoreBoard(0, 10, 10);
         //addSprite(scoreboard);
         addSprite(tdp);
+        addSprite(recipe);
     }
 
     public void update() {

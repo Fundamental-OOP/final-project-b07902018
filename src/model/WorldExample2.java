@@ -43,7 +43,7 @@ public class WorldExample2 extends World {
         = new SpriteShape(new Dimension(50, 50), new Dimension(33, 38), new Dimension(66, 105));
 
     public WorldExample2(CollisionHandler collisionHandler, int width, int height, ScoreBoard scoreboard, List<Sprite> sprites, JPanel panel) {
-        super(collisionHandler, width, height, scoreboard, sprites);
+        super(collisionHandler, width, height, scoreboard, sprites, panel);
         
         for(int i = 0; i < 12; ++i){
             addSprite(new WoodPlatform(computeCoordinate(i, 0), staticItemShape));

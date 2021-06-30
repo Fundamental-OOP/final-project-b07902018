@@ -27,7 +27,7 @@ public class WorldExample1 extends World {
 
 
     public WorldExample1(CollisionHandler collisionHandler, int width, int height, ScoreBoard scoreboard, List<Sprite> sprites, JPanel panel) {
-        super(collisionHandler, width, height, scoreboard, sprites);
+        super(collisionHandler, width, height, scoreboard, sprites, panel);
 
 /*
         for(int i = 0; i < 8; ++i){
