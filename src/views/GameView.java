@@ -83,7 +83,7 @@ public class GameView extends JFrame {
         // GUI Stuff
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setContentPane(canvas);
-        setSize(WIDTH + 400, HEIGHT);
+        setSize(WIDTH + 400, HEIGHT+200);
         setContentPane(canvas);
         setVisible(true);
 
