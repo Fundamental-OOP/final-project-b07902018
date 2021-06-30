@@ -22,7 +22,7 @@ import static java.util.stream.Collectors.toSet;
 /**
  * @author - johnny850807@gmail.com (Waterball)
  */
-public class World {
+public abstract class World {
 
     private final List<Sprite> sprites = new CopyOnWriteArrayList<>();
 
@@ -35,6 +35,7 @@ public class World {
     protected final int worldHeight;
 
     protected Timer timer;
+
     TextDisplayer tdp;
 
     protected FixedImageDisplayer recipe;
@@ -127,12 +128,8 @@ public class World {
         }
     }
 
-    public Point player1Location(){
-        return new Point(200, 100);
-    }
+    public abstract Point defaultPlayer1Location();
 
-    public Point player2Location(){
-        return new Point(500, 100);
-    }
+    public abstract Point defaultPlayer2Location();
 
 }

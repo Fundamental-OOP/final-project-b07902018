@@ -18,7 +18,7 @@ import java.util.concurrent.CopyOnWriteArraySet;
 
 import static utils.ImageStateUtils.imageStatesFromFolder;
 
-public class Plant1 extends Table {
+public class Plant1 extends StaticItem {
 
     public Plant1(Point location, SpriteShape shape) {
         super(location, shape);
@@ -27,13 +27,20 @@ public class Plant1 extends Table {
                 new Idle(imageStatesFromFolder("assets/item/plant1", imageRenderer)));
     }
 
+
     @Override
-    public Point itemPlaceLocation(MobileItem item) {
-        int x = this.getX();
-        int y = this.getY();
-        int w = this.getRange().width;
-        int h = this.getRange().height;
-        return new Point(x + 25, y + (h / 5));
+    public Rectangle getRange() {
+        return new Rectangle(location, shape.size);
+    }
+
+    @Override
+    public Dimension getBodyOffset() {
+        return shape.bodyOffset;
+    }
+
+    @Override
+    public Dimension getBodySize() {
+        return shape.bodySize;
     }
     
 }

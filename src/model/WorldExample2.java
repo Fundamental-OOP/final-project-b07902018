@@ -100,5 +100,13 @@ public class WorldExample2 extends World {
     public Point computeCoordinate(int Xgrid, int Ygrid){
         return new Point(Xgrid * gridWidth, Ygrid * gridHeight);
     }
+
+    public  Point defaultPlayer1Location(){
+        return new Point(200, 100);
+    }
+
+    public  Point defaultPlayer2Location(){
+        return new Point(500, 100);
+    }
     
 }

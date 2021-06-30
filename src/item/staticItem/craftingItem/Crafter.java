@@ -76,9 +76,14 @@ public abstract class Crafter extends StaticItem implements PlaceItemOn, Maker {
         int y = this.getY();
         int w = this.getRange().width;
         int h = this.getRange().height;
-        int index = items.indexOf(item);
 
-        return new Point(x + 10 + index * 30, y - (h / 3)); 
+        int index = items.indexOf(item);
+        int itemWidth = item.getRange().width;
+        int itemHeight = item.getRange().height;
+
+        int wOffset = (w - itemWidth * 2) / 3;
+        int hOffset = - (itemHeight) / 2;
+        return new Point(x + wOffset + index * (wOffset + itemWidth), y + hOffset); 
     }
 
 

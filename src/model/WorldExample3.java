@@ -40,13 +40,12 @@ public class WorldExample3 extends World {
         = new SpriteShape(new Dimension(75, 75), new Dimension(10, 10), new Dimension(55, 55));
 
     private final SpriteShape mobileItemShape
-        // = new SpriteShape(new Dimension(50, 50), new Dimension(33, 38), new Dimension(66, 105));
-        = new SpriteShape(new Dimension(50, 50), new Dimension(0, 0), new Dimension(50, 50));
+        = new SpriteShape(new Dimension(30, 30), new Dimension(0, 0), new Dimension(30, 30));
     
     public WorldExample3(CollisionHandler collisionHandler, int width, int height, ScoreBoard scoreboard, List<Sprite> sprites, JPanel panel) {
         super(collisionHandler, width, height, scoreboard, sprites, panel);
         
-        for(int i = 1; i < 11; ++i){
+        for(int i = 1; i < 4; ++i){
             addSprite(new Barrel(computeCoordinate(i, 0), staticItemShape));
         }
         for(int i = 8; i < 11; ++i){
@@ -92,8 +91,6 @@ public class WorldExample3 extends World {
         addSprite(new WoodPlatform(computeCoordinate(10, 7), staticItemShape));
 
 
-
-        
     
         
         ScoreComputer scoreComputer = new ScoreComputer(new ArrayList<>());
@@ -110,5 +107,16 @@ public class WorldExample3 extends World {
     public Point computeCoordinate(int Xgrid, int Ygrid){
         return new Point(Xgrid * gridWidth, Ygrid * gridHeight);
     }
+
+    @Override
+    public Point defaultPlayer1Location() {
+        return computeCoordinate(2, 2);
+    }
+
+    @Override
+    public Point defaultPlayer2Location() {
+        return computeCoordinate(5, 9);
+    }
+    
     
 }

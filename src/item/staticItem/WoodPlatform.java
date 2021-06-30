@@ -33,7 +33,11 @@ public class WoodPlatform extends Table {
         int y = this.getY();
         int w = this.getRange().width;
         int h = this.getRange().height;
-        return new Point(x + 25, y + (h / 5));
+        int itemWidth = item.getRange().width;
+        int itemHeight = item.getRange().height;
+        int wOffset = (w - itemWidth) / 2;
+        int hOffset = (h - itemHeight) / 2;
+        return new Point(x + wOffset, y + hOffset);
     }
     
 }

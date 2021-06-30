@@ -61,5 +61,17 @@ public class WorldExample1 extends World {
         addSprite(o);
 */
     }
+
+    @Override
+    public Point defaultPlayer1Location() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Point defaultPlayer2Location() {
+        // TODO Auto-generated method stub
+        return null;
+    }
     
 }
