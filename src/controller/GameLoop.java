@@ -3,6 +3,7 @@ package controller;
 import model.World;
 import model.WorldExample1;
 import model.WorldExample2;
+import model.WorldExample3;
 import views.GameView;
 import views.View;
 import controller.Game;
@@ -56,12 +57,12 @@ public abstract class GameLoop {
         int worldWidth = 1080;
         int worldHeight = 720;
 
-        boolean selectWorld2 = true;
-        if(selectWorld2){
+        boolean selectWorld3 = true;
+        if(selectWorld3){
             worldWidth = 1080;
             worldHeight = 720;
             ScoreBoard scoreboard = new ScoreBoard(0, 800, 100);
-            world = new WorldExample2(new CharacterCollisionHandler(), worldWidth, worldHeight, scoreboard, Sprites, gameview.getCanvas());
+            world = new WorldExample3(new CharacterCollisionHandler(), worldWidth, worldHeight, scoreboard, Sprites, gameview.getCanvas());
             game.setWorld(world);
         }
         else{
