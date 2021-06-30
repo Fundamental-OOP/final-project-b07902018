@@ -16,6 +16,6 @@ public class FriedEggRecipe extends ConcreteRecipe {
     }
 
     protected Ingredient getResult() {
-        return new FriedEgg(null, productShape);
+        return new FriedEgg(new Point(0, 0), productShape);
     }
 }

@@ -17,6 +17,6 @@ public class CheeseEggSandwichRecipe extends ConcreteRecipe {
     }
 
     protected Ingredient getResult() {      
-        return new CheeseEggSandwich(null, productShape);
+        return new CheeseEggSandwich(new Point(0, 0), productShape);
     }
 }

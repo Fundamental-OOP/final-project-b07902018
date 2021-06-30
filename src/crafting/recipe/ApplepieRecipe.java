@@ -16,6 +16,6 @@ public class ApplepieRecipe extends ConcreteRecipe {
     }
 
     protected Ingredient getResult() {      
-        return new ApplePie(null, productShape);
+        return new ApplePie(new Point(0, 0), productShape);
     }
 }

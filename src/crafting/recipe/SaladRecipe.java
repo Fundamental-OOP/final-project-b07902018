@@ -17,6 +17,6 @@ public class SaladRecipe extends ConcreteRecipe {
     }
 
     protected Ingredient getResult() {      
-        return new Salad(null, productShape);
+        return new Salad(new Point(0, 0), productShape);
     }
 }

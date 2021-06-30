@@ -17,6 +17,6 @@ public class VegetableSandwichRecipe extends ConcreteRecipe {
     }
 
     protected Ingredient getResult() {      
-        return new VegetableSandwich(null, productShape);
+        return new VegetableSandwich(new Point(0, 0), productShape);
     }
 }
