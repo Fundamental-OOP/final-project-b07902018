@@ -3,6 +3,7 @@ package order;
 import javax.swing.JPanel;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 import item.Idle;
 import item.mobileItem.ingredient.Ingredient;
@@ -17,6 +18,7 @@ public class OrderDiplayer extends Sprite{
     private int x, y;
     String text;
     Image image = null;
+    ArrayList<Image> imgs = new ArrayList<>();
     JPanel panel;
     //Color color;
     protected final SpriteShape shape;
@@ -39,6 +41,7 @@ public class OrderDiplayer extends Sprite{
     
     private String getOrderString(){
         String s = "Order: ";
+        imgs.clear();
         try{
         for (var v:pickupWindow.getPendingOrders().pendingOrders){
             s+=v.getOrderContent().getClass().getSimpleName();
@@ -46,6 +49,7 @@ public class OrderDiplayer extends Sprite{
             var test =v.getOrderContent();
             if(test instanceof Ingredient){
                 image = ((Ingredient) test).getImageStates().get(0).getImage();
+                imgs.add(image);
             }
         }}catch(Exception e){
             
@@ -55,12 +59,17 @@ public class OrderDiplayer extends Sprite{
 
     @Override
     public void render(Graphics g) {
-        if(image!=null){
-            g.setColor(Color.BLACK);
-            g.drawString("Order:", x, y);
+        /*if(image!=null){
+            
             g.drawImage(image, x+10, y+20,75,75, panel);
+        }*/
+        g.setColor(Color.BLACK);
+        g.drawString("Order:", x, y);
+        for (int i = 0;i<imgs.size();i++){
+            g.drawImage(imgs.get(i), x+10+85*i, y+20,75,75, panel);
+
         }
-        else g.drawString(text,x,y);
+        // g.drawString(text,x,y);
         
     }
 

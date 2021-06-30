@@ -10,6 +10,10 @@ public class OrderList extends Consumer {
         super();
         pendingOrders = new ArrayList<>();
         produceOrder();
+        produceOrder();
+        produceOrder();
+
+
     }
 
     public void removeOrder(Order order){
