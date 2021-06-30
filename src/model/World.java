@@ -69,9 +69,11 @@ public abstract class World {
         //addSprite(scoreboard);
         var timerbg = new FixedImageDisplayer("assets/newtimer.png", 900, 0, 180, 138, panel);
         var scbbg = new FixedImageDisplayer("assets/scoreboard.png",900,140,180,180,panel);
+        var olbg = new FixedImageDisplayer("assets/orderlistbg.png", 0, 600, 900, 120, panel);
         addSprite(timerbg);
         addSprite(scbbg);
         addSprite(tdp);
+        addSprite(olbg);
         addSprite(recipe);
         setScoreboard(scoreboard);
 

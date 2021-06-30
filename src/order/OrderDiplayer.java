@@ -1,8 +1,10 @@
 package order;
 
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 import java.awt.*;
+import java.io.File;
 import java.util.ArrayList;
 
 import item.Idle;
@@ -18,6 +20,7 @@ public class OrderDiplayer extends Sprite{
     private int x, y;
     String text;
     Image image = null;
+    Image bg ;
     ArrayList<Image> imgs = new ArrayList<>();
     JPanel panel;
     //Color color;
@@ -30,8 +33,13 @@ public class OrderDiplayer extends Sprite{
         panel = ot;
         this.x = x;
         this.y = y;
+        try{
+        bg = ImageIO.read(new File("assets/orderlistbg.png"));}catch(Exception e){
+            System.out.println(e);
+        }
         //super("assets/recipe/1.png", x, y);
         pickupWindow = puw;
+        
     }
 
     @Override
@@ -61,12 +69,12 @@ public class OrderDiplayer extends Sprite{
     public void render(Graphics g) {
         g.setColor(Color.BLACK);
         g.setFont(new Font("TimesRoman", Font.PLAIN, 30));
-        
+        //g.drawImage(bg,0,720,900,120, panel);
         for (int i = 0;i<imgs.size();i++){
-            g.drawImage(imgs.get(i), x+10+85*i, y+20,75,75, panel);
+            g.drawImage(imgs.get(i), x+10+85*i, y+10,75,75, panel);
 
         }
-        g.drawString("Order:", x, y+23);
+        //g.drawString("Order:", x, y+23);
 
         
         
