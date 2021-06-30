@@ -75,7 +75,7 @@ public class Game extends GameLoop {
     }
 
     @Override
-    protected World getWorld() {
+    public World getWorld() {
         return world;
     }
 }
