@@ -115,7 +115,7 @@ public class WorldExample3 extends World {
 
     @Override
     public Point defaultPlayer2Location() {
-        return computeCoordinate(5, 9);
+        return computeCoordinate(9, 5);
     }
     
     

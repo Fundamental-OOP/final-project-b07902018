@@ -4,6 +4,9 @@ package timer;
 public class Timer {
     long endTime;
     boolean start = false;
+    public long getRemainTime(){
+        return Math.max(0,(-System.currentTimeMillis()+endTime)/1000);
+    }
 
 
     public String getCountString(){

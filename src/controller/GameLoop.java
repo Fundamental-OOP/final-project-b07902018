@@ -27,6 +27,11 @@ import character.*;
 public abstract class GameLoop {
 
     protected boolean running;
+    public Thread gmp;
+    protected GameView gameview;
+    public GameView getGameview() {
+        return gameview;
+    }
     
     protected View view;
     protected boolean gamestart = false;
@@ -44,7 +49,7 @@ public abstract class GameLoop {
     }
 
     public void start(Game game) {
-        GameView gameview = new GameView(game);
+        gameview = new GameView(game);
         gameview.launchMenu();
 
         
@@ -92,7 +97,8 @@ public abstract class GameLoop {
 
         game.setPlayers(players);
 
-        new Thread(this::gameLoop).start();
+        gmp = new Thread(this::gameLoop);
+        gmp.start();
         gameview.launch();
 
     }
@@ -104,6 +110,11 @@ public abstract class GameLoop {
             world.update();
             view.render(world);
             delay(15);
+            if(world.getTimer().ended()){
+                System.out.println("Game end");
+                gameview.dispose();
+                break;
+            }
         }
     }
 

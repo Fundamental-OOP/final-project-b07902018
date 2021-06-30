@@ -24,6 +24,8 @@ import static java.util.stream.Collectors.toSet;
  */
 public abstract class World {
 
+    private final int gameTime = 100;
+
     private final List<Sprite> sprites = new CopyOnWriteArrayList<>();
 
     private final CollisionHandler collisionHandler;
@@ -40,6 +42,10 @@ public abstract class World {
 
     protected FixedImageDisplayer recipe;
 
+    public Timer getTimer() {
+        return timer;
+    }
+
     public World(CollisionHandler collisionHandler, int width, int height, ScoreBoard scoreboard, List<Sprite> sprites,
             JPanel panel) {
         
@@ -51,7 +57,7 @@ public abstract class World {
         
         timer = new Timer();
 
-        tdp = new TextDisplayer(1050, 400);
+        tdp = new TextDisplayer(1050, 50);
         tdp.setText("Timer");
 
         String pathName = "assets/recipe/1.png";
@@ -67,7 +73,8 @@ public abstract class World {
     }
 
     public void update() {
-        if(!timer.started())timer.startTimer(120);
+        if(!timer.started())timer.startTimer(gameTime);
+        if(timer.getRemainTime()<=10)tdp.setColor(Color.RED);
         tdp.setText(timer.getCountString());
         for (Sprite sprite : sprites) {
             sprite.update();

@@ -35,9 +35,13 @@ public class Main {
         addAudioByFilePath(Walking.AUDIO_STEP1, new File("assets/audio/step1.wav"));
         addAudioByFilePath(Walking.AUDIO_STEP2, new File("assets/audio/step2.wav"));
 
-        Game game = new Game();  // controller
+        while(true){
+            Game game = new Game();  // controller
         // GameView view = new GameView(game);  // view
-        game.start(game);  // run the game and the game loop
+            game.start(game);
+            try{game.gmp.join();}catch (Exception e){System.out.println(e);};
+        }
+          // run the game and the game loop
         // view.launch(); // launch the GUI
     }
 }
