@@ -24,13 +24,15 @@ import static utils.ImageStateUtils.imageStatesFromFolder;
 
 public class AppleBox extends Factory {
 
-    public AppleBox(Point location) {
-        super(location, "applebox");
+    private SpriteShape productShape;
+
+    public AppleBox(Point location, SpriteShape shape, SpriteShape productShape) {
+        super(location, shape, productShape, "applebox");
     }
 
     @Override
     public MobileItem produceItem() {
-        Apple newItem = new Apple(new Point(150, 150));
+        Apple newItem = new Apple(new Point(0, 0), productShape);
         this.world.addSprite(newItem);
         return newItem;
     }

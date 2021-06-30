@@ -17,11 +17,23 @@ import static java.util.stream.Collectors.toSet;
 public class World {
 
     private final List<Sprite> sprites = new CopyOnWriteArrayList<>();
+
     private final CollisionHandler collisionHandler;
+
     protected ScoreBoard scoreboard;
 
-    public World(CollisionHandler collisionHandler, ScoreBoard scoreboard, List<Sprite> sprites) {
+    protected final int worldWidth;
+
+    protected final int worldHeight;
+
+    public World(CollisionHandler collisionHandler, int width, int height, ScoreBoard scoreboard, List<Sprite> sprites) {
+        
+        worldWidth = width;
+
+        worldHeight = height;
+     
         this.collisionHandler = collisionHandler;
+
         for(Sprite sprite: sprites){
             addSprite(sprite);
         }
@@ -89,4 +101,13 @@ public class World {
             sprite.render(g);
         }
     }
+
+    public Point player1Location(){
+        return new Point(200, 100);
+    }
+
+    public Point player2Location(){
+        return new Point(500, 100);
+    }
+
 }

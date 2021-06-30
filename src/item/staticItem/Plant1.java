@@ -18,13 +18,13 @@ import java.util.concurrent.CopyOnWriteArraySet;
 
 import static utils.ImageStateUtils.imageStatesFromFolder;
 
-public class WoodPlatform extends Table {
+public class Plant1 extends Table {
 
-    public WoodPlatform(Point location, SpriteShape shape) {
+    public Plant1(Point location, SpriteShape shape) {
         super(location, shape);
         ImageRenderer imageRenderer = new ItemImageRenderer(this);
         idle = new WaitingPerFrame(4,
-                new Idle(imageStatesFromFolder("assets/item/woodplatform", imageRenderer)));
+                new Idle(imageStatesFromFolder("assets/item/plant1", imageRenderer)));
     }
 
     @Override

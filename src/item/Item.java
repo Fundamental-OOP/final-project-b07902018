@@ -22,8 +22,11 @@ import static utils.ImageStateUtils.imageStatesFromFolder;
  */
 public abstract class Item extends Sprite {
 
-    public Item(Point location) {
+    protected final SpriteShape shape;
+
+    public Item(Point location, SpriteShape shape) {
         this.location = location;
+        this.shape = shape;
     }
     
 }

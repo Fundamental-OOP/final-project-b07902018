@@ -8,12 +8,16 @@ import java.util.Optional;
 import crafting.Recipe;
 import item.mobileItem.MobileItem;
 import item.mobileItem.ingredient.Ingredient;
+import model.SpriteShape;
 
 abstract public class ConcreteRecipe implements Recipe {
 
     public List<String> ingredientNeeded;
 
-    public ConcreteRecipe(String... ingredients) {
+    protected SpriteShape productShape;
+
+    public ConcreteRecipe(SpriteShape productShape, String... ingredients) {
+        this.productShape = productShape;
         ingredientNeeded = Arrays.asList(ingredients);
     }
 

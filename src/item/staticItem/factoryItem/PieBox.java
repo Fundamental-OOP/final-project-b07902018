@@ -25,13 +25,13 @@ import static utils.ImageStateUtils.imageStatesFromFolder;
 
 public class PieBox extends Factory {
 
-    public PieBox(Point location) {
-        super(location, "piebox");
+    public PieBox(Point location, SpriteShape shape, SpriteShape productShape) {
+        super(location, shape, productShape, "piebox");
     }
 
     @Override
     public MobileItem produceItem() {
-        Pie newItem = new Pie(new Point(150, 150));
+        Pie newItem = new Pie(new Point(0, 0), productShape);
         this.world.addSprite(newItem);
         return newItem;
     }

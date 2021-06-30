@@ -45,25 +45,50 @@ public abstract class GameLoop {
     public void start(Game game) {
         GameView gameview = new GameView(game);
         gameview.launchMenu();
-        List<Character> players = new ArrayList<>();
+
+        
         List<Sprite> Sprites = new ArrayList<>();
-        if(gameview.getMenu().getPlayernum()==1){
-            Character p1 = new Character(new Point(200, 100));
-            players.add(p1);
-            Sprites.add(p1);
-        }else{
-            Character p1 = new Character(new Point(200, 100));
-            Character p2 = new Character(new Point(500, 100));
-            players.add(p1);
-            players.add(p2);
-            Sprites.add(p1);
-            Sprites.add(p2);
+        List<Character> players = new ArrayList<>();
+
+        // world selection
+        World world;
+
+        int worldWidth = 1080;
+        int worldHeight = 720;
+
+        boolean selectWorld2 = true;
+        if(selectWorld2){
+            worldWidth = 1080;
+            worldHeight = 720;
+            ScoreBoard scoreboard = new ScoreBoard(0, 800, 100);
+            world = new WorldExample2(new CharacterCollisionHandler(), worldWidth, worldHeight, scoreboard, Sprites, gameview.getCanvas());
+            game.setWorld(world);
+        }
+        else{
+            worldWidth = 1080;
+            worldHeight = 720;
+            ScoreBoard scoreboard = new ScoreBoard(0, 800, 100);
+            world = new WorldExample1(new CharacterCollisionHandler(), worldWidth, worldHeight, scoreboard, Sprites, gameview.getCanvas());
+            game.setWorld(world);
         }
 
-        ScoreBoard scoreboard = new ScoreBoard(0, 800, 100);
+        if(gameview.getMenu().getPlayernum() == 1){
+            Character p1 = new Character(world.player1Location());
+            players.add(p1);
+            //Sprites.add(p1);
+            world.addSprite(p1);
+        }
+        else{
+            Character p1 = new Character(world.player1Location());
+            Character p2 = new Character(world.player2Location());
+            players.add(p1);
+            players.add(p2);
+            //Sprites.add(p1);
+            //Sprites.add(p2);
+            world.addSprite(p1);
+            world.addSprite(p2);
+        }
 
-        World world2 = new WorldExample2(new CharacterCollisionHandler(), scoreboard, Sprites,gameview.getCanvas());
-        game.setWorld(world2);
         game.setPlayers(players);
 
         new Thread(this::gameLoop).start();

@@ -7,13 +7,14 @@ import crafting.recipe.CheeseEggSandwichRecipe;
 import crafting.recipe.FriedEggRecipe;
 import crafting.recipe.VegetableSandwichRecipe;
 import item.mobileItem.MobileItem;
+import model.SpriteShape;
 
 public class SandwichMaker extends Crafter {
 
-    public SandwichMaker(Point location) {
-        super(location, "sandwichmaker");
-        recipes.add(new VegetableSandwichRecipe());
-        recipes.add(new CheeseEggSandwichRecipe());
+    public SandwichMaker(Point location, SpriteShape shape, SpriteShape productShape) {
+        super(location, shape, productShape, "sandwichmaker");
+        recipes.add(new VegetableSandwichRecipe(productShape));
+        recipes.add(new CheeseEggSandwichRecipe(productShape));
 
         maxItemNumber = 3;
     }

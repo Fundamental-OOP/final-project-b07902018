@@ -1,6 +1,7 @@
 package model;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,14 +32,25 @@ import scoring.ScoreComputer;
 
 public class WorldExample2 extends World {
 
-    public WorldExample2(CollisionHandler collisionHandler, ScoreBoard scoreboard, List<Sprite> sprites, JPanel panel) {
-        super(collisionHandler, scoreboard, sprites);
+    private final int gridWidth = 75;
+
+    private final int gridHeight = 75;
+
+    private final SpriteShape staticItemShape 
+        = new SpriteShape(new Dimension(75, 75), new Dimension(10, 10), new Dimension(55, 55));
+
+    private final SpriteShape mobileItemShape
+        = new SpriteShape(new Dimension(50, 50), new Dimension(33, 38), new Dimension(66, 105));
+
+    public WorldExample2(CollisionHandler collisionHandler, int width, int height, ScoreBoard scoreboard, List<Sprite> sprites, JPanel panel) {
+        super(collisionHandler, width, height, scoreboard, sprites);
         
-        for(int i = 1; i < 9; ++i){
-            addSprite(new WoodPlatform(new Point(i * 100, 0)));
+        for(int i = 0; i < 12; ++i){
+            addSprite(new PieBox(computeCoordinate(i, 0), staticItemShape, mobileItemShape));
         }
-        addSprite(new WoodPlatform(new Point(0, 100)));
-        addSprite(new WoodPlatform(new Point(0, 600)));
+        /*
+        addSprite(new Plant1(new Point(0, 100)));
+        addSprite(new Plant1(new Point(0, 600)));
         addSprite(new WoodPlatform(new Point(100, 700)));
         addSprite(new WoodPlatform(new Point(200, 700)));
         addSprite(new WoodPlatform(new Point(400, 700)));
@@ -71,8 +83,6 @@ public class WorldExample2 extends World {
         addSprite(new WoodPlatform(new Point(900, 500)));
         addSprite(new WoodPlatform(new Point(900, 600)));
         
-        
-
         ScoreComputer scoreComputer = new ScoreComputer(new ArrayList<>());
         scoreComputer.addScoreConversion(new ScoreApplePie(new ApplePie(null)));
 
@@ -81,6 +91,11 @@ public class WorldExample2 extends World {
         addSprite(window); 
         scoreboard.setX(1050);
         addSprite(new OrderDiplayer(1050, 200, window, panel));
+        */
+    }
+
+    public Point computeCoordinate(int Xgrid, int Ygrid){
+        return new Point(Xgrid * gridWidth, Ygrid * gridHeight);
     }
     
 }

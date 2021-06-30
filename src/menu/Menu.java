@@ -9,8 +9,8 @@ import javax.imageio.ImageIO;
 import controller.Game;
 
 public class Menu extends JPanel{
-    public static final int HEIGHT = 600;
-    public static final int WIDTH = 1024;
+    public static final int HEIGHT = 720;
+    public static final int WIDTH = 1080;
     private int playernum;
     private int worldNo;
     private Game game;

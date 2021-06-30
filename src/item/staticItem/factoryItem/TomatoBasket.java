@@ -25,13 +25,13 @@ import static utils.ImageStateUtils.imageStatesFromFolder;
 
 public class TomatoBasket extends Factory {
 
-    public TomatoBasket(Point location) {
-        super(location, "tomatobasket");
+    public TomatoBasket(Point location, SpriteShape shape, SpriteShape productShape) {
+        super(location, shape, productShape, "tomatobasket");
     }
 
     @Override
     public MobileItem produceItem() {
-        Tomato newItem = new Tomato(new Point(150, 150));
+        Tomato newItem = new Tomato(new Point(0, 0), productShape);
         this.world.addSprite(newItem);
         return newItem;
     }

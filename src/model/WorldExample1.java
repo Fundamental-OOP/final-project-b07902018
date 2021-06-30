@@ -25,9 +25,11 @@ import scoring.ScoreComputer;
 
 public class WorldExample1 extends World {
 
-    public WorldExample1(CollisionHandler collisionHandler, ScoreBoard scoreboard, List<Sprite> sprites,JPanel panel) {
-        super(collisionHandler, scoreboard, sprites);
-        
+
+    public WorldExample1(CollisionHandler collisionHandler, int width, int height, ScoreBoard scoreboard, List<Sprite> sprites, JPanel panel) {
+        super(collisionHandler, width, height, scoreboard, sprites);
+
+/*
         for(int i = 0; i < 8; ++i){
             addSprite(new WoodPlatform(new Point(i * 100, 0)));
             addSprite(new WoodPlatform(new Point(i * 100, 600)));
@@ -57,6 +59,7 @@ public class WorldExample1 extends World {
         var o = new OrderDiplayer(800,200, w,panel);
         //o.setColor(Color.DARK_GRAY);
         addSprite(o);
+*/
     }
     
 }

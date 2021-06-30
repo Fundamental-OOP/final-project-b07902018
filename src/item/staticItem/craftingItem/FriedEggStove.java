@@ -5,13 +5,14 @@ import java.awt.Point;
 import crafting.recipe.ApplepieRecipe;
 import crafting.recipe.FriedEggRecipe;
 import item.mobileItem.MobileItem;
+import model.SpriteShape;
 
 public class FriedEggStove extends Crafter {
 
-    public FriedEggStove(Point location) {
-        super(location, "friedeggstove");
+    public FriedEggStove(Point location, SpriteShape shape, SpriteShape productShape) {
+        super(location, shape, productShape, "friedeggstove");
         //recipes.add(new ApplepieRecipe());
-        recipes.add(new FriedEggRecipe());
+        recipes.add(new FriedEggRecipe(productShape));
     }
 
     @Override

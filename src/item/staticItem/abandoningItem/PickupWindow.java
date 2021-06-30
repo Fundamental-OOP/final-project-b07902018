@@ -37,17 +37,14 @@ public class PickupWindow extends StaticItem implements PlaceItemOn {
 
     private ArrayList<MobileItem> items;
 
-    protected final SpriteShape shape;
 
-    public PickupWindow(Point location, ScoreBoard scoreboard, ScoreComputer scoreComputer) {
-        super(location);
+    public PickupWindow(Point location, SpriteShape shape, ScoreBoard scoreboard, ScoreComputer scoreComputer) {
+        super(location, shape);
         items = new ArrayList<>();
         this.pendingOrders = new OrderList();
         this.scoreboard = scoreboard;
         this.scoreComputer = scoreComputer;
         
-        shape = new SpriteShape(new Dimension(100, 100),
-        new Dimension(10, 10), new Dimension(80, 80));
 
         ImageRenderer imageRenderer = new ItemImageRenderer(this);
         idle = new WaitingPerFrame(4,
@@ -98,8 +95,6 @@ public class PickupWindow extends StaticItem implements PlaceItemOn {
             if (pendingOrders.contain(item)) {
                 pendingOrders.completeOrder(item);
                 scoreboard.increaseScore(scoreComputer.computeScore(item));
-            }else{
-                scoreboard.setScore(Math.max(0, scoreboard.getScore()-10));
             }
         }
         clearItems();

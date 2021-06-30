@@ -30,9 +30,8 @@ public abstract class MobileItem extends Item {
     private final Set<Direction> directions = new CopyOnWriteArraySet<>();
     private Character owner;
 
-
-    public MobileItem(Point location) {
-        super(location);
+    public MobileItem(Point location, SpriteShape shape) {
+        super(location, shape);
         fsm = new FiniteStateMachine();
         owner = null;
     }
