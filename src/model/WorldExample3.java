@@ -40,8 +40,9 @@ public class WorldExample3 extends World {
         = new SpriteShape(new Dimension(75, 75), new Dimension(10, 10), new Dimension(55, 55));
 
     private final SpriteShape mobileItemShape
-        = new SpriteShape(new Dimension(50, 50), new Dimension(33, 38), new Dimension(66, 105));
-
+        // = new SpriteShape(new Dimension(50, 50), new Dimension(33, 38), new Dimension(66, 105));
+        = new SpriteShape(new Dimension(50, 50), new Dimension(0, 0), new Dimension(50, 50));
+    
     public WorldExample3(CollisionHandler collisionHandler, int width, int height, ScoreBoard scoreboard, List<Sprite> sprites, JPanel panel) {
         super(collisionHandler, width, height, scoreboard, sprites);
         
