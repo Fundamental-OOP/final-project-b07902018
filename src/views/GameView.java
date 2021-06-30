@@ -14,7 +14,10 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.util.Collection;
 import java.util.Scanner;
+import java.util.concurrent.DelayQueue;
+
 import menu.Menu;
+import menu.Endpage;
 /**
  * @author - johnny850807@gmail.com (Waterball)
  */
@@ -52,6 +55,25 @@ public class GameView extends JFrame {
             }
         };
     }
+
+    public void launchEndPage(){
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setSize(WIDTH-270, HEIGHT+100);
+        Endpage endpage = new Endpage(48763);
+        setContentPane(endpage);
+        setVisible(true);
+
+        while(endpage.isEnd() == false){
+            try {
+                Thread.sleep(10);
+                menu.render();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        };
+    }
+
+
 
     public Menu getMenu(){
         return menu;

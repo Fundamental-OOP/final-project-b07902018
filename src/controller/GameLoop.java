@@ -100,10 +100,15 @@ public abstract class GameLoop {
         gmp = new Thread(this::gameLoop);
         gmp.start();
         gameview.launch();
-
+        
+        while(world.getTimer().ended() == false){
+            delay(15);            
+        }
+        gameview.launchEndPage();
     }
 
     private void gameLoop() {
+        // delay(1000);
         running = true;
         while (running) {
             World world = getWorld();
@@ -112,7 +117,7 @@ public abstract class GameLoop {
             delay(15);
             if(world.getTimer().ended()){
                 System.out.println("Game end");
-                gameview.dispose();
+                // gameview.dispose();
                 break;
             }
         }
