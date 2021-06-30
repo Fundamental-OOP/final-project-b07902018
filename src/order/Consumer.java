@@ -1,12 +1,8 @@
 package order;
 
-import java.util.ArrayList;
 import java.util.List;
-
 import item.mobileItem.*;
 import item.mobileItem.ingredient.*;
-
-import java.awt.*;
 
 public abstract class Consumer {
     

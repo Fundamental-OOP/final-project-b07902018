@@ -2,11 +2,8 @@ package character;
 
 import model.CollisionHandler;
 import model.Sprite;
-
 import java.awt.*;
-
 import item.staticItem.StaticItem;
-import item.staticItem.Table;
 
 /**
  * @author - johnny850807@gmail.com (Waterball)

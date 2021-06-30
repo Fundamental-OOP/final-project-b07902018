@@ -2,14 +2,10 @@ package order;
 
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
-
 import java.awt.*;
 import java.io.File;
 import java.util.ArrayList;
-
-import item.Idle;
 import item.mobileItem.ingredient.Ingredient;
-import item.staticItem.TextDisplayer;
 import item.staticItem.abandoningItem.PickupWindow;
 import model.Sprite;
 import model.SpriteShape;

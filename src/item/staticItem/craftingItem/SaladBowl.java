@@ -1,9 +1,6 @@
 package item.staticItem.craftingItem;
 
 import java.awt.Point;
-
-import crafting.recipe.ApplepieRecipe;
-import crafting.recipe.FriedEggRecipe;
 import crafting.recipe.FruitSaladRecipe;
 import crafting.recipe.SaladRecipe;
 import item.mobileItem.MobileItem;
@@ -25,14 +22,11 @@ public class SaladBowl extends Crafter {
         int x = this.getX();
         int y = this.getY();
         int w = this.getRange().width;
-        int h = this.getRange().height;
         int index = items.indexOf(item);
 
         int itemWidth = item.getRange().width;
-        int itemHeight = item.getRange().height;
 
         int wOffset = (w - itemWidth * 2) / 2;
-        int hOffset =  h * 3 / 10;
         if(index == 0){
             index = 1;
         }

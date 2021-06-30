@@ -6,15 +6,10 @@ import fsm.StateMachine;
 import item.mobileItem.MobileItem;
 import item.staticItem.PlaceItemOn;
 import item.staticItem.factoryItem.Factory;
-import jdk.nashorn.api.tree.SpreadTree;
-import media.AudioPlayer;
 import model.Sprite;
 import model.World;
-
 import java.awt.*;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 /**
  * @author - johnny850807@gmail.com (Waterball)
