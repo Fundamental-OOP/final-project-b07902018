@@ -76,9 +76,10 @@ public class WorldExample2 extends World {
         ScoreComputer scoreComputer = new ScoreComputer(new ArrayList<>());
         scoreComputer.addScoreConversion(new ScoreApplePie(new ApplePie(null)));
 
-  
+
         PickupWindow window = new PickupWindow(new Point(900, 400), scoreboard, scoreComputer);
         addSprite(window); 
+        scoreboard.setX(1050);
         addSprite(new OrderDiplayer(1050, 200, window, panel));
     }
     
