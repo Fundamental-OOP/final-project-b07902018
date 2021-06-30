@@ -1,21 +1,12 @@
 package views;
 
 import controller.Game;
-import controller.GameLoop;
 import model.Direction;
-import model.Sprite;
 import model.World;
-
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.io.File;
-import java.util.Collection;
-import java.util.Scanner;
-import java.util.concurrent.DelayQueue;
-
 import menu.Menu;
 import menu.Endpage;
 /**

@@ -1,6 +1,5 @@
 package model;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Point;
 import java.util.ArrayList;
@@ -23,10 +22,7 @@ import item.staticItem.factoryItem.EggBasket;
 import item.staticItem.factoryItem.PieBox;
 import item.staticItem.factoryItem.SpinachGarden;
 import item.staticItem.factoryItem.TomatoBasket;
-import item.staticItem.factoryItem.VegetableFactory;
 import order.OrderDiplayer;
-import order.OrderList;
-import scoring.ScoreApplePie;
 import scoring.ScoreBoard;
 import scoring.ScoreComputer;
 

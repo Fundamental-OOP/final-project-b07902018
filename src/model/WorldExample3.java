@@ -1,6 +1,5 @@
 package model;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Point;
 import java.util.ArrayList;
@@ -16,7 +15,6 @@ import item.staticItem.craftingItem.ApplePieStove;
 import item.staticItem.craftingItem.FriedEggStove;
 import item.staticItem.craftingItem.SaladBowl;
 import item.staticItem.craftingItem.SandwichMaker;
-import item.staticItem.factoryItem.AppleBox;
 import item.staticItem.factoryItem.BreadBasket;
 import item.staticItem.factoryItem.CheeseBlock;
 import item.staticItem.factoryItem.EggBasket;
@@ -24,10 +22,7 @@ import item.staticItem.factoryItem.FruitBasket;
 import item.staticItem.factoryItem.PieBox;
 import item.staticItem.factoryItem.SpinachGarden;
 import item.staticItem.factoryItem.TomatoBasket;
-import item.staticItem.factoryItem.VegetableFactory;
 import order.OrderDiplayer;
-import order.OrderList;
-import scoring.ScoreApplePie;
 import scoring.ScoreBoard;
 import scoring.ScoreComputer;
 

@@ -5,19 +5,16 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
 import javax.imageio.ImageIO;
-import controller.Game;
 
 public class Endpage extends JPanel {
     public static final int HEIGHT = 720;
     public static final int WIDTH = 1280;
-    private int score;
     private JLabel jscore;
     private JButton again;
     private Image im;
     private Boolean isend;
 
     public Endpage(int score) {
-        this.score = score;
         isend = false;
         setLayout(null);
 

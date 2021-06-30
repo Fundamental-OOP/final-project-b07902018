@@ -1,13 +1,8 @@
 package controller;
 
 import character.Character;
-import item.Item;
-import item.mobileItem.MobileItem;
 import model.Direction;
-import model.Sprite;
 import model.World;
-import scoring.ScoreBoard;
-import character.CharacterCollisionHandler;
 import java.util.List;
 /**
  * @author - johnny850807@gmail.com (Waterball)

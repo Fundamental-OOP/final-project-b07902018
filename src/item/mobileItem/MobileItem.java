@@ -1,24 +1,15 @@
 package item.mobileItem;
 
 import fsm.FiniteStateMachine;
-import fsm.ImageRenderer;
-import fsm.State;
-import fsm.WaitingPerFrame;
 import item.Item;
 import model.Direction;
-import model.Sprite;
 import model.SpriteShape;
-
 import character.Character;
-
 import java.awt.*;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
-
-import static fsm.FiniteStateMachine.Transition.from;
 import static fsm.Event.*;
 import static model.Direction.LEFT;
-import static utils.ImageStateUtils.imageStatesFromFolder;
 
 /**
  * @author - johnny850807@gmail.com (Waterball)

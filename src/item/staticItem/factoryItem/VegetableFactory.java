@@ -1,22 +1,7 @@
 package item.staticItem.factoryItem;
 
-import static utils.ImageStateUtils.imageStatesFromFolder;
-
-import java.awt.Dimension;
 import java.awt.Point;
-import java.awt.Rectangle;
-import java.util.ArrayList;
-import java.util.List;
-
-import fsm.ImageRenderer;
-import fsm.WaitingPerFrame;
-import item.Idle;
-import item.ItemImageRenderer;
 import item.mobileItem.MobileItem;
-import item.mobileItem.ingredient.Ingredient;
-
-import item.mobileItem.ingredient.Tomato;
-import item.staticItem.StaticItem;
 import model.SpriteShape;
 
 public class VegetableFactory extends Factory {

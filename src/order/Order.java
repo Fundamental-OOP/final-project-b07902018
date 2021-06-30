@@ -1,7 +1,5 @@
 package order;
 
-import java.util.ArrayList;
-
 import item.mobileItem.MobileItem;
 
 public class Order {

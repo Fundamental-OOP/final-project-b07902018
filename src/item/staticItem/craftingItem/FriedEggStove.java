@@ -1,8 +1,6 @@
 package item.staticItem.craftingItem;
 
 import java.awt.Point;
-
-import crafting.recipe.ApplepieRecipe;
 import crafting.recipe.FriedEggRecipe;
 import item.mobileItem.MobileItem;
 import model.SpriteShape;
@@ -24,7 +22,6 @@ public class FriedEggStove extends Crafter {
 
         int index = items.indexOf(item);
         int itemWidth = item.getRange().width;
-        int itemHeight = item.getRange().height;
 
         int wOffset = (w - itemWidth * 2) / 3;
         int hOffset =  (h) / 5;

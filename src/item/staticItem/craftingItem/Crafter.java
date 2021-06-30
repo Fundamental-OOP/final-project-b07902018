@@ -1,6 +1,5 @@
 package item.staticItem.craftingItem;
 
-import fsm.FiniteStateMachine;
 import fsm.ImageRenderer;
 import fsm.State;
 import fsm.WaitingPerFrame;
@@ -9,22 +8,11 @@ import item.ItemImageRenderer;
 import item.mobileItem.MobileItem;
 import item.staticItem.PlaceItemOn;
 import item.staticItem.StaticItem;
-import model.Direction;
-import model.Sprite;
 import model.SpriteShape;
-
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Set;
-import java.util.concurrent.CopyOnWriteArraySet;
-
-
 import crafting.Recipe;
 
-
-import static fsm.FiniteStateMachine.Transition.from;
-import static fsm.Event.*;
-import static model.Direction.LEFT;
 import static utils.ImageStateUtils.imageStatesFromFolder;
 
 public abstract class Crafter extends StaticItem implements PlaceItemOn, Maker {
@@ -75,7 +63,6 @@ public abstract class Crafter extends StaticItem implements PlaceItemOn, Maker {
         int x = this.getX();
         int y = this.getY();
         int w = this.getRange().width;
-        int h = this.getRange().height;
 
         int index = items.indexOf(item);
         int itemWidth = item.getRange().width;

@@ -3,19 +3,12 @@ package model;
 import java.awt.*;
 import java.util.Collection;
 import java.util.List;
-
 import java.util.concurrent.CopyOnWriteArrayList;
-
 import javax.swing.JPanel;
-
-import scoring.Score;
 import scoring.ScoreBoard;
 import timer.Timer;
 import item.staticItem.FixedImageDisplayer;
 import item.staticItem.TextDisplayer;
-
-import java.awt.image.*;
-
 import static java.util.Arrays.stream;
 import static java.util.stream.Collectors.toSet;
 
