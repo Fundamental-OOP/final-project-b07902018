@@ -156,8 +156,9 @@ public class GameView extends JFrame {
 
     public static class Canvas extends JPanel implements View {
         private World world;
-        private Image image = null;
-
+        // private Image image = null;
+        
+        
         @Override
         public void render(World world) {
             this.world = world;
@@ -167,12 +168,12 @@ public class GameView extends JFrame {
         @Override
         protected void paintComponent(Graphics g /*paintbrush*/) {
             super.paintComponent(g);
-
+            /*
             if(image == null){
                 try{
                 image = ImageIO.read(new File("assets/Floor.jpeg"));}
                 catch(Exception e){}
-            }
+            }*/
             // Now, let's paint
             g.setColor(Color.decode("#cf9c69")); // paint background with all white
             g.fillRect(0, 0, GameView.WIDTH-300, GameView.HEIGHT);

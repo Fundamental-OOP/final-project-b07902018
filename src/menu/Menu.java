@@ -7,7 +7,7 @@ import java.io.File;
 import javax.imageio.ImageIO;
 import controller.Game;
 
-public class Menu extends JPanel{
+public class Menu extends JPanel {
     public static final int HEIGHT = 720;
     public static final int WIDTH = 1080;
     private int playernum;
@@ -15,8 +15,9 @@ public class Menu extends JPanel{
     private Game game;
     private JLabel players, world;
     private JButton playerNum, worldNum;
+    private Image im2;
 
-    public Menu(Game game){
+    public Menu(Game game) {
         this.game = game;
         playernum = 1;
         worldnum = 1;
@@ -53,7 +54,7 @@ public class Menu extends JPanel{
         worldNum.setBorderPainted(false);
 
         ImageIcon start = new ImageIcon("assets/menu/start.png");
-        Image im = start.getImage().getScaledInstance(800, 110,  java.awt.Image.SCALE_SMOOTH);  
+        Image im = start.getImage().getScaledInstance(800, 110, java.awt.Image.SCALE_SMOOTH);
         start = new ImageIcon(im);
         JButton startB = new JButton(start);
         add(startB);
@@ -63,10 +64,10 @@ public class Menu extends JPanel{
         startB.setContentAreaFilled(false);
         startB.setBorderPainted(false);
 
-        ActionListener ButtonListener = new ActionListener(){
+        ActionListener ButtonListener = new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
                 String cmd = ae.getActionCommand();
-                switch(cmd){
+                switch (cmd) {
                     case "P":
                         playernum = playernum % 2 + 1;
                         playerNum.setText(String.format("%d", playernum));
@@ -88,35 +89,36 @@ public class Menu extends JPanel{
         worldNum.addActionListener(ButtonListener);
         startB.setActionCommand("Start");
         startB.addActionListener(ButtonListener);
+
+        try {
+            im2 = ImageIO.read(new File("assets/menu/background.png"));
+        } catch (Exception e) {
+        }
     }
 
-    public void render(){
+    public void render() {
         repaint();
     }
 
     @Override
-    protected void paintComponent(Graphics g /*paintbrush*/) {
+    protected void paintComponent(Graphics g /* paintbrush */) {
         super.paintComponent(g);
         // Now, let's paint
         g.setColor(Color.WHITE); // paint background with all white
         g.fillRect(0, 0, WIDTH, HEIGHT);
-        try{
-            File file = new File("assets/menu/background.png");
-            Image im = ImageIO.read(file);
-            g.drawImage(im, 100, 50, 800, HEIGHT/2, null);
-        }catch(Exception e){
-            System.out.println(e.toString());
-        };
+        g.drawImage(im2, 100, 50, 800, HEIGHT / 2, null);
     }
 
-    public int getPlayernum(){
+    public int getPlayernum() {
         return playernum;
     }
-    public int getWorldnum(){
+
+    public int getWorldnum() {
         return worldnum;
     }
-    public Game getGame(){
+
+    public Game getGame() {
         return game;
     }
-        
+
 }
