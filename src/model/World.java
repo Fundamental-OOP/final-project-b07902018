@@ -3,10 +3,13 @@ package model;
 import java.awt.*;
 import java.util.Collection;
 import java.util.List;
+
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import scoring.Score;
 import scoring.ScoreBoard;
+import timer.Timer;
+import item.staticItem.TextDisplayer;
 
 import static java.util.Arrays.stream;
 import static java.util.stream.Collectors.toSet;
@@ -26,13 +29,21 @@ public class World {
 
     protected final int worldHeight;
 
+    protected Timer timer;
+
     public World(CollisionHandler collisionHandler, int width, int height, ScoreBoard scoreboard, List<Sprite> sprites) {
         
         worldWidth = width;
 
         worldHeight = height;
-     
+    
         this.collisionHandler = collisionHandler;
+        
+        timer = new Timer();
+
+        TextDisplayer tdp = new TextDisplayer(800, 800);
+        tdp.setText("Timer");
+        this.addSprite(tdp);
 
         for(Sprite sprite: sprites){
             addSprite(sprite);
