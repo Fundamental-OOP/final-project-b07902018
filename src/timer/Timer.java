@@ -1,6 +1,5 @@
 package timer;
 
-import javax.print.DocFlavor.STRING;
 
 public class Timer {
     long endTime;
