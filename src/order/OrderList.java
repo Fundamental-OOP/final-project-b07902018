@@ -9,16 +9,13 @@ public class OrderList extends Consumer {
     public OrderList() {
         super();
         pendingOrders = new ArrayList<>();
-        produceOrder();
-        produceOrder();
-        produceOrder();
-
-
+        produceOrder(2, 4);
     }
 
     public void removeOrder(Order order){
         pendingOrders.remove(order);
-        produceOrder();
+        if(pendingOrders.isEmpty())
+            produceOrder(1, 3);
     }
 
     public boolean contain(MobileItem item){

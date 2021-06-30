@@ -12,31 +12,34 @@ public abstract class Consumer {
     
     protected List<Order> pendingOrders;
 
-    public void produceOrder() {
-        int random = (int) (Math.random() * 5);
-        MobileItem item;
-        switch (random) {
-            case 0:
-                item = new FriedEgg(null);
-                break;
-            case 1:
-                item = new CheeseEggSandwich(null);
-                break;
-            case 2:
-                item = new Salad(null);
-                break;
-            case 3:
-                item = new RawEgg(null);
-                break;
-            case 4:
-                item = new ApplePie(null);
-                break;
-            default:
-                item = new Apple(null);
+    public void produceOrder(int lowerBound, int upperBound) {
+        int num = (int) (Math.random() * (upperBound - lowerBound + 1)) + lowerBound;
+        for (int x = 0; x < num; ++x) {
+            int random = (int) (Math.random() * 5);
+            MobileItem item;
+            switch (random) {
+                case 0:
+                    item = new FriedEgg(null);
+                    break;
+                case 1:
+                    item = new CheeseEggSandwich(null);
+                    break;
+                case 2:
+                    item = new Salad(null);
+                    break;
+                case 3:
+                    item = new RawEgg(null);
+                    break;
+                case 4:
+                    item = new ApplePie(null);
+                    break;
+                default:
+                    item = new Apple(null);
+            }
+            String itemName = ((Ingredient) item).getIngredientName();
+            System.out.printf("Order: %s%n", itemName);
+            addOrder(item);
         }
-        String itemName = ((Ingredient) item).getIngredientName();
-        System.out.printf("Order: %s%n", itemName);
-        addOrder(item);
     }
 
     public void addOrder(MobileItem item) {
