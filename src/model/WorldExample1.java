@@ -1,6 +1,7 @@
 package model;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
@@ -72,6 +73,12 @@ public class WorldExample1 extends World {
     public Point defaultPlayer2Location() {
         // TODO Auto-generated method stub
         return null;
+    }
+
+    @Override
+    public SpriteShape getCharacterShape(){
+        return new SpriteShape(new Dimension(146 / 2, 176 / 2),
+                new Dimension(40 / 2, 38 / 2), new Dimension(66 / 2, 104 / 2));
     }
     
 }

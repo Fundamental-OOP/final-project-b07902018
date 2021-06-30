@@ -139,4 +139,6 @@ public abstract class World {
 
     public abstract Point defaultPlayer2Location();
 
+    public abstract SpriteShape getCharacterShape();
+
 }

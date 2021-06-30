@@ -29,12 +29,13 @@ public class Character extends Sprite {
 
     private MobileItem mobileItem;
 
-    public Character(Point location) {
+    public Character(Point location, SpriteShape shape) {
         this.location = location;
         // shape = new SpriteShape(new Dimension(146, 176),
         //        new Dimension(40, 38), new Dimension(66, 105));
-        shape = new SpriteShape(new Dimension(146 / 2, 176 / 2),
-                new Dimension(40 / 2, 38 / 2), new Dimension(66 / 2, 104 / 2));
+        // shape = new SpriteShape(new Dimension(146 / 2, 176 / 2),
+        //         new Dimension(40 / 2, 38 / 2), new Dimension(66 / 2, 104 / 2));
+        this.shape = shape;
         fsm = new FiniteStateMachine();
         this.mobileItem = null;
 
