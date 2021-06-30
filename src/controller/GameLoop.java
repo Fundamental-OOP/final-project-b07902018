@@ -79,14 +79,14 @@ public abstract class GameLoop {
         }
 
         if(gameview.getMenu().getPlayernum() == 1){
-            Character p1 = new Character(world.defaultPlayer1Location());
+            Character p1 = new Character(world.defaultPlayer1Location(), world.getCharacterShape());
             players.add(p1);
             //Sprites.add(p1);
             world.addSprite(p1);
         }
         else{
-            Character p1 = new Character(world.defaultPlayer1Location());
-            Character p2 = new Character(world.defaultPlayer2Location());
+            Character p1 = new Character(world.defaultPlayer1Location(), world.getCharacterShape());
+            Character p2 = new Character(world.defaultPlayer2Location(), world.getCharacterShape());
             players.add(p1);
             players.add(p2);
             //Sprites.add(p1);
