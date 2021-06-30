@@ -4,6 +4,7 @@ import java.awt.Point;
 
 import crafting.recipe.ApplepieRecipe;
 import crafting.recipe.FriedEggRecipe;
+import crafting.recipe.FruitSaladRecipe;
 import crafting.recipe.SaladRecipe;
 import item.mobileItem.MobileItem;
 import model.SpriteShape;
@@ -14,6 +15,7 @@ public class SaladBowl extends Crafter {
         super(location, shape, productShape, "saladbowl");
         //recipes.add(new ApplepieRecipe());
         recipes.add(new SaladRecipe(productShape));
+        recipes.add(new FruitSaladRecipe(productShape));
     }
 
     @Override

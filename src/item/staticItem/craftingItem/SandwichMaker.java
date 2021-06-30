@@ -26,13 +26,19 @@ public class SandwichMaker extends Crafter {
         int w = this.getRange().width;
         int h = this.getRange().height;
         int index = items.indexOf(item);
+
+        int itemWidth = item.getRange().width;
+        int itemHeight = item.getRange().height;
+
+        int wOffset = (w - itemWidth * 2) / 2;
+        int hOffset =  h * 3 / 10;
         if(index == 0){
             index = 1;
         }
         else if (index == 1){
             index = 0;
         }
-        return new Point(x - 15 + index * 40, y + (h * 3 / 10)); 
+        return new Point(x - itemWidth / 2 + index * (itemWidth + wOffset), y + hOffset); 
     }
 
     

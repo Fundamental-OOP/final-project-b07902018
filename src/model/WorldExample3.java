@@ -75,8 +75,8 @@ public class WorldExample3 extends World {
         addSprite(new Barrel(computeCoordinate(0, 5), staticItemShape));
         addSprite(new WoodPlatform(computeCoordinate(11, 5), staticItemShape));
 
-        addSprite(new FruitBasket(computeCoordinate(0, 6), staticItemShape, mobileItemShape));
-        addSprite(new AppleBox(computeCoordinate(4, 6), staticItemShape, mobileItemShape));
+        addSprite(new PieBox(computeCoordinate(0, 6), staticItemShape, mobileItemShape));
+        addSprite(new FruitBasket(computeCoordinate(4, 6), staticItemShape, mobileItemShape));
         addSprite(new Barrel(computeCoordinate(5, 6), staticItemShape));
         addSprite(new Barrel(computeCoordinate(6, 6), staticItemShape));
         addSprite(new TomatoBasket(computeCoordinate(7, 6), staticItemShape, mobileItemShape));
