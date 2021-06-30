@@ -53,7 +53,7 @@ public class ScoreBoard extends Sprite {
     @Override
     public void render(Graphics g) {
         g.setColor(Color.BLACK);
-        g.setFont(new Font("TimesRoman", Font.PLAIN, 30));
+        g.setFont(new Font("Marker Felt", Font.PLAIN, 30));
         g.drawString(String.format("%03d", getScore()), x, y);
     }
 

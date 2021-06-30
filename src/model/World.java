@@ -60,8 +60,8 @@ public abstract class World {
         tdp = new TextDisplayer(935, 90);
         tdp.setText("Timer");
         tdp.setFontSize(25);
-        String pathName = "assets/recipeDisplay2.png";
-        recipe = new FixedImageDisplayer(pathName, 900, 720 - 207 - 100, 180, 207, panel);
+        String pathName = "assets/recipe.png";
+        recipe = new FixedImageDisplayer(pathName, 900, 720 - 307, 180, 307, panel);
         for(Sprite sprite: sprites){
             addSprite(sprite);
         }

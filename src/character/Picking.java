@@ -62,7 +62,7 @@ public class Picking extends Sequence {
                 }
                 
             }
-            else if (character != sprite && sprite instanceof Factory) {
+            if (character != sprite && sprite instanceof Factory) {
                 Factory itemFactory = (Factory) sprite;
                 MobileItem newItem = itemFactory.produceItem();
                 newItem.setLocation(character.mobileItemLocation());
