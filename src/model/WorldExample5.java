@@ -88,7 +88,7 @@ public class WorldExample5 extends World {
         PickupWindow window = new PickupWindow(computeCoordinate(3, 7), staticItemShape, scoreboard, scoreComputer);
 
         addSprite(window);
-        scoreboard.setX(1050);
+        //scoreboard.setX(1050);
         addSprite(new OrderDiplayer(50, 600, window, panel));
 
     }

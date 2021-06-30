@@ -66,14 +66,14 @@ public abstract class GameLoop {
         if(selectWorld3){
             worldWidth = 1080;
             worldHeight = 720;
-            ScoreBoard scoreboard = new ScoreBoard(0, 800, 100);
+            ScoreBoard scoreboard = new ScoreBoard(0,970, 210);
             world = new WorldExample3(new CharacterCollisionHandler(), worldWidth, worldHeight, scoreboard, Sprites, gameview.getCanvas());
             game.setWorld(world);
         }
         else{
             worldWidth = 1080;
             worldHeight = 720;
-            ScoreBoard scoreboard = new ScoreBoard(0, 800, 100);
+            ScoreBoard scoreboard = new ScoreBoard(0, 970, 210);
             world = new WorldExample1(new CharacterCollisionHandler(), worldWidth, worldHeight, scoreboard, Sprites, gameview.getCanvas());
             game.setWorld(world);
         }

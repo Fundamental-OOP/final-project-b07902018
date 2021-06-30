@@ -85,7 +85,7 @@ public class WorldExample4 extends World {
         addSprite(new Plant1(computeCoordinate(10, 4), staticItemShape));
 
         addSprite(window);
-        scoreboard.setX(1050);
+        //scoreboard.setX(1050);
         addSprite(new OrderDiplayer(50, 600, window, panel));
 
 

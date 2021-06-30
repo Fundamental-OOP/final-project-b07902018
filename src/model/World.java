@@ -65,14 +65,16 @@ public abstract class World {
         for(Sprite sprite: sprites){
             addSprite(sprite);
         }
-        setScoreboard(scoreboard);
         //scoreBoard = new ScoreBoard(0, 10, 10);
         //addSprite(scoreboard);
         var timerbg = new FixedImageDisplayer("assets/newtimer.png", 900, 0, 180, 138, panel);
-
+        var scbbg = new FixedImageDisplayer("assets/scoreboard.png",900,140,180,180,panel);
         addSprite(timerbg);
+        addSprite(scbbg);
         addSprite(tdp);
         addSprite(recipe);
+        setScoreboard(scoreboard);
+
     }
 
     public void update() {
