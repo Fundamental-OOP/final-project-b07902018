@@ -8,7 +8,7 @@ import java.util.List;
 
 import javax.swing.JPanel;
 
-import item.mobileItem.ingredient.ApplePie;
+import item.mobileItem.ingredient.*;
 import item.staticItem.*;
 import item.staticItem.abandoningItem.PickupWindow;
 import item.staticItem.abandoningItem.TrashCan;
@@ -87,8 +87,11 @@ public class WorldExample2 extends World {
         addSprite(new WoodPlatform(computeCoordinate(9, 6), staticItemShape));
         
         ScoreComputer scoreComputer = new ScoreComputer(new ArrayList<>());
-        scoreComputer.addScoreConversion(new ScoreApplePie(new ApplePie(null, null)));
-
+        scoreComputer.addScoreConversion(new ApplePie(null, null), 30);
+        scoreComputer.addScoreConversion(new FriedEgg(null, null), 10);
+        scoreComputer.addScoreConversion(new Salad(null, null), 30);
+        scoreComputer.addScoreConversion(new VegetableSandwich(null, null), 30);
+        scoreComputer.addScoreConversion(new CheeseEggSandwich(null, null), 50);
 
         PickupWindow window = new PickupWindow(computeCoordinate(9, 6), staticItemShape, scoreboard, scoreComputer);
         addSprite(window); 
