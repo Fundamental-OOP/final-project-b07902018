@@ -57,7 +57,7 @@ public abstract class World {
         
         timer = new Timer();
 
-        tdp = new TextDisplayer(935, 70);
+        tdp = new TextDisplayer(935, 90);
         tdp.setText("Timer");
         tdp.setFontSize(25);
         String pathName = "assets/recipeDisplay2.png";
