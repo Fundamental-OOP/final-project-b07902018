@@ -1,7 +1,6 @@
 package menu;
 
 import javax.swing.*;
-
 import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
@@ -9,97 +8,115 @@ import javax.imageio.ImageIO;
 import controller.Game;
 
 public class Menu extends JPanel{
-    public static final int HEIGHT = 600;
-    public static final int WIDTH = 1024;
+    public static final int HEIGHT = 720;
+    public static final int WIDTH = 1080;
     private int playernum;
-    private int worldNo;
+    private int worldnum;
     private Game game;
+    private JLabel players, world;
+    private JButton playerNum, worldNum;
 
     public Menu(Game game){
         this.game = game;
         playernum = 1;
-        worldNo = 1;
+        worldnum = 1;
+
+        setLayout(null);
+
+        players = new JLabel("Players");
+        add(players);
+        players.setFont(new Font("", Font.BOLD, 50));
+        players.setBounds(50, 450, 200, 80);
+
+        playerNum = new JButton("1");
+        add(playerNum);
+        playerNum.setFont(new Font("", Font.BOLD, 50));
+        playerNum.setBounds(250, 470, 200, 50);
+        playerNum.setOpaque(false);
+        playerNum.setFocusPainted(false);
+        playerNum.setContentAreaFilled(false);
+        playerNum.setBorderPainted(false);
+
+        world = new JLabel("World");
+        add(world);
+        world.setFont(new Font("", Font.BOLD, 50));
+        world.setBounds(550, 450, 200, 80);
+
+        worldNum = new JButton("1");
+        add(worldNum);
+        worldNum.setBounds(400, 250, 200, 50);
+        worldNum.setFont(new Font("", Font.BOLD, 50));
+        worldNum.setBounds(750, 465, 200, 50);
+        worldNum.setOpaque(false);
+        worldNum.setFocusPainted(false);
+        worldNum.setContentAreaFilled(false);
+        worldNum.setBorderPainted(false);
+
+        ImageIcon start = new ImageIcon("assets/menu/start.png");
+        Image im = start.getImage().getScaledInstance(800, 110,  java.awt.Image.SCALE_SMOOTH);  
+        start = new ImageIcon(im);
+        JButton startB = new JButton(start);
+        add(startB);
+        startB.setBounds(100, 600, 800, 110);
+        startB.setOpaque(false);
+        playerNum.setFocusPainted(false);
+        startB.setContentAreaFilled(false);
+        startB.setBorderPainted(false);
+
+        ActionListener ButtonListener = new ActionListener(){
+            public void actionPerformed(ActionEvent ae) {
+                String cmd = ae.getActionCommand();
+                switch(cmd){
+                    case "P":
+                        playernum = playernum % 2 + 1;
+                        playerNum.setText(String.format("%d", playernum));
+                        break;
+                    case "W":
+                        worldnum = worldnum % 3 + 1;
+                        worldNum.setText(String.format("%d", worldnum));
+                        break;
+                    case "Start":
+                        game.gameStart();
+                        break;
+                }
+            }
+        };
+
+        playerNum.setActionCommand("P");
+        playerNum.addActionListener(ButtonListener);
+        worldNum.setActionCommand("W");
+        worldNum.addActionListener(ButtonListener);
+        startB.setActionCommand("Start");
+        startB.addActionListener(ButtonListener);
     }
+
     public void render(){
         repaint();
     }
 
-    
     @Override
-        protected void paintComponent(Graphics g /*paintbrush*/) {
-            super.paintComponent(g);
-            // Now, let's paint
-            // g.setColor(Color.WHITE); // paint background with all white
-            // g.fillRect(100, 100, WIDTH-200, HEIGHT-200);
-            try{
-                File file = new File("assets/menu/1.png");
-                Image im = ImageIO.read(file);
-                g.drawImage(im, 10, 10, WIDTH-30, HEIGHT-100, this);
-                // System.out.println("success");
-            }catch(Exception e){
-                System.out.println(e.toString());
-            };
-            // g.setColor(Color.BLACK);
-            // g.drawString("Press Enter in terminal to start", 300, 300);
+    protected void paintComponent(Graphics g /*paintbrush*/) {
+        super.paintComponent(g);
+        // Now, let's paint
+        g.setColor(Color.WHITE); // paint background with all white
+        g.fillRect(0, 0, WIDTH, HEIGHT);
+        try{
+            File file = new File("assets/menu/background.png");
+            Image im = ImageIO.read(file);
+            g.drawImage(im, 100, 50, 800, HEIGHT/2, null);
+        }catch(Exception e){
+            System.out.println(e.toString());
+        };
+    }
 
-            // Container mainP = frame1.getContentPane();
-            setLayout(null);
-
-            JLabel titleL = new JLabel("WELCOME TO FAKECOOKED!");
-            add(titleL);//Chiller
-            titleL.setFont(new Font("Chiller",Font.BOLD,50));
-            titleL.setBounds(230, 30, 600, 50);
-
-            // JLabel num = new JLabel("player number 1");
-            // add(num);//Chiller
-            // num.setFont(new Font("Chiller",Font.BOLD,50));
-            // num.setBounds(0, 400, 400, 100);
-
-            JButton playerNum = new JButton("Player Number: 1");
-            add(playerNum);
-            playerNum.setBounds(400, 100, 200, 50);
-
-            JButton worldSelect = new JButton("Select World");
-            add(worldSelect);
-            worldSelect.setBounds(400, 250, 200, 50);
-
-            JButton startB = new JButton("Start");
-            add(startB);
-            startB.setBounds(400, 400, 200, 50);
-            // g.drawPolygon(new int[] {10, 20, 30}, new int[] {100, 20, 100}, 3);
-            
-            ActionListener ButtonListener = new ActionListener(){
-                public void actionPerformed(ActionEvent ae) {
-                    String cmd = ae.getActionCommand();
-                    switch(cmd){
-                        case "P":
-                            playernum = playernum % 2 + 1;
-                            playerNum.setText(String.format("Player Number: %d", playernum));
-                            break;
-                        case "W":
-                            break;
-                        case "Start":
-                            game.gameStart();
-                            break;
-                        default:
-                            System.out.println("fuck");
-                    }
-
-                }
-            };
-
-            playerNum.setActionCommand("P");
-            playerNum.addActionListener(ButtonListener);
-
-            startB.setActionCommand("Start");
-            startB.addActionListener(ButtonListener);
-
-        }
-        public int getPlayernum(){
-            return playernum;
-        }
-        public int getWorldNo(){
-            return worldNo;
-        }
+    public int getPlayernum(){
+        return playernum;
+    }
+    public int getWorldnum(){
+        return worldnum;
+    }
+    public Game getGame(){
+        return game;
+    }
         
 }
