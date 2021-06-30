@@ -61,8 +61,11 @@ public class Releasing extends Sequence {
     }
 
     private Rectangle releaseArea() {
-        return character.getArea(new Dimension(87, 70),
-                new Dimension(55, 88));
+        int offsetx = character.getBodyOffset().width;
+        int offsety = character.getBodyOffset().height;
+        int width = character.getBodySize().width;
+        int height = character.getBodySize().height;
+        return character.getArea(new Dimension(offsetx + width / 4, offsety + height / 4), character.getBodySize());
     }
 
     @Override

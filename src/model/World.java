@@ -3,10 +3,13 @@ package model;
 import java.awt.*;
 import java.util.Collection;
 import java.util.List;
+
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import scoring.Score;
 import scoring.ScoreBoard;
+import timer.Timer;
+import item.staticItem.TextDisplayer;
 
 import static java.util.Arrays.stream;
 import static java.util.stream.Collectors.toSet;
@@ -17,20 +20,44 @@ import static java.util.stream.Collectors.toSet;
 public class World {
 
     private final List<Sprite> sprites = new CopyOnWriteArrayList<>();
+
     private final CollisionHandler collisionHandler;
+
     protected ScoreBoard scoreboard;
 
-    public World(CollisionHandler collisionHandler, ScoreBoard scoreboard, List<Sprite> sprites) {
+    protected final int worldWidth;
+
+    protected final int worldHeight;
+
+    protected Timer timer;
+    TextDisplayer tdp;
+
+    public World(CollisionHandler collisionHandler, int width, int height, ScoreBoard scoreboard, List<Sprite> sprites) {
+        
+        worldWidth = width;
+
+        worldHeight = height;
+    
         this.collisionHandler = collisionHandler;
+        
+        timer = new Timer();
+
+        tdp = new TextDisplayer(1050, 400);
+        tdp.setText("Timer");
+        
+
         for(Sprite sprite: sprites){
             addSprite(sprite);
         }
         setScoreboard(scoreboard);
         //scoreBoard = new ScoreBoard(0, 10, 10);
         //addSprite(scoreboard);
+        addSprite(tdp);
     }
 
     public void update() {
+        if(!timer.started())timer.startTimer(120);
+        tdp.setText(timer.getCountString());
         for (Sprite sprite : sprites) {
             sprite.update();
         }
@@ -89,4 +116,13 @@ public class World {
             sprite.render(g);
         }
     }
+
+    public Point player1Location(){
+        return new Point(200, 100);
+    }
+
+    public Point player2Location(){
+        return new Point(500, 100);
+    }
+
 }

@@ -24,8 +24,8 @@ import static utils.ImageStateUtils.imageStatesFromFolder;
 
 public class StorageTable extends Table{
 
-    public StorageTable(Point location) {
-        super(location);
+    public StorageTable(Point location, SpriteShape shape) {
+        super(location, shape);
         ImageRenderer imageRenderer = new ItemImageRenderer(this);
         idle = new WaitingPerFrame(4,
                 new Idle(imageStatesFromFolder("assets/item/storagetable", imageRenderer)));

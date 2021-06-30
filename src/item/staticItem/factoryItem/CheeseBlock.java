@@ -27,13 +27,13 @@ import static utils.ImageStateUtils.imageStatesFromFolder;
 
 public class CheeseBlock extends Factory {
 
-    public CheeseBlock(Point location) {
-        super(location, "cheeseblock");
+    public CheeseBlock(Point location, SpriteShape shape, SpriteShape productShape) {
+        super(location, shape, productShape, "cheeseblock");
     }
 
     @Override
     public MobileItem produceItem() {
-        Cheese newItem = new Cheese(new Point(150, 150));
+        Cheese newItem = new Cheese(new Point(0, 0), productShape);
         this.world.addSprite(newItem);
         return newItem;
     }

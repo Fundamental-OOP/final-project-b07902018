@@ -4,18 +4,19 @@ import java.awt.Point;
 
 import item.mobileItem.ingredient.ApplePie;
 import item.mobileItem.ingredient.CheeseEggSandwich;
-import item.mobileItem.ingredient.EnsaladaDeLechugaMaizYCebolla;
+
 
 import item.mobileItem.ingredient.FriedEgg;
 import item.mobileItem.ingredient.Ingredient;
+import model.SpriteShape;
 
 public class CheeseEggSandwichRecipe extends ConcreteRecipe {
 
-    public CheeseEggSandwichRecipe() {
-        super("bread", "friedegg", "cheese");
+    public CheeseEggSandwichRecipe(SpriteShape productShape) {
+        super(productShape, "bread", "friedegg", "cheese");
     }
 
     protected Ingredient getResult() {      
-        return new CheeseEggSandwich(new Point(0, 0));
+        return new CheeseEggSandwich(null, productShape);
     }
 }

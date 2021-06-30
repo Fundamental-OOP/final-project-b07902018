@@ -26,13 +26,13 @@ import static utils.ImageStateUtils.imageStatesFromFolder;
 
 public class BreadBasket extends Factory {
 
-    public BreadBasket(Point location) {
-        super(location, "breadbasket");
+    public BreadBasket(Point location, SpriteShape shape, SpriteShape productShape) {
+        super(location, shape, productShape, "breadbasket");
     }
 
     @Override
     public MobileItem produceItem() {
-        Bread newItem = new Bread(new Point(150, 150));
+        Bread newItem = new Bread(new Point(0, 0), productShape);
         this.world.addSprite(newItem);
         return newItem;
     }

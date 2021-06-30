@@ -22,10 +22,9 @@ public abstract class StaticItem extends Item {
 
     protected State idle;
 
-    public StaticItem(Point location) {
-        super(location);
+    public StaticItem(Point location, SpriteShape shape) {
+        super(location, shape);
     }
-
 
     public void update() {
         //fsm.update();

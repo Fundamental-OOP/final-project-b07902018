@@ -42,24 +42,26 @@ public abstract class Crafter extends StaticItem implements PlaceItemOn, Maker {
 
     protected ArrayList<Recipe> recipes;
 
-    protected final SpriteShape shape;
 
     private State cookingState;
 
     protected boolean isCooking = false;
 
     protected MobileItem pendingItem = null;
-    
 
-    public Crafter(Point location, String name) {
-        super(location);
+
+    protected SpriteShape productShape;
+
+    public Crafter(Point location, SpriteShape shape, SpriteShape productShape, String name) {
+        super(location, shape);
+
+        this.productShape  = productShape;
 
         items = new ArrayList<>();
 
         recipes = new ArrayList<>();
 
-        shape = new SpriteShape(new Dimension(100, 100),
-        new Dimension(10, 10), new Dimension(80, 80));
+    
 
         ImageRenderer imageRenderer = new ItemImageRenderer(this);
         idle = new WaitingPerFrame(4,

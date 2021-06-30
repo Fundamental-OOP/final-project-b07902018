@@ -24,13 +24,12 @@ import static utils.ImageStateUtils.imageStatesFromFolder;
 
 public abstract class Factory extends StaticItem {
 
-    protected final SpriteShape shape;
+    protected SpriteShape productShape;
 
-    public Factory(Point location, String factoryName) {
-        super(location);
+    public Factory(Point location, SpriteShape shape, SpriteShape productShape, String factoryName) {
+        super(location, shape);
 
-        shape = new SpriteShape(new Dimension(100, 100),
-        new Dimension(10, 10), new Dimension(80, 80));
+        this.productShape = productShape;
 
         ImageRenderer imageRenderer = new ItemImageRenderer(this);
         idle = new WaitingPerFrame(4,

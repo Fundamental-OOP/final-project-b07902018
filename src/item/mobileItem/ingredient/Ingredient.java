@@ -23,14 +23,13 @@ import static utils.ImageStateUtils.imageStatesFromFolder;
 
 public class Ingredient extends MobileItem {
 
-    protected final SpriteShape shape;
     protected final String ingredientName;
+
     private List<ImageState> imageStates;
 
-
-    public Ingredient(Point location, String name) {
-        super(location);
-        shape = new SpriteShape(new Dimension(50, 50), new Dimension(33, 38), new Dimension(66, 105));
+    public Ingredient(Point location, SpriteShape shape, String name) {
+        super(location, shape);
+        
         ingredientName = name;
         ImageRenderer imageRenderer = new ItemImageRenderer(this);
         imageStates =imageStatesFromFolder("assets/item/" + ingredientName, imageRenderer);

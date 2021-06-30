@@ -28,11 +28,9 @@ public class TrashCan extends StaticItem implements PlaceItemOn {
 
     private ArrayList<MobileItem> items;
 
-    protected final SpriteShape shape;
 
-
-    public TrashCan(Point location) {
-        super(location);
+    public TrashCan(Point location, SpriteShape shape) {
+        super(location, shape);
         items = new ArrayList<>();
         
         shape = new SpriteShape(new Dimension(100, 100),

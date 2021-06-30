@@ -25,13 +25,13 @@ import static utils.ImageStateUtils.imageStatesFromFolder;
 
 public class SpinachGarden extends Factory {
 
-    public SpinachGarden(Point location) {
-        super(location, "spinachgarden");
+    public SpinachGarden(Point location, SpriteShape shape, SpriteShape productShape) {
+        super(location, shape, productShape, "spinachgarden");
     }
 
     @Override
     public MobileItem produceItem() {
-        Spinach newItem = new Spinach(new Point(150, 150));
+        Spinach newItem = new Spinach(new Point(0, 0), productShape);
         this.world.addSprite(newItem);
         return newItem;
     }

@@ -14,10 +14,7 @@ import item.Idle;
 import item.ItemImageRenderer;
 import item.mobileItem.MobileItem;
 import item.mobileItem.ingredient.Ingredient;
-import item.mobileItem.ingredient.Lechuga;
-import item.mobileItem.ingredient.Maiz;
-import item.mobileItem.ingredient.Onion;
-import item.mobileItem.ingredient.Pepino;
+
 import item.mobileItem.ingredient.Tomato;
 import item.staticItem.StaticItem;
 import model.SpriteShape;
@@ -27,8 +24,8 @@ public class VegetableFactory extends Factory {
     protected final Point thisLocation;
     protected int[] history;
 
-    public VegetableFactory(Point location) {
-        super(location, "box");
+    public VegetableFactory(Point location, SpriteShape shape, SpriteShape productShape) {
+        super(location, shape, productShape, "box");
         thisLocation = location;
         history = new int[2];
         history[0] = -1;
@@ -37,6 +34,7 @@ public class VegetableFactory extends Factory {
 
     @Override
     public MobileItem produceItem() {
+        /*
         int random;
         while (true) {
             random = (int) (Math.random() * 5);
@@ -72,6 +70,8 @@ public class VegetableFactory extends Factory {
         }
         this.world.addSprite(ingredient);
         return ingredient;
+        */
+        return null;
     }
 
 }

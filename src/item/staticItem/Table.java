@@ -25,15 +25,9 @@ public class Table extends StaticItem implements PlaceItemOn {
 
     private ArrayList<MobileItem> items;
 
-    protected final SpriteShape shape;
-
-
-    public Table(Point location) {
-        super(location);
+    public Table(Point location, SpriteShape shape) {
+        super(location, shape);
         items = new ArrayList<>();
-        
-        shape = new SpriteShape(new Dimension(100, 100),
-        new Dimension(10, 10), new Dimension(80, 80));
 
         ImageRenderer imageRenderer = new ItemImageRenderer(this);
         idle = new WaitingPerFrame(4,
