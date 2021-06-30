@@ -20,6 +20,9 @@ public class ScoreBoard extends Sprite {
     public void setY(int y) {
         this.y = y;
     }
+    public void setScore(int score) {
+        this.score = score;
+    }
 
     protected final SpriteShape shape;
 

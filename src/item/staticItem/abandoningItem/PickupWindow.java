@@ -98,6 +98,8 @@ public class PickupWindow extends StaticItem implements PlaceItemOn {
             if (pendingOrders.contain(item)) {
                 pendingOrders.completeOrder(item);
                 scoreboard.increaseScore(scoreComputer.computeScore(item));
+            }else{
+                scoreboard.setScore(Math.max(0, scoreboard.getScore()-10));
             }
         }
         clearItems();
