@@ -24,7 +24,7 @@ import static utils.ImageStateUtils.imageStatesFromFolder;
 
 public class AppleBox extends Factory {
 
-    private SpriteShape productShape;
+    
 
     public AppleBox(Point location, SpriteShape shape, SpriteShape productShape) {
         super(location, shape, productShape, "applebox");

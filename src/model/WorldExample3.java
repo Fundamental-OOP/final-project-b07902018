@@ -74,7 +74,7 @@ public class WorldExample3 extends World {
         addSprite(new Barrel(computeCoordinate(0, 5), staticItemShape));
         addSprite(new WoodPlatform(computeCoordinate(11, 5), staticItemShape));
 
-        addSprite(new TrashCan(computeCoordinate(0, 6), staticItemShape));
+        addSprite(new PieBox(computeCoordinate(0, 6), staticItemShape, mobileItemShape));
         addSprite(new AppleBox(computeCoordinate(4, 6), staticItemShape, mobileItemShape));
         addSprite(new Barrel(computeCoordinate(5, 6), staticItemShape));
         addSprite(new Barrel(computeCoordinate(6, 6), staticItemShape));
