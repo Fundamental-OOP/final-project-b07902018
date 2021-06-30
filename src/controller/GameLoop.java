@@ -105,6 +105,7 @@ public abstract class GameLoop {
             delay(15);            
         }
         gameview.launchEndPage();
+        gameview.dispose();
     }
 
     private void gameLoop() {
