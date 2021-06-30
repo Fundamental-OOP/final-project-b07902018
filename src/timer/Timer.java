@@ -3,11 +3,11 @@ package timer;
 
 public class Timer {
     long endTime;
-    boolean started = false;
+    boolean start = false;
 
 
     public String getCountString(){
-        if(started){
+        if(start){
             if(ended())return "00:00";
             else {
                 long s = (endTime - System.currentTimeMillis())/1000;
@@ -18,10 +18,11 @@ public class Timer {
         }
     }
     public boolean ended(){
-        return started&&System.currentTimeMillis()>=endTime;
+        return start&&System.currentTimeMillis()>=endTime;
     }
+    public boolean started(){return start;}
     public void startTimer(int sec){
-        started = true;
+        start = true;
         endTime = 1000*sec + System.currentTimeMillis();
     }
 }

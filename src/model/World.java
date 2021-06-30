@@ -30,6 +30,7 @@ public class World {
     protected final int worldHeight;
 
     protected Timer timer;
+    TextDisplayer tdp;
 
     public World(CollisionHandler collisionHandler, int width, int height, ScoreBoard scoreboard, List<Sprite> sprites) {
         
@@ -41,9 +42,9 @@ public class World {
         
         timer = new Timer();
 
-        TextDisplayer tdp = new TextDisplayer(800, 800);
+        tdp = new TextDisplayer(1050, 400);
         tdp.setText("Timer");
-        this.addSprite(tdp);
+        
 
         for(Sprite sprite: sprites){
             addSprite(sprite);
@@ -51,9 +52,12 @@ public class World {
         setScoreboard(scoreboard);
         //scoreBoard = new ScoreBoard(0, 10, 10);
         //addSprite(scoreboard);
+        addSprite(tdp);
     }
 
     public void update() {
+        if(!timer.started())timer.startTimer(120);
+        tdp.setText(timer.getCountString());
         for (Sprite sprite : sprites) {
             sprite.update();
         }
