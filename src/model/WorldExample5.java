@@ -4,7 +4,11 @@ import java.awt.Dimension;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
+
+
 import javax.swing.JPanel;
+import timer.Timer;
+
 import item.mobileItem.ingredient.*;
 import item.staticItem.*;
 import item.staticItem.abandoningItem.PickupWindow;
@@ -13,10 +17,10 @@ import item.staticItem.craftingItem.ApplePieStove;
 import item.staticItem.craftingItem.FriedEggStove;
 import item.staticItem.craftingItem.SaladBowl;
 import item.staticItem.craftingItem.SandwichMaker;
-import item.staticItem.factoryItem.AppleBox;
 import item.staticItem.factoryItem.BreadBasket;
 import item.staticItem.factoryItem.CheeseBlock;
 import item.staticItem.factoryItem.EggBasket;
+import item.staticItem.factoryItem.FruitBasket;
 import item.staticItem.factoryItem.PieBox;
 import item.staticItem.factoryItem.SpinachGarden;
 import item.staticItem.factoryItem.TomatoBasket;
@@ -30,21 +34,47 @@ public class WorldExample5 extends World {
 
     private final int gridHeight = 75;
 
-    private final SpriteShape staticItemShape = new SpriteShape(new Dimension(75, 75), new Dimension(10, 10),
-            new Dimension(55, 55));
+    private final SpriteShape staticItemShape 
+        = new SpriteShape(new Dimension(75, 75), new Dimension(10, 10), new Dimension(55, 55));
 
-    private final SpriteShape mobileItemShape = new SpriteShape(new Dimension(30, 30), new Dimension(0, 0),
-            new Dimension(30, 30));
+    private final SpriteShape mobileItemShape
+        = new SpriteShape(new Dimension(30, 30), new Dimension(0, 0), new Dimension(30, 30));
+    
+    public WorldExample5(CollisionHandler collisionHandler, int width, int height, List<Sprite> sprites, JPanel panel) {
+        super(collisionHandler, width, height, sprites, panel);
 
-    public WorldExample5(CollisionHandler collisionHandler, int width, int height, ScoreBoard scoreboard,
-            List<Sprite> sprites, JPanel panel) {
-        super(collisionHandler, width, height, scoreboard, sprites, panel);
+        // setting for outside game panel stuffs
+        // including timer, scoreboard, recipe, orderlist
+        // if you follow the size setting of world example 3
+        // then only modifiy the path of the .png files
+        var recipePicture = new FixedImageDisplayer("assets/worldexample5/recipe.png", 20 + 900, 720 - 180 * 1600 / 701 + 20, 180, 180 * 1600 / 701, panel);
+        var timerBackground = new FixedImageDisplayer("assets/worldexample5/timer.png", 20 + 900, 0, 180, 138, panel);
+        var scoreboardBackground = new FixedImageDisplayer("assets/worldexample5/scoreboard.png",20 + 900, 140, 180, 180,panel);
+        var orderListBackground = new FixedImageDisplayer("assets/worldexample5/orderlistbg.png", 0, 600, 900, 120, panel);
+
+        addSprite(recipePicture);
+        addSprite(timerBackground);
+        addSprite(scoreboardBackground);
+        addSprite(orderListBackground);
+
+        this.scoreboard = new ScoreBoard(0, gridWidth * 13, gridHeight * 14 / 5);
+        setScoreboard(scoreboard);
+        
+        this.timer = new Timer();
+        this.timerDisplayer = new TextDisplayer(computeXCoordinate(12.7), computeYCoordinate(1.2));
+        this.timerDisplayer.setText("Timer");
+        this.timerDisplayer.setFontSize(25);
+        addSprite(timerDisplayer);
+     
+        //
+        // the part you actually design your map
+        //
 
         addSprite(new Plant1(computeCoordinate(3, 0), staticItemShape));
         addSprite(new Plant1(computeCoordinate(6, 0), staticItemShape));
 
         addSprite(new EggBasket(computeCoordinate(2, 1), staticItemShape, mobileItemShape));
-        addSprite(new AppleBox(computeCoordinate(4, 1), staticItemShape, mobileItemShape));
+        addSprite(new FruitBasket(computeCoordinate(4, 1), staticItemShape, mobileItemShape));
         addSprite(new PieBox(computeCoordinate(5, 1), staticItemShape, mobileItemShape));
         addSprite(new EggBasket(computeCoordinate(7, 1), staticItemShape, mobileItemShape));
 
@@ -75,7 +105,8 @@ public class WorldExample5 extends World {
         addSprite(new SandwichMaker(computeCoordinate(4, 7), staticItemShape, mobileItemShape));
         addSprite(new FriedEggStove(computeCoordinate(5, 7), staticItemShape, mobileItemShape));
         addSprite(new TrashCan(computeCoordinate(6, 7), staticItemShape));
-
+    
+        
         ScoreComputer scoreComputer = new ScoreComputer(new ArrayList<>());
         scoreComputer.addScoreConversion(new ApplePie(null, null), 30);
         scoreComputer.addScoreConversion(new FriedEgg(null, null), 10);
@@ -84,15 +115,24 @@ public class WorldExample5 extends World {
         scoreComputer.addScoreConversion(new CheeseEggSandwich(null, null), 50);
 
         PickupWindow window = new PickupWindow(computeCoordinate(3, 7), staticItemShape, scoreboard, scoreComputer);
-
-        addSprite(window);
+        addSprite(window); 
         //scoreboard.setX(1050);
         addSprite(new OrderDiplayer(50, 600, window, panel));
 
+        addSprite(new Grass1(computeCoordinate(12,3), staticItemShape));
+        
     }
 
-    public Point computeCoordinate(int Xgrid, int Ygrid) {
-        return new Point(Xgrid * gridWidth, Ygrid * gridHeight);
+    public int computeXCoordinate(double Xgrid){
+        return (int) (Xgrid * gridWidth);
+    }
+
+    public int computeYCoordinate(double Ygrid){
+        return (int) (Ygrid * gridWidth);
+    }
+
+    public Point computeCoordinate(double Xgrid, double Ygrid){
+        return new Point((int) (Xgrid * gridWidth), (int) (Ygrid * gridHeight));
     }
 
     @Override
@@ -102,13 +142,14 @@ public class WorldExample5 extends World {
 
     @Override
     public Point defaultPlayer2Location() {
-        return computeCoordinate(9, 5);
+        return computeCoordinate(6, 6);
     }
-
+    
     @Override
-    public SpriteShape getCharacterShape() {
-        return new SpriteShape(new Dimension(146 / 2, 176 / 2), new Dimension(40 / 2, 38 / 2),
-                new Dimension(66 / 2, 104 / 2));
+    public SpriteShape getCharacterShape(){
+        return new SpriteShape(new Dimension(146 / 2, 176 / 2),
+                new Dimension(40 / 2, 38 / 2), new Dimension(66 / 2, 104 / 2));
     }
 
+    
 }

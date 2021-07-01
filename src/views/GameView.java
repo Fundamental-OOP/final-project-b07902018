@@ -31,7 +31,7 @@ public class GameView extends JFrame {
     
     public void launchMenu(){
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setSize(WIDTH-300, HEIGHT+100);
+        setSize(WIDTH - 300, HEIGHT + 100);
         Menu menu = new Menu(game);
         this.menu = menu;
         setContentPane(menu);
@@ -188,9 +188,9 @@ public class GameView extends JFrame {
                 catch(Exception e){}
             }*/
             // Now, let's paint
-            g.setColor(Color.decode("#cf9c69")); // paint background with all white
+            g.setColor(Color.decode("#c5e0b4")); // paint background with all white
             //g.fillRect(0, 0, GameView.WIDTH, GameView.HEIGHT);
-            g.fillRect(0, 0, 900, 600);
+            g.fillRect(0, 0, 2000, 1000);
             //if(image !=null)g.drawImage(image,0,0,this);
             //g.drawImage(img, x, y, observer)
 

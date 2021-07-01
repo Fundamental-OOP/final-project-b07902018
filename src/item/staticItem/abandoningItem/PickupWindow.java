@@ -12,6 +12,7 @@ import order.OrderList;
 import scoring.ScoreComputer;
 import scoring.ScoreBoard;
 import java.awt.*;
+import java.time.Period;
 import java.util.ArrayList;
 
 import static utils.ImageStateUtils.imageStatesFromFolder;
@@ -26,6 +27,9 @@ public class PickupWindow extends StaticItem implements PlaceItemOn {
 
     private ArrayList<MobileItem> items;
 
+    private long lastTime;
+
+    private long period;
 
     public PickupWindow(Point location, SpriteShape shape, ScoreBoard scoreboard, ScoreComputer scoreComputer) {
         super(location, shape);
@@ -33,17 +37,19 @@ public class PickupWindow extends StaticItem implements PlaceItemOn {
         this.pendingOrders = new OrderList();
         this.scoreboard = scoreboard;
         this.scoreComputer = scoreComputer;
-        
 
         ImageRenderer imageRenderer = new ItemImageRenderer(this);
         idle = new WaitingPerFrame(4,
                 new Idle(imageStatesFromFolder("assets/item/pickupwindow", imageRenderer)));
+        this.lastTime = System.currentTimeMillis() / 1000;
+        this.period = 10;
     }
 
     @Override
     public Point itemPlaceLocation(MobileItem item) {
         return this.getLocation();
     }
+
     public OrderList getPendingOrders() {
         return pendingOrders;
     }
@@ -79,7 +85,11 @@ public class PickupWindow extends StaticItem implements PlaceItemOn {
     }
 
     @Override
-    public void update(){
+    public void update() {
+        if (System.currentTimeMillis() / 1000 - lastTime > period) {
+            lastTime = System.currentTimeMillis() / 1000;
+            pendingOrders.produceOrder(1, 1);
+        }
         for (MobileItem item : items) {
             if (pendingOrders.contain(item)) {
                 pendingOrders.completeOrder(item);
