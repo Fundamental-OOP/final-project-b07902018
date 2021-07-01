@@ -38,8 +38,8 @@ public class WorldExample3 extends World {
     private final SpriteShape mobileItemShape
         = new SpriteShape(new Dimension(30, 30), new Dimension(0, 0), new Dimension(30, 30));
     
-    public WorldExample3(CollisionHandler collisionHandler, int width, int height, ScoreBoard scoreboard, List<Sprite> sprites, JPanel panel) {
-        super(collisionHandler, width, height, scoreboard, sprites, panel);
+    public WorldExample3(CollisionHandler collisionHandler, int width, int height, List<Sprite> sprites, JPanel panel) {
+        super(collisionHandler, width, height, sprites, panel);
         
         for(int i = 1; i < 4; ++i){
             addSprite(new Barrel(computeCoordinate(i, 0), staticItemShape));

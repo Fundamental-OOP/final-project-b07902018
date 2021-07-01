@@ -36,9 +36,9 @@ public class WorldExample4 extends World {
     private final SpriteShape mobileItemShape = new SpriteShape(new Dimension(30, 30), new Dimension(0, 0),
             new Dimension(30, 30));
 
-    public WorldExample4(CollisionHandler collisionHandler, int width, int height, ScoreBoard scoreboard,
+    public WorldExample4(CollisionHandler collisionHandler, int width, int height,
             List<Sprite> sprites, JPanel panel) {
-        super(collisionHandler, width, height, scoreboard, sprites, panel);
+        super(collisionHandler, width, height, sprites, panel);
 
         for (int i = 0; i <= 8; ++i)
             addSprite(new Barrel(computeCoordinate(i, 0), staticItemShape));
