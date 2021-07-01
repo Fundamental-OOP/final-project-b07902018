@@ -27,7 +27,7 @@ import order.OrderDiplayer;
 import scoring.ScoreBoard;
 import scoring.ScoreComputer;
 
-public class WorldExample2 extends World {
+public class World2blue extends World {
 
     private final int gridWidth = 75;
 
@@ -39,7 +39,7 @@ public class WorldExample2 extends World {
     private final SpriteShape mobileItemShape = new SpriteShape(new Dimension(30, 30), new Dimension(0, 0),
             new Dimension(30, 30));
 
-    public WorldExample2(CollisionHandler collisionHandler, int width, int height, List<Sprite> sprites, JPanel panel) {
+    public World2blue(CollisionHandler collisionHandler, int width, int height, List<Sprite> sprites, JPanel panel) {
         super(collisionHandler, width, height, sprites, panel);
 
         // setting for outside game panel stuffs

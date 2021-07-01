@@ -28,7 +28,7 @@ import order.OrderDiplayer;
 import scoring.ScoreBoard;
 import scoring.ScoreComputer;
 
-public class WorldExample3 extends World {
+public class World1green extends World {
 
     private final int gridWidth = 75;
 
@@ -40,7 +40,7 @@ public class WorldExample3 extends World {
     private final SpriteShape mobileItemShape
         = new SpriteShape(new Dimension(30, 30), new Dimension(0, 0), new Dimension(30, 30));
     
-    public WorldExample3(CollisionHandler collisionHandler, int width, int height, List<Sprite> sprites, JPanel panel) {
+    public World1green(CollisionHandler collisionHandler, int width, int height, List<Sprite> sprites, JPanel panel) {
         super(collisionHandler, width, height, sprites, panel);
 
         addSprite(new Grass1(computeCoordinate(12,3), staticItemShape));
