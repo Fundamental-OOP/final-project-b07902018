@@ -154,6 +154,6 @@ public class WorldExample5 extends World {
 
     @Override
     public String colorOfWorld() {
-        return "#c5e0b4";
+        return "#fbe5d6";
     }
 }
