@@ -27,5 +27,6 @@ build/
 #report temp
 report/*.pdf
 report/*.aux
+report/*.gz
 #mac os
 .DS_Store
