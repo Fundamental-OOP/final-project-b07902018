@@ -67,7 +67,7 @@ public class OrderDiplayer extends Sprite{
         g.setFont(new Font("TimesRoman", Font.PLAIN, 30));
         //g.drawImage(bg,0,720,900,120, panel);
         for (int i = 0;i<imgs.size();i++){
-            g.drawImage(imgs.get(i), x+10+85*i, y+10,75,75, panel);
+            g.drawImage(imgs.get(i), x-8+106*i, y+10,80,80, panel);
 
         }
         //g.drawString("Order:", x, y+23);

@@ -30,6 +30,7 @@ public class GameView extends JFrame {
     }
     
     public void launchMenu(){
+        setTitle("Make It on Time: Menu");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(WIDTH - 300, HEIGHT + 100);
         Menu menu = new Menu(game);
@@ -51,6 +52,8 @@ public class GameView extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(WIDTH - 300, HEIGHT + 100);
         Endpage endpage = new Endpage(game.getWorld().getScore());
+        if(game.getWorld().getScore()>=150)setTitle("Make It on Time: Well Done");
+        else setTitle("Make It on Time: Time's up");
         setContentPane(endpage);
         setVisible(true);
 
@@ -72,6 +75,7 @@ public class GameView extends JFrame {
 
     public void launch() {
         // GUI Stuff
+        setTitle("Make It on Time");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setContentPane(canvas);
         setSize(WIDTH-150, HEIGHT+100);
