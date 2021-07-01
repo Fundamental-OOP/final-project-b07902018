@@ -7,7 +7,7 @@ import java.util.List;
 
 
 import java.util.ArrayList;
-import model.Sprite;
+
 import character.Character;
 import scoring.*;
 import character.*;
@@ -53,34 +53,37 @@ public abstract class GameLoop {
         int worldHeight = 720;
 
         int worldSelection = gameview.getMenu().getWorldnum();
-
+        System.out.println(worldSelection);
         switch (worldSelection) {
             case 1:
                 worldWidth = 1080;
                 worldHeight = 720;
-                world = new WorldExample3(new CharacterCollisionHandler(), worldWidth, worldHeight, Sprites, gameview.getCanvas());
+                world = new WorldExample4(new CharacterCollisionHandler(), worldWidth, worldHeight, Sprites, gameview.getCanvas());
                 game.setWorld(world);
+                break;
             case 2:
                 worldWidth = 1080;
                 worldHeight = 720;
-                world = new WorldExample3(new CharacterCollisionHandler(), worldWidth, worldHeight, Sprites, gameview.getCanvas());
+                world = new WorldExample4(new CharacterCollisionHandler(), worldWidth, worldHeight, Sprites, gameview.getCanvas());
                 game.setWorld(world);
+                break;
             case 3:
                 worldWidth = 1080;
                 worldHeight = 720;
                 world = new WorldExample3(new CharacterCollisionHandler(), worldWidth, worldHeight, Sprites, gameview.getCanvas());
                 game.setWorld(world);
+                break;
             case 4:
                 worldWidth = 1080;
                 worldHeight = 720;
-                world = new WorldExample3(new CharacterCollisionHandler(), worldWidth, worldHeight, Sprites, gameview.getCanvas());
+                world = new WorldExample4(new CharacterCollisionHandler(), worldWidth, worldHeight, Sprites, gameview.getCanvas());
                 game.setWorld(world);
+                break;
             default:
                 worldWidth = 1080;
                 worldHeight = 720;
                 world = new WorldExample3(new CharacterCollisionHandler(), worldWidth, worldHeight, Sprites, gameview.getCanvas());
                 game.setWorld(world);
-            
         }
 
 
