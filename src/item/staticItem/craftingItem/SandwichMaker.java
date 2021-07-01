@@ -29,7 +29,7 @@ public class SandwichMaker extends Crafter {
 
         int itemWidth = item.getRange().width;
 
-        int wOffset = (w - itemWidth * 2) / 2;
+        int wOffset = (w - itemWidth * 3) / 3;
         int hOffset =  h * 3 / 10;
         if(index == 0){
             index = 1;
@@ -37,7 +37,7 @@ public class SandwichMaker extends Crafter {
         else if (index == 1){
             index = 0;
         }
-        return new Point(x - itemWidth / 2 + index * (itemWidth + wOffset), y + hOffset); 
+        return new Point(x + index * (itemWidth), y + hOffset); 
     }
 
     

@@ -7,7 +7,6 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import javax.swing.JPanel;
 import scoring.ScoreBoard;
 import timer.Timer;
-import item.staticItem.FixedImageDisplayer;
 import item.staticItem.TextDisplayer;
 import static java.util.Arrays.stream;
 import static java.util.stream.Collectors.toSet;

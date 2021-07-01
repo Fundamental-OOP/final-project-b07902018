@@ -31,7 +31,7 @@ public class Picking extends Sequence {
     @Override
     public void render(Graphics g) {
         super.render(g);
-        Rectangle pickArea = pickArea();
+        
         //g.setColor(Color.BLUE);
         //g.drawRect(pickArea.x, pickArea.y, pickArea.width, pickArea.height);
     }

@@ -28,7 +28,6 @@ public class Releasing extends Sequence {
     @Override
     public void render(Graphics g) {
         super.render(g);
-        Rectangle releaseArea = releaseArea();
         //g.setColor(Color.BLUE);
         //g.drawRect(releaseArea.x, releaseArea.y, releaseArea.width, releaseArea.height);
     }

@@ -16,7 +16,7 @@ public class Menu extends JPanel {
     private JLabel players, world;
     private JButton playerNum, worldNum;
     private Image im2;
-    private Image ims;
+    
 
     public Menu(Game game) {
         this.game = game;
@@ -97,7 +97,7 @@ public class Menu extends JPanel {
 
         try {
             im2 = ImageIO.read(new File("assets/menu/menubackground.png"));
-            ims = ImageIO.read(new File("assets/menu/start.png"));
+            
         } catch (Exception e) {
         }
     }

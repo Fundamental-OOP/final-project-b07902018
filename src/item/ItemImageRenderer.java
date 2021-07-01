@@ -19,7 +19,7 @@ public class ItemImageRenderer implements ImageRenderer {
     public void render(Image image, Graphics g) {
         Direction face = character.getFace();
         Rectangle range = character.getRange();
-        Rectangle body = character.getBody();
+        
         if (face == Direction.LEFT) {
             g.drawImage(image, range.x + range.width, range.y, -range.width, range.height, null);
         } else {
