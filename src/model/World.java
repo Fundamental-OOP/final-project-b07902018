@@ -19,65 +19,67 @@ public abstract class World {
 
     private final int gameTime = 100;
 
-    private final List<Sprite> sprites = new CopyOnWriteArrayList<>();
-
     private final CollisionHandler collisionHandler;
-
-    protected ScoreBoard scoreboard;
 
     protected final int worldWidth;
 
     protected final int worldHeight;
 
+    private final List<Sprite> sprites = new CopyOnWriteArrayList<>();
+
+
+
+    protected ScoreBoard scoreboard;
+
     protected Timer timer;
 
-    protected TextDisplayer textDisplayer;
-
-    protected FixedImageDisplayer recipe;
+    protected TextDisplayer timerDisplayer;
 
 
 
     public World(CollisionHandler collisionHandler, int width, int height, List<Sprite> sprites,
             JPanel panel) {
         
-        worldWidth = width;
+        this.worldWidth = width;
 
-        worldHeight = height;
+        this.worldHeight = height;
     
         this.collisionHandler = collisionHandler;
+
+        this.scoreboard = new ScoreBoard(20 + 0,970, 210);
+        setScoreboard(scoreboard);
         
         this.timer = new Timer();
+        this.timerDisplayer = new TextDisplayer(20 + 935, 90);
+        this.timerDisplayer.setText("Timer");
+        this.timerDisplayer.setFontSize(25);
+        addSprite(timerDisplayer);
 
-        textDisplayer = new TextDisplayer(20 + 935, 90);
-        textDisplayer.setText("Timer");
-        textDisplayer.setFontSize(25);
-
-        String pathName = "assets/recipe2.png";
-        recipe = new FixedImageDisplayer(pathName, 20 + 900, 720 - 180 * 2043 / 915, 180, 180 * 2043 / 915, panel);
+        
         for(Sprite sprite: sprites){
             addSprite(sprite);
         }
         
-        scoreboard = new ScoreBoard(20 + 0,970, 210);
-        //addSprite(scoreboard);
-
+        var recipePicture = new FixedImageDisplayer("assets/recipe2.png", 20 + 900, 720 - 180 * 2043 / 915, 180, 180 * 2043 / 915, panel);
         var timerBackground = new FixedImageDisplayer("assets/newtimer.png", 20 + 900, 0, 180, 138, panel);
         var scoreboardBackground = new FixedImageDisplayer("assets/scoreboard.png",20 + 900,140,180,180,panel);
         var orderListBackground = new FixedImageDisplayer("assets/orderlistbg.png", 0, 600, 900, 120, panel);
         
+        addSprite(recipePicture);
         addSprite(timerBackground);
         addSprite(scoreboardBackground);
-        addSprite(textDisplayer);
         addSprite(orderListBackground);
-        addSprite(recipe);
-        setScoreboard(scoreboard);
-
+        
     }
 
     public void update() {
-        if(!timer.started())timer.startTimer(gameTime);
-        if(timer.getRemainTime()<=10)textDisplayer.setColor(Color.RED);
-        textDisplayer.setText(timer.getCountString());
+        if(!timer.started()){
+            timer.startTimer(gameTime);
+        }
+        if(timer.getRemainTime()<=10){
+            timerDisplayer.setColor(Color.RED);
+        }
+        timerDisplayer.setText(timer.getCountString());
         for (Sprite sprite : sprites) {
             sprite.update();
         }

@@ -18,7 +18,11 @@ public class Main {
             Game game = new Game();  // controller
         // GameView view = new GameView(game);  // view
             game.start(game);
-            try{game.gmp.join();}catch (Exception e){System.out.println(e);};
+            try{
+                game.gmp.join();
+            }catch (Exception e){
+                System.out.println(e);
+            };
         }
           // run the game and the game loop
         // view.launch(); // launch the GUI
