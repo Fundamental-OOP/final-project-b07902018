@@ -1,1 +1,19 @@
 \section{Advantage of Design}
+
+1.	Open-Closed Principle (OCP)
+    We achieve OCP in food ingredient, recipe, factory, static item, world.
+    One can add any ingredient he/she by extending the Ingredient class by 
+\lstinputlisting[language=Java]{1.java}
+
+One can creates any recipe by extending the abstract ConcreteRecipe class
+\lstinputlisting[language=Java]{2.java}
+
+One can creates any ingredient factory by extending the abstract factory class
+\lstinputlisting[language=Java]{3.java}
+
+One can creates any static item by extending the abstract StaticItem class public class
+\lstinputlisting[language=Java]{4.java}
+
+Finally, One can also creates any static item by extending the abstract World class public class.
+
+2. 沒有用到其他package, dependency很乾淨
