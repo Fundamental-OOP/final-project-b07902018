@@ -52,21 +52,37 @@ public abstract class GameLoop {
         int worldWidth = 1080;
         int worldHeight = 720;
 
-        boolean selectWorld3 = true;
-        if(selectWorld3){
-            worldWidth = 1080;
-            worldHeight = 720;
-            // ScoreBoard scoreboard = new ScoreBoard(20 + 0,970, 210);
-            world = new WorldExample3(new CharacterCollisionHandler(), worldWidth, worldHeight, Sprites, gameview.getCanvas());
-            game.setWorld(world);
+        int worldSelection = gameview.getMenu().getWorldnum();
+
+        switch (worldSelection) {
+            case 1:
+                worldWidth = 1080;
+                worldHeight = 720;
+                world = new WorldExample3(new CharacterCollisionHandler(), worldWidth, worldHeight, Sprites, gameview.getCanvas());
+                game.setWorld(world);
+            case 2:
+                worldWidth = 1080;
+                worldHeight = 720;
+                world = new WorldExample3(new CharacterCollisionHandler(), worldWidth, worldHeight, Sprites, gameview.getCanvas());
+                game.setWorld(world);
+            case 3:
+                worldWidth = 1080;
+                worldHeight = 720;
+                world = new WorldExample3(new CharacterCollisionHandler(), worldWidth, worldHeight, Sprites, gameview.getCanvas());
+                game.setWorld(world);
+            case 4:
+                worldWidth = 1080;
+                worldHeight = 720;
+                world = new WorldExample3(new CharacterCollisionHandler(), worldWidth, worldHeight, Sprites, gameview.getCanvas());
+                game.setWorld(world);
+            default:
+                worldWidth = 1080;
+                worldHeight = 720;
+                world = new WorldExample3(new CharacterCollisionHandler(), worldWidth, worldHeight, Sprites, gameview.getCanvas());
+                game.setWorld(world);
+            
         }
-        else{
-            worldWidth = 1080;
-            worldHeight = 720;
-            // ScoreBoard scoreboard = new ScoreBoard(20 + 0, 970, 210);
-            world = new WorldExample4(new CharacterCollisionHandler(), worldWidth, worldHeight, Sprites, gameview.getCanvas());
-            game.setWorld(world);
-        }
+
 
         if(gameview.getMenu().getPlayernum() == 1){
             Character p1 = new Character(world.defaultPlayer1Location(), world.getCharacterShape());
