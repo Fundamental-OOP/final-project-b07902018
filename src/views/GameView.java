@@ -49,7 +49,7 @@ public class GameView extends JFrame {
 
     public void launchEndPage(){
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setSize(WIDTH-270, HEIGHT+100);
+        setSize(WIDTH - 300, HEIGHT + 100);
         Endpage endpage = new Endpage(game.getWorld().getScore());
         setContentPane(endpage);
         setVisible(true);

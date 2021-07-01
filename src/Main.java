@@ -10,7 +10,7 @@ import static media.AudioPlayer.addAudioByFilePath;
  * @author - johnny850807@gmail.com (Waterball)
  */
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) { 
         addAudioByFilePath(Walking.AUDIO_STEP1, new File("assets/audio/step1.wav"));
         addAudioByFilePath(Walking.AUDIO_STEP2, new File("assets/audio/step2.wav"));
 
