@@ -58,7 +58,7 @@ public abstract class GameLoop {
             case 1:
                 worldWidth = 1080;
                 worldHeight = 720;
-                world = new WorldExample2(new CharacterCollisionHandler(), worldWidth, worldHeight, Sprites, gameview.getCanvas());
+                world = new WorldExample6(new CharacterCollisionHandler(), worldWidth, worldHeight, Sprites, gameview.getCanvas());
                 game.setWorld(world);
                 break;
             case 2:
