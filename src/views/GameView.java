@@ -36,11 +36,11 @@ public class GameView extends JFrame {
         this.menu = menu;
         setContentPane(menu);
         setVisible(true);
-
+        menu.render();
         while(game.isStart()!=true){
             try {
                 Thread.sleep(10);
-                menu.render();
+                //menu.render();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

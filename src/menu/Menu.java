@@ -30,6 +30,7 @@ public class Menu extends JPanel {
         players.setBounds(50, 450, 200, 80);
 
         playerNum = new JButton("1");
+        playerNum.setFocusable(false);
         add(playerNum);
         playerNum.setFont(new Font("", Font.BOLD, 50));
         playerNum.setBounds(250, 470, 200, 50);
@@ -44,7 +45,9 @@ public class Menu extends JPanel {
         world.setBounds(550, 450, 200, 80);
 
         worldNum = new JButton("1");
+        worldNum.setFocusable(false);
         add(worldNum);
+
         worldNum.setBounds(400, 250, 200, 50);
         worldNum.setFont(new Font("", Font.BOLD, 50));
         worldNum.setBounds(750, 465, 200, 50);
@@ -57,6 +60,7 @@ public class Menu extends JPanel {
         Image im = start.getImage().getScaledInstance(800, 110, java.awt.Image.SCALE_SMOOTH);
         start = new ImageIcon(im);
         JButton startB = new JButton(start);
+        startB.setFocusable(false);
         add(startB);
         startB.setBounds(100, 600, 800, 110);
         startB.setOpaque(false);
