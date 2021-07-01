@@ -47,7 +47,7 @@ public class WorldExample3 extends World {
         // including timer, scoreboard, recipe, orderlist
         // if you follow the size setting of world example 3
         // then only modifiy the path of the .png files
-        var recipePicture = new FixedImageDisplayer("assets/worldexample3/recipe.png", 20 + 900, 720 - 180 * 2043 / 915 + 20, 180, 180 * 2043 / 915, panel);
+        var recipePicture = new FixedImageDisplayer("assets/worldexample3/recipe.png", 20 + 900, 720 - 180 * 1600 / 701 + 20, 180, 180 * 1600 / 701, panel);
         var timerBackground = new FixedImageDisplayer("assets/worldexample3/timer.png", 20 + 900, 0, 180, 138, panel);
         var scoreboardBackground = new FixedImageDisplayer("assets/worldexample3/scoreboard.png",20 + 900, 140, 180, 180,panel);
         var orderListBackground = new FixedImageDisplayer("assets/worldexample3/orderlistbg.png", 0, 600, 900, 120, panel);
@@ -130,6 +130,7 @@ public class WorldExample3 extends World {
         //scoreboard.setX(1050);
         addSprite(new OrderDiplayer(50, 600, window, panel));
 
+        addSprite(new Grass1(computeCoordinate(12,3), staticItemShape));
         
     }
 
@@ -160,4 +161,6 @@ public class WorldExample3 extends World {
         return new SpriteShape(new Dimension(146 / 2, 176 / 2),
                 new Dimension(40 / 2, 38 / 2), new Dimension(66 / 2, 104 / 2));
     }
+
+    
 }
