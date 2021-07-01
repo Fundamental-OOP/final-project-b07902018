@@ -6,6 +6,7 @@ import java.io.File;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
+import javax.sound.sampled.FloatControl;
 
 /**
  * @author - johnny850807@gmail.com (Waterball)
@@ -35,4 +36,12 @@ public class AudioPlayer {
     public static void stopSounds(){
         clip.stop();
     }
-}
+
+    public static void setVolume(double volume) {
+        if (volume < 0f || volume > 1f)
+            throw new IllegalArgumentException("Volume not valid: " + volume);
+        FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);        
+        gainControl.setValue(20f * (float) Math.log10(volume));
+    }
+    
+{}}

@@ -38,6 +38,7 @@ public abstract class GameLoop {
 
     public void start(Game game) {
         AudioPlayer.playSoundsInLoop("menumusic");
+        AudioPlayer.setVolume(0.5);
         gameview = new GameView(game);
         gameview.launchMenu();
         
@@ -114,6 +115,7 @@ public abstract class GameLoop {
 
         AudioPlayer.stopSounds();
         AudioPlayer.playSoundsInLoop("gamemusic");
+        AudioPlayer.setVolume(0.1);
         gmp = new Thread(this::gameLoop);
         gmp.start();
         gameview.launch();
@@ -126,6 +128,7 @@ public abstract class GameLoop {
         gameview.launchEndPage();
         gameview.dispose();
         AudioPlayer.stopSounds();
+        AudioPlayer.setVolume(0.5);
     }
 
     private void gameLoop() {
