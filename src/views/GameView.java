@@ -56,7 +56,8 @@ public class GameView extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(WIDTH - 300, HEIGHT + 100);
         Endpage endpage = new Endpage(game.getWorld().getScore());
-        if(game.getWorld().getScore()>=150)setTitle("Make It on Time: Well Done");
+        if(game.getWorld().getScore()>=200)setTitle("Make It on Time: Well Done");
+        else if(game.getWorld().getScore()==0)setTitle("Make It on Time: Sloths");
         else setTitle("Make It on Time: Time's up");
         setContentPane(endpage);
         setVisible(true);
