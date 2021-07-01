@@ -7,9 +7,11 @@ import item.mobileItem.ingredient.*;
 public abstract class Consumer {
     
     protected List<Order> pendingOrders;
+    protected int maxSize = 5;
 
     public void produceOrder(int lowerBound, int upperBound) {
         int num = (int) (Math.random() * (upperBound - lowerBound + 1)) + lowerBound;
+        num = (num + pendingOrders.size() <= maxSize) ? num : maxSize - pendingOrders.size();
         for (int x = 0; x < num; ++x) {
             int random = (int) (Math.random() * 5);
             MobileItem item;
