@@ -5,7 +5,9 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import javax.swing.JPanel;
+import timer.Timer;
 
 import item.mobileItem.ingredient.*;
 import item.staticItem.*;
@@ -40,7 +42,34 @@ public class WorldExample3 extends World {
     
     public WorldExample3(CollisionHandler collisionHandler, int width, int height, List<Sprite> sprites, JPanel panel) {
         super(collisionHandler, width, height, sprites, panel);
+
+        // setting for outside game panel stuffs
+        // including timer, scoreboard, recipe, orderlist
+        // if you follow the size setting of world example 3
+        // then only modifiy the path of the .png files
+        var recipePicture = new FixedImageDisplayer("assets/worldexample3/recipe.png", 20 + 900, 720 - 180 * 2043 / 915 + 20, 180, 180 * 2043 / 915, panel);
+        var timerBackground = new FixedImageDisplayer("assets/worldexample3/timer.png", 20 + 900, 0, 180, 138, panel);
+        var scoreboardBackground = new FixedImageDisplayer("assets/worldexample3/scoreboard.png",20 + 900, 140, 180, 180,panel);
+        var orderListBackground = new FixedImageDisplayer("assets/worldexample3/orderlistbg.png", 0, 600, 900, 120, panel);
+
+        addSprite(recipePicture);
+        addSprite(timerBackground);
+        addSprite(scoreboardBackground);
+        addSprite(orderListBackground);
+
+        this.scoreboard = new ScoreBoard(0, gridWidth * 13, gridHeight * 14 / 5);
+        setScoreboard(scoreboard);
         
+        this.timer = new Timer();
+        this.timerDisplayer = new TextDisplayer(computeXCoordinate(12.7), computeYCoordinate(1.2));
+        this.timerDisplayer.setText("Timer");
+        this.timerDisplayer.setFontSize(25);
+        addSprite(timerDisplayer);
+     
+        //
+        // the part you actually design your map
+        //
+
         for(int i = 1; i < 4; ++i){
             addSprite(new Barrel(computeCoordinate(i, 0), staticItemShape));
         }
@@ -104,8 +133,16 @@ public class WorldExample3 extends World {
         
     }
 
-    public Point computeCoordinate(int Xgrid, int Ygrid){
-        return new Point(Xgrid * gridWidth, Ygrid * gridHeight);
+    public int computeXCoordinate(double Xgrid){
+        return (int) (Xgrid * gridWidth);
+    }
+
+    public int computeYCoordinate(double Ygrid){
+        return (int) (Ygrid * gridWidth);
+    }
+
+    public Point computeCoordinate(double Xgrid, double Ygrid){
+        return new Point((int) (Xgrid * gridWidth), (int) (Ygrid * gridHeight));
     }
 
     @Override

@@ -46,20 +46,12 @@ public abstract class World {
     
         this.collisionHandler = collisionHandler;
 
-        this.scoreboard = new ScoreBoard(20 + 0,970, 210);
-        setScoreboard(scoreboard);
-        
-        this.timer = new Timer();
-        this.timerDisplayer = new TextDisplayer(20 + 935, 90);
-        this.timerDisplayer.setText("Timer");
-        this.timerDisplayer.setFontSize(25);
-        addSprite(timerDisplayer);
-
-        
         for(Sprite sprite: sprites){
             addSprite(sprite);
         }
-        
+
+        // The following part should be custumized in your world example
+        /*
         var recipePicture = new FixedImageDisplayer("assets/recipe2.png", 20 + 900, 720 - 180 * 2043 / 915, 180, 180 * 2043 / 915, panel);
         var timerBackground = new FixedImageDisplayer("assets/newtimer.png", 20 + 900, 0, 180, 138, panel);
         var scoreboardBackground = new FixedImageDisplayer("assets/scoreboard.png",20 + 900,140,180,180,panel);
@@ -69,7 +61,17 @@ public abstract class World {
         addSprite(timerBackground);
         addSprite(scoreboardBackground);
         addSprite(orderListBackground);
+
+
+        this.scoreboard = new ScoreBoard(20 + 0,970, 210);
+        setScoreboard(scoreboard);
         
+        this.timer = new Timer();
+        this.timerDisplayer = new TextDisplayer(20 + 935, 90);
+        this.timerDisplayer.setText("Timer");
+        this.timerDisplayer.setFontSize(25);
+        addSprite(timerDisplayer);
+        */
     }
 
     public void update() {
