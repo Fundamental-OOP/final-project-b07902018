@@ -29,8 +29,8 @@ public class Releasing extends Sequence {
     public void render(Graphics g) {
         super.render(g);
         Rectangle releaseArea = releaseArea();
-        g.setColor(Color.BLUE);
-        g.drawRect(releaseArea.x, releaseArea.y, releaseArea.width, releaseArea.height);
+        //g.setColor(Color.BLUE);
+        //g.drawRect(releaseArea.x, releaseArea.y, releaseArea.width, releaseArea.height);
     }
 
     private void effectRelease() {

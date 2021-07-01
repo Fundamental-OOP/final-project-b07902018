@@ -32,8 +32,8 @@ public class Picking extends Sequence {
     public void render(Graphics g) {
         super.render(g);
         Rectangle pickArea = pickArea();
-        g.setColor(Color.BLUE);
-        g.drawRect(pickArea.x, pickArea.y, pickArea.width, pickArea.height);
+        //g.setColor(Color.BLUE);
+        //g.drawRect(pickArea.x, pickArea.y, pickArea.width, pickArea.height);
     }
 
     private void effectPickUp() {

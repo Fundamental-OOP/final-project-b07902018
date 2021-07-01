@@ -24,6 +24,6 @@ public class CharacterImageRenderer implements ImageRenderer {
             g.drawImage(image, range.x, range.y, range.width, range.height, null);
         }
         g.setColor(Color.RED);
-        g.drawRect(body.x, body.y, body.width, body.height);
+        //g.drawRect(body.x, body.y, body.width, body.height);
     }
 }
