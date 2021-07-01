@@ -151,4 +151,6 @@ public abstract class World {
 
     public abstract SpriteShape getCharacterShape();
 
+    public abstract String colorOfWorld();
+
 }

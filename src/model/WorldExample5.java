@@ -151,5 +151,8 @@ public class WorldExample5 extends World {
                 new Dimension(40 / 2, 38 / 2), new Dimension(66 / 2, 104 / 2));
     }
 
-    
+    @Override
+    public String colorOfWorld() {
+        return "#c5e0b4";
+    }
 }
