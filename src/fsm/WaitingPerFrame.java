@@ -2,9 +2,6 @@ package fsm;
 
 import java.awt.*;
 
-/**
- * @author - johnny850807@gmail.com (Waterball)
- */
 public class WaitingPerFrame implements State {
     private final State state;
     private final long waitingLoopPerFrame;

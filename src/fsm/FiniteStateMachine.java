@@ -3,9 +3,6 @@ package fsm;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @author - johnny850807@gmail.com (Waterball)
- */
 public class FiniteStateMachine implements StateMachine {
     private final Map<State, Map<Object, State>> transitionTable = new HashMap<>();
     private State initialState;

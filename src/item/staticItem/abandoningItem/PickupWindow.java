@@ -12,7 +12,6 @@ import order.OrderList;
 import scoring.ScoreComputer;
 import scoring.ScoreBoard;
 import java.awt.*;
-import java.time.Period;
 import java.util.ArrayList;
 
 import static utils.ImageStateUtils.imageStatesFromFolder;

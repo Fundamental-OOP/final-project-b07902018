@@ -11,8 +11,6 @@ import static media.AudioPlayer.addAudioByFilePath;
  */
 public class Main {
     public static void main(String[] args) { 
-        addAudioByFilePath(Walking.AUDIO_STEP1, new File("assets/audio/step1.wav"));
-        addAudioByFilePath(Walking.AUDIO_STEP2, new File("assets/audio/step2.wav"));
 
         while(true){
             Game game = new Game();  // controller

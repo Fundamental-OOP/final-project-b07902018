@@ -2,9 +2,6 @@ package fsm;
 
 import java.awt.*;
 
-/**
- * @author - johnny850807@gmail.com (Waterball)
- */
 public class ImageState implements State {
     private final Image image;
     protected ImageRenderer render;
