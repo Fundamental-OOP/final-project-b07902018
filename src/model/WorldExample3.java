@@ -43,9 +43,38 @@ public class WorldExample3 extends World {
     public WorldExample3(CollisionHandler collisionHandler, int width, int height, List<Sprite> sprites, JPanel panel) {
         super(collisionHandler, width, height, sprites, panel);
 
-        // first layer
-        var orderListBackground = new FixedImageDisplayer("assets/worldexample3/orderlistbg.png", 0, 600, 900, 120, panel);
+        addSprite(new Grass1(computeCoordinate(12,3), staticItemShape));
+        addSprite(new Grass1(computeCoordinate(13,3), staticItemShape));
+        addSprite(new Grass1(computeCoordinate(14,3), staticItemShape));
+
+        addSprite(new Grass1(computeCoordinate(12,4), staticItemShape));
+        addSprite(new Grass1(computeCoordinate(13,4), staticItemShape));
+        addSprite(new Grass1(computeCoordinate(14,4), staticItemShape));
+
+
+        // setting for outside game panel stuffs
+        // including timer, scoreboard, recipe, orderlist
+        // if you follow the size setting of world example 3
+        // then only modifiy the path of the .png files
+        var recipePicture = new FixedImageDisplayer("assets/worldexample4/recipe.png", 20 + 900, 720 - 180 * 2043 / 915 + 20, 180, 180 * 2043 / 915, panel);
+        var timerBackground = new FixedImageDisplayer("assets/worldexample4/timer.png", 20 + 900, 0, 180, 138, panel);
+        var scoreboardBackground = new FixedImageDisplayer("assets/worldexample4/scoreboard.png",20 + 900, 140, 180, 180,panel);
+        var orderListBackground = new FixedImageDisplayer("assets/worldexample4/orderlistbg.png", 0, 600, 900, 120, panel);
+
+        addSprite(recipePicture);
+        addSprite(timerBackground);
+        addSprite(scoreboardBackground);
         addSprite(orderListBackground);
+
+        this.scoreboard = new ScoreBoard(0, gridWidth * 13, gridHeight * 14 / 5);
+        setScoreboard(scoreboard);
+        
+        this.timer = new Timer();
+        this.timerDisplayer = new TextDisplayer(computeXCoordinate(12.7), computeYCoordinate(1.2));
+        this.timerDisplayer.setText("Timer");
+        this.timerDisplayer.setFontSize(25);
+        addSprite(timerDisplayer);
+
 
         // second layer
         // the part you actually design your map
@@ -112,15 +141,8 @@ public class WorldExample3 extends World {
         //scoreboard.setX(1050);
         addSprite(new OrderDiplayer(50, 600, window, panel));
 
-        addSprite(new Grass1(computeCoordinate(12,3), staticItemShape));
-        addSprite(new Grass1(computeCoordinate(13,3), staticItemShape));
-        addSprite(new Grass1(computeCoordinate(14,3), staticItemShape));
 
-        addSprite(new Grass1(computeCoordinate(12,4), staticItemShape));
-        addSprite(new Grass1(computeCoordinate(13,4), staticItemShape));
-        addSprite(new Grass1(computeCoordinate(14,4), staticItemShape));
-
-
+/*
         // third layer
         // setting for outside game panel stuffs
         // including timer, scoreboard, recipe, orderlist
@@ -129,12 +151,13 @@ public class WorldExample3 extends World {
         var recipePicture = new FixedImageDisplayer("assets/worldexample3/recipe.png", 20 + 900, 720 - 180 * 1600 / 701 + 20, 180, 180 * 1600 / 701, panel);
         var timerBackground = new FixedImageDisplayer("assets/worldexample3/timer.png", 20 + 900, 0, 180, 138, panel);
         var scoreboardBackground = new FixedImageDisplayer("assets/worldexample3/scoreboard.png",20 + 900, 140, 180, 180,panel);
-        
+        var orderListBackground = new FixedImageDisplayer("assets/worldexample3/orderlistbg.png", 0, 600, 900, 120, panel);
 
         addSprite(recipePicture);
         addSprite(timerBackground);
         addSprite(scoreboardBackground);
         
+        addSprite(orderListBackground);
 
         this.scoreboard = new ScoreBoard(0, gridWidth * 13, gridHeight * 14 / 5);
         setScoreboard(scoreboard);
@@ -144,7 +167,7 @@ public class WorldExample3 extends World {
         this.timerDisplayer.setText("Timer");
         this.timerDisplayer.setFontSize(25);
         addSprite(timerDisplayer);
-        
+*/      
     }
 
     public int computeXCoordinate(double Xgrid){
