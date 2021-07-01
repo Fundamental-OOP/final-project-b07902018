@@ -4,6 +4,7 @@
 \usepackage[margin=3cm]{geometry} % 上下左右距離邊緣2cm
 \usepackage{amsmath,amsthm,amssymb} % 引入 AMS 數學環境   
 %\usepackage{algpseudocode}
+
 \usepackage{listings}
 \usepackage{algorithm}
 \usepackage{algorithmic}
@@ -52,6 +53,8 @@
 \lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=10pt}
 \lstset{basicstyle=\ttfamily\footnotesize,breaklines=true, tabsize=4}
 
+\usepackage{color}
+
 
 
 
@@ -82,6 +85,7 @@
 \fontsize{12pt}{24pt}\selectfont
 
 %%%%%%%%%%%%%%%%%%%include file here%%%%%%%%%%%%%%%%%%%%%%%%%
+\let\clearpage\relax
 \include{Title}
 \include{Assignment_of_Responsibilities}
 \include{Object_Oriented_Design}

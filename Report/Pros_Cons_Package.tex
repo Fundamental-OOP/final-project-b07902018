@@ -1,8 +1,32 @@
+
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+\newpage
 \section{Advantage of Design}
 \begin{enumerate}
 \item Open-Closed Principle (OCP)
-    We achieve OCP in food ingredient, recipe, factory, static item, world.
-    One can add any ingredient he/she by extending the Ingredient class by 
+    We achieve OCP in \textbf{Ingredient}, \textbf{Recipe}, \textbf{Factory}, \textbf{StaticItem}, \textbf{World}.
+    One can add any ingredients by extending the \textbf{Ingredient} class as
 \lstinputlisting[language=Java]{1.java}
 
 One can creates any recipe by extending the abstract ConcreteRecipe class
