@@ -1,8 +1,4 @@
 import controller.Game;
-import character.Walking;
-
-import java.io.File;
-
 import static media.AudioPlayer.addAudioByFilePath;
 
 /**
@@ -11,6 +7,9 @@ import static media.AudioPlayer.addAudioByFilePath;
  */
 public class Main {
     public static void main(String[] args) { 
+        addAudioByFilePath("menumusic", "assets/audio/menumusic.wav");
+        addAudioByFilePath("gamemusic", "assets/audio/gamemusic.wav");
+        addAudioByFilePath("endmusic", "assets/audio/endmusic.wav");
 
         while(true){
             Game game = new Game();  // controller

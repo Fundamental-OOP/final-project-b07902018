@@ -12,6 +12,7 @@ import java.util.Map;
  */
 public class AudioPlayer {
     private static final Map<Object, File> sounds = new HashMap<>();
+    private static Clip clip;
 
     public static void addAudioByFilePath(Object audioName, File file) {
         sounds.put(audioName, file);
@@ -21,14 +22,17 @@ public class AudioPlayer {
         sounds.put(audioName, Paths.get(path).toFile());
     }
 
-    public static void playSounds(Object audioName) {
+    public static void playSoundsInLoop(Object audioName) {
         try {
-            Clip clip = AudioSystem.getClip();
+            clip = AudioSystem.getClip();
             clip.open(AudioSystem.getAudioInputStream(sounds.get(audioName)));
-            clip.start();
+            clip.loop(Clip.LOOP_CONTINUOUSLY);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    public static void stopSounds(){
+        clip.stop();
+    }
 }
