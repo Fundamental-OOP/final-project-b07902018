@@ -17,7 +17,7 @@ import static java.util.stream.Collectors.toSet;
  */
 public abstract class World {
 
-    private final int gameTime = 100;
+    private final int gameTime = 180;
 
     private final CollisionHandler collisionHandler;
 

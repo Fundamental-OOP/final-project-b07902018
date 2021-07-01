@@ -9,7 +9,9 @@ public class FriedEggStove extends Crafter {
 
     public FriedEggStove(Point location, SpriteShape shape, SpriteShape productShape) {
         super(location, shape, productShape, "friedeggstove");
-        //recipes.add(new ApplepieRecipe());
+        
+        cookTime = 10 * 1000;
+
         recipes.add(new FriedEggRecipe(productShape));
     }
 

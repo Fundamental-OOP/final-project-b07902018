@@ -10,10 +10,13 @@ public class SandwichMaker extends Crafter {
 
     public SandwichMaker(Point location, SpriteShape shape, SpriteShape productShape) {
         super(location, shape, productShape, "sandwichmaker");
-        recipes.add(new VegetableSandwichRecipe(productShape));
-        recipes.add(new CheeseEggSandwichRecipe(productShape));
+
+        cookTime = 12 * 1000;
 
         maxItemNumber = 3;
+
+        recipes.add(new VegetableSandwichRecipe(productShape));
+        recipes.add(new CheeseEggSandwichRecipe(productShape));
     }
 
     @Override
