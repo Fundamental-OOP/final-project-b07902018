@@ -16,7 +16,7 @@ import menu.Endpage;
  */
 public class GameView extends JFrame {
 
-    private final String wds[] = {"Hi There","Quick","Fresh","Homemade","DoaDaoDao"};
+    private final String wds[] = {"Hi There","Quick","Fresh","Homemade","DoaDaoDao","Menu","YaYa"};
     public static final int HEIGHT = 720;
     public static final int WIDTH = 1280;
     public static final int P1 = 1;
@@ -34,7 +34,7 @@ public class GameView extends JFrame {
     }
     
     public void launchMenu(){
-        setTitle("Make It on Time: "+wds[(new Random().nextInt(5))]);
+        setTitle("Make It on Time: "+wds[(new Random().nextInt(7))]);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(WIDTH - 300, HEIGHT + 100);
         Menu menu = new Menu(game);

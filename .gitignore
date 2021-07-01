@@ -26,5 +26,6 @@ hs_err_pid*
 build/
 #report temp
 report/*.pdf
+report/*.aux
 #mac os
 .DS_Store
