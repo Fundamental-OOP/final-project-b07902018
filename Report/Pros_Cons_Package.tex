@@ -24,22 +24,22 @@
 \newpage
 \section{Advantage of Design}
 \begin{enumerate}
-\item Open-Closed Principle (OCP)
-    We achieve OCP in \textbf{Ingredient}, \textbf{Recipe}, \textbf{Factory}, \textbf{StaticItem}, \textbf{World}.
+\item Open-Closed Principle (OCP) \\
+We achieve OCP in \textbf{Ingredient}, \textbf{Recipe}, \textbf{Factory}, \textbf{StaticItem}, \textbf{World}.
     One can add any ingredients by extending the \textbf{Ingredient} class as
 \lstinputlisting[language=Java]{1.java}
 
-One can creates any recipe by extending the abstract ConcreteRecipe class
+One can creates any recipe by extending the abstract \textbf{ConcreteRecipe} class
 \lstinputlisting[language=Java]{2.java}
 
-One can creates any ingredient factory by extending the abstract factory class
+One can creates any ingredient factory by extending the abstract \textbf{Factory} class
 \lstinputlisting[language=Java]{3.java}
 
-One can creates any static item by extending the abstract StaticItem class public class
+One can creates any static item by extending the abstract \textbf{StaticItem} class public class
 \lstinputlisting[language=Java]{4.java}
 
-Finally, One can also creates any static item by extending the abstract World class public class.
-\item Not many outer source code and packages are utilized.
+Finally, one can also creates a customized map and world by extending the abstract \textbf{World} class.
+\item Not many outer source code and packages are utilized, make our codes rather "lightweight".
 \end{enumerate}
 
 \section{Disadvantage of Design}
