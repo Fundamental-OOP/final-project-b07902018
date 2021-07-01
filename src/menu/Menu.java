@@ -16,6 +16,7 @@ public class Menu extends JPanel {
     private JLabel players, world;
     private JButton playerNum, worldNum;
     private Image im2;
+    private Image ims;
 
     public Menu(Game game) {
         this.game = game;
@@ -57,12 +58,12 @@ public class Menu extends JPanel {
         worldNum.setBorderPainted(false);
 
         ImageIcon start = new ImageIcon("assets/menu/start.png");
-        Image im = start.getImage().getScaledInstance(800, 110, java.awt.Image.SCALE_SMOOTH);
+        Image im = start.getImage().getScaledInstance(630, 110, java.awt.Image.SCALE_SMOOTH);
         start = new ImageIcon(im);
-        JButton startB = new JButton(start);
+        JButton startB = new JButton("");
         startB.setFocusable(false);
         add(startB);
-        startB.setBounds(100, 600, 800, 110);
+        startB.setBounds(214, 639, 630, 110);
         startB.setOpaque(false);
         playerNum.setFocusPainted(false);
         startB.setContentAreaFilled(false);
@@ -95,7 +96,8 @@ public class Menu extends JPanel {
         startB.addActionListener(ButtonListener);
 
         try {
-            im2 = ImageIO.read(new File("assets/menu/background.png"));
+            im2 = ImageIO.read(new File("assets/menu/menubackground.png"));
+            ims = ImageIO.read(new File("assets/menu/start.png"));
         } catch (Exception e) {
         }
     }
@@ -110,7 +112,9 @@ public class Menu extends JPanel {
         // Now, let's paint
         g.setColor(Color.WHITE); // paint background with all white
         g.fillRect(0, 0, WIDTH, HEIGHT+100);
-        g.drawImage(im2, 100, 50, 800, HEIGHT / 2, null);
+        g.drawImage(im2, 0, 0, WIDTH - 300, HEIGHT + 100, null);
+        //g.drawImage(ims, 100, 600, 800, 110, null);
+ 
     }
 
     public int getPlayernum() {
