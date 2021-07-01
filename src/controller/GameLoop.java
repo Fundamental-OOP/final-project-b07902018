@@ -4,13 +4,11 @@ import model.*;
 import views.GameView;
 import views.View;
 import java.util.List;
-
-
 import java.util.ArrayList;
-
 import character.Character;
-import scoring.*;
+import media.AudioPlayer;
 import character.*;
+
 /**
  * @author - johnny850807@gmail.com (Waterball)
  */
@@ -39,9 +37,9 @@ public abstract class GameLoop {
     }
 
     public void start(Game game) {
+        AudioPlayer.playSoundsInLoop("menumusic");
         gameview = new GameView(game);
         gameview.launchMenu();
-
         
         List<Sprite> Sprites = new ArrayList<>();
         List<Character> players = new ArrayList<>();
@@ -114,6 +112,8 @@ public abstract class GameLoop {
 
         game.setPlayers(players);
 
+        AudioPlayer.stopSounds();
+        AudioPlayer.playSoundsInLoop("gamemusic");
         gmp = new Thread(this::gameLoop);
         gmp.start();
         gameview.launch();
@@ -121,8 +121,11 @@ public abstract class GameLoop {
         while(world.getTimer().ended() == false){
             delay(15);            
         }
+        AudioPlayer.stopSounds();
+        AudioPlayer.playSoundsInLoop("endmusic");
         gameview.launchEndPage();
         gameview.dispose();
+        AudioPlayer.stopSounds();
     }
 
     private void gameLoop() {
