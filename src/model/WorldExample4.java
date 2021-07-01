@@ -142,4 +142,9 @@ public class WorldExample4 extends World {
         return new SpriteShape(new Dimension(146 / 2, 176 / 2),
                 new Dimension(40 / 2, 38 / 2), new Dimension(66 / 2, 104 / 2));
     }
+
+    @Override
+    public String colorOfWorld() {
+        return "#fff2cc";
+    }
 }

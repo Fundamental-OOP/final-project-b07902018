@@ -18,20 +18,22 @@ public class Endpage extends JPanel {
         isend = false;
         setLayout(null);
 
-        jscore = new JLabel(String.format("Score: %d", score));
+        jscore = new JLabel(String.format("Score : %d", score));
         add(jscore);
-        jscore.setFont(new Font("", Font.BOLD, 50));
-        jscore.setBounds(350, 450, 400, 80);
+        jscore.setFont(new Font("Marker Felt", Font.BOLD, 50));
+        jscore.setBounds((WIDTH - 300 - 200) / 2, 450, 400, 80);
 
-        again = new JButton("Again");
+        again = new JButton("");
         again.setFocusable(false);
         add(again);
         again.setFont(new Font("", Font.BOLD, 50));
-        again.setBounds(400, 550, 200, 80);
+        again.setBounds(214, 639, 630, 110);
         again.setOpaque(false);
         again.setFocusPainted(false);
         again.setContentAreaFilled(false);
         again.setBorderPainted(false);
+
+ 
 
         ActionListener ButtonListener = new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
@@ -60,8 +62,8 @@ public class Endpage extends JPanel {
         super.paintComponent(g);
         // Now, let's paint
         g.setColor(Color.WHITE); // paint background with all white
-        g.fillRect(0, 0, WIDTH, HEIGHT+100);
-        g.drawImage(im, 100, 50, 800, HEIGHT / 2, null);
+        g.fillRect(0, 0, WIDTH, HEIGHT + 100);
+        g.drawImage(im, 0, 0, WIDTH - 300, HEIGHT + 100, null);
     }
 
 }

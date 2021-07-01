@@ -9,9 +9,6 @@ import model.World;
 import java.awt.*;
 import java.util.List;
 
-/**
- * @author - johnny850807@gmail.com (Waterball)
- */
 public class Releasing extends Sequence {
 
     private final Character character;
@@ -51,7 +48,6 @@ public class Releasing extends Sequence {
                 } 
             }
         }
-
     }
 
     private Rectangle releaseArea() {

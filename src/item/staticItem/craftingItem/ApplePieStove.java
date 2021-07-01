@@ -9,12 +9,9 @@ public class ApplePieStove extends Crafter {
 
     public ApplePieStove(Point location, SpriteShape shape, SpriteShape productShape) {
         super(location, shape, productShape, "applepiestove");
+
+        cookTime = 15 * 1000;
+
         recipes.add(new ApplepieRecipe(productShape));
-        // recipes.add(new EnsaladaCompletaRecipe());
-        // recipes.add(new EnsaladaDeLechugaMaizYCebollaRecipe());
-        // recipes.add(new EnsaladaDeLechugaPepinoYCebollaRecipe());
-        // recipes.add(new EnsaladaDeLechugaTomateYCebollaRecipe());
-        // recipes.add(new EnsaladaDeTomateMaizYCebollaRecipe());
-        // recipes.add(new EnsaladaDeTomatePepinoYCebollaRecipe());
     }
 }

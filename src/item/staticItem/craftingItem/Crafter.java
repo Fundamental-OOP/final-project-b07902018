@@ -17,7 +17,7 @@ import static utils.ImageStateUtils.imageStatesFromFolder;
 
 public abstract class Crafter extends StaticItem implements PlaceItemOn, Maker {
 
-    protected long cookTime = 3000;
+    protected long cookTime = 10 * 1000;
 
     protected int maxItemNumber = 2;
 

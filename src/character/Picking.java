@@ -11,12 +11,10 @@ import model.World;
 import java.awt.*;
 import java.util.List;
 
-/**
- * @author - johnny850807@gmail.com (Waterball)
- */
 public class Picking extends Sequence {
 
     private final Character character;
+    
     private final StateMachine stateMachine;
 
     public Picking(Character character, StateMachine stateMachine, List<? extends State> states) {
@@ -65,16 +63,6 @@ public class Picking extends Sequence {
                 newItem.setOwner(character);
                 break;
             }
-            /*
-            else if (character != sprite && sprite instanceof MobileItem) {
-                MobileItem pickedItem = (MobileItem) sprite;
-                if(!pickedItem.hasOwner()){
-                    pickedItem.setLocation(character.mobileItemLocation());
-                    character.addMobileItem(pickedItem);
-                    pickedItem.setOwner(character);
-                    break;
-                }
-            }*/
         }
     }
 

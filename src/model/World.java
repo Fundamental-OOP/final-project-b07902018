@@ -17,7 +17,7 @@ import static java.util.stream.Collectors.toSet;
  */
 public abstract class World {
 
-    private final int gameTime = 100;
+    private final int gameTime = 180;
 
     private final CollisionHandler collisionHandler;
 
@@ -150,5 +150,7 @@ public abstract class World {
     public abstract Point defaultPlayer2Location();
 
     public abstract SpriteShape getCharacterShape();
+
+    public abstract String colorOfWorld();
 
 }

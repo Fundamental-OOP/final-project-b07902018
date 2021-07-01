@@ -10,7 +10,9 @@ public class SaladBowl extends Crafter {
 
     public SaladBowl(Point location, SpriteShape shape, SpriteShape productShape) {
         super(location, shape, productShape, "saladbowl");
-        //recipes.add(new ApplepieRecipe());
+        
+        cookTime = 5 * 1000;
+
         recipes.add(new SaladRecipe(productShape));
         recipes.add(new FruitSaladRecipe(productShape));
 

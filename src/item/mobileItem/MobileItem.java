@@ -11,9 +11,6 @@ import java.util.concurrent.CopyOnWriteArraySet;
 import static fsm.Event.*;
 import static model.Direction.LEFT;
 
-/**
- * @author - johnny850807@gmail.com (Waterball)
- */
 public abstract class MobileItem extends Item {
  
     protected final FiniteStateMachine fsm;
@@ -51,12 +48,10 @@ public abstract class MobileItem extends Item {
 
     public void setOwner(Character character){
         owner = character;
-        //fsm.trigger(ISPICKED);
     }
 
     public void beReleased(){
         owner = null;
-        //fsm.trigger(ISRELEASED);
     }
 
     public void freeze() {
@@ -77,7 +72,6 @@ public abstract class MobileItem extends Item {
 
     @Override
     public void render(Graphics g) {
-        //super.render(g);
         fsm.render(g);
     }
 
