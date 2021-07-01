@@ -106,6 +106,7 @@ public class WorldExample4 extends World {
         scoreComputer.addScoreConversion(new Salad(null, null), 30);
         scoreComputer.addScoreConversion(new VegetableSandwich(null, null), 30);
         scoreComputer.addScoreConversion(new CheeseEggSandwich(null, null), 50);
+        scoreComputer.addScoreConversion(new FruitSalad(null, null), 50);
 
         PickupWindow window = new PickupWindow(computeCoordinate(9, 4), staticItemShape, scoreboard, scoreComputer);
         addSprite(window); 

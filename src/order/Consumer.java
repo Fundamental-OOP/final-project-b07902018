@@ -13,7 +13,7 @@ public abstract class Consumer {
         int num = (int) (Math.random() * (upperBound - lowerBound + 1)) + lowerBound;
         num = (num + pendingOrders.size() <= maxSize) ? num : maxSize - pendingOrders.size();
         for (int x = 0; x < num; ++x) {
-            int random = (int) (Math.random() * 5);
+            int random = (int) (Math.random() * 6);
             MobileItem item;
             switch (random) {
                 case 0:
@@ -26,13 +26,16 @@ public abstract class Consumer {
                     item = new Salad(null, null);
                     break;
                 case 3:
-                    item = new RawEgg(null, null);
+                    item = new FruitSalad(null, null);
                     break;
                 case 4:
                     item = new ApplePie(null, null);
                     break;
+                case 5:
+                    item = new VegetableSandwich(null, null);
+                    break;
                 default:
-                    item = new Apple(null, null);
+                    item = new RawEgg(null, null);
             }
             String itemName = ((Ingredient) item).getIngredientName();
             System.out.printf("Order: %s%n", itemName);
