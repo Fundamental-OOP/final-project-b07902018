@@ -5,9 +5,6 @@ import model.Direction;
 
 import java.awt.*;
 
-/**
- * @author - johnny850807@gmail.com (Waterball)
- */
 public class CharacterImageRenderer implements ImageRenderer {
     protected Character character;
 
@@ -20,12 +17,13 @@ public class CharacterImageRenderer implements ImageRenderer {
         Direction face = character.getFace();
         Rectangle range = character.getRange();
         Rectangle body = character.getBody();
+        
         if (face == Direction.LEFT) {
             g.drawImage(image, range.x + range.width, range.y, -range.width, range.height, null);
         } else {
             g.drawImage(image, range.x, range.y, range.width, range.height, null);
         }
-         g.setColor(Color.RED);
-         g.drawRect(body.x, body.y, body.width, body.height);
+        g.setColor(Color.RED);
+        g.drawRect(body.x, body.y, body.width, body.height);
     }
 }

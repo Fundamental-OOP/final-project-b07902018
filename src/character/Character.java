@@ -19,9 +19,6 @@ import static fsm.Event.*;
 import static model.Direction.LEFT;
 import static utils.ImageStateUtils.imageStatesFromFolder;
 
-/**
- * @author - johnny850807@gmail.com (Waterball)
- */
 public class Character extends Sprite {
     private final SpriteShape shape;
     private final FiniteStateMachine fsm;
@@ -31,12 +28,9 @@ public class Character extends Sprite {
 
     public Character(Point location, SpriteShape shape) {
         this.location = location;
-        // shape = new SpriteShape(new Dimension(146, 176),
-        //        new Dimension(40, 38), new Dimension(66, 105));
-        // shape = new SpriteShape(new Dimension(146 / 2, 176 / 2),
-        //         new Dimension(40 / 2, 38 / 2), new Dimension(66 / 2, 104 / 2));
+
         this.shape = shape;
-        fsm = new FiniteStateMachine();
+        this.fsm = new FiniteStateMachine();
         this.mobileItem = null;
 
         ImageRenderer imageRenderer = new CharacterImageRenderer(this);
@@ -55,8 +49,6 @@ public class Character extends Sprite {
         fsm.addTransition(from(walking).when(PICK).to(picking));
         fsm.addTransition(from(idle).when(RELEASE).to(releasing));
         fsm.addTransition(from(walking).when(RELEASE).to(releasing));
-
-        //fsm.addTransition(from(picking).when(WALK).to(walking));
     }
 
     public void move(Direction direction) {
@@ -102,12 +94,7 @@ public class Character extends Sprite {
     public void update() {
         fsm.update();
     }
-/*
-    public boolean isPerforming(){
-        State currentState = fsm.currentState();
-        return (currentState instanceof Picking) || (currentState instanceof Releasing);
-    }
-*/
+
     public void addMobileItem(MobileItem mobileItem){
         if(mobileItem instanceof MobileItem){
             this.mobileItem = mobileItem;
@@ -142,7 +129,6 @@ public class Character extends Sprite {
 
     @Override
     public void render(Graphics g) {
-        //super.render(g);
         fsm.render(g);
     }
 
