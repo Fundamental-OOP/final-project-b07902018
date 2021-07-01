@@ -31,7 +31,7 @@ public class GameView extends JFrame {
     
     public void launchMenu(){
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setSize(WIDTH-300, HEIGHT+100);
+        setSize(WIDTH, HEIGHT);
         Menu menu = new Menu(game);
         this.menu = menu;
         setContentPane(menu);

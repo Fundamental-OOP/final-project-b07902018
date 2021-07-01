@@ -26,13 +26,13 @@ public class Menu extends JPanel {
 
         players = new JLabel("Players");
         add(players);
-        players.setFont(new Font("", Font.BOLD, 50));
+        players.setFont(new Font("Marker Felt", Font.BOLD, 50));
         players.setBounds(50, 450, 200, 80);
 
         playerNum = new JButton("1");
         playerNum.setFocusable(false);
         add(playerNum);
-        playerNum.setFont(new Font("", Font.BOLD, 50));
+        playerNum.setFont(new Font("Marker Felt", Font.BOLD, 50));
         playerNum.setBounds(250, 470, 200, 50);
         playerNum.setOpaque(false);
         playerNum.setFocusPainted(false);
@@ -41,7 +41,7 @@ public class Menu extends JPanel {
 
         world = new JLabel("World");
         add(world);
-        world.setFont(new Font("", Font.BOLD, 50));
+        world.setFont(new Font("Marker Felt", Font.BOLD, 50));
         world.setBounds(550, 450, 200, 80);
 
         worldNum = new JButton("1");
@@ -49,7 +49,7 @@ public class Menu extends JPanel {
         add(worldNum);
 
         worldNum.setBounds(400, 250, 200, 50);
-        worldNum.setFont(new Font("", Font.BOLD, 50));
+        worldNum.setFont(new Font("Marker Felt", Font.BOLD, 50));
         worldNum.setBounds(750, 465, 200, 50);
         worldNum.setOpaque(false);
         worldNum.setFocusPainted(false);
