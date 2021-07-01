@@ -24,6 +24,7 @@ public class Endpage extends JPanel {
         jscore.setBounds(350, 450, 400, 80);
 
         again = new JButton("Again");
+        again.setFocusable(false);
         add(again);
         again.setFont(new Font("", Font.BOLD, 50));
         again.setBounds(400, 550, 200, 80);
