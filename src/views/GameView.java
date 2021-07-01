@@ -7,12 +7,16 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.Random;
+
 import menu.Menu;
 import menu.Endpage;
 /**
  * @author - johnny850807@gmail.com (Waterball)
  */
 public class GameView extends JFrame {
+
+    private final String wds[] = {"Hi There","Quick","Fresh","Homemade","DoaDaoDao"};
     public static final int HEIGHT = 720;
     public static final int WIDTH = 1280;
     public static final int P1 = 1;
@@ -30,7 +34,7 @@ public class GameView extends JFrame {
     }
     
     public void launchMenu(){
-        setTitle("Make It on Time: Menu");
+        setTitle("Make It on Time: "+wds[(new Random().nextInt(5))]);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(WIDTH - 300, HEIGHT + 100);
         Menu menu = new Menu(game);
@@ -52,7 +56,8 @@ public class GameView extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(WIDTH - 300, HEIGHT + 100);
         Endpage endpage = new Endpage(game.getWorld().getScore());
-        if(game.getWorld().getScore()>=150)setTitle("Make It on Time: Well Done");
+        if(game.getWorld().getScore()>=200)setTitle("Make It on Time: Well Done");
+        else if(game.getWorld().getScore()==0)setTitle("Make It on Time: Sloths");
         else setTitle("Make It on Time: Time's up");
         setContentPane(endpage);
         setVisible(true);
