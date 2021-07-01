@@ -35,11 +35,9 @@ public abstract class World {
 
     protected FixedImageDisplayer recipe;
 
-    public Timer getTimer() {
-        return timer;
-    }
 
-    public World(CollisionHandler collisionHandler, int width, int height, ScoreBoard scoreboard, List<Sprite> sprites,
+
+    public World(CollisionHandler collisionHandler, int width, int height, List<Sprite> sprites,
             JPanel panel) {
         
         worldWidth = width;
@@ -48,22 +46,23 @@ public abstract class World {
     
         this.collisionHandler = collisionHandler;
         
-        timer = new Timer();
+        this.timer = new Timer();
 
-        textDisplayer = new TextDisplayer(935, 90);
+        textDisplayer = new TextDisplayer(20 + 935, 90);
         textDisplayer.setText("Timer");
         textDisplayer.setFontSize(25);
 
         String pathName = "assets/recipe2.png";
-        recipe = new FixedImageDisplayer(pathName, 900, 720 - 180 * 2043 / 915, 180, 180 * 2043 / 915, panel);
+        recipe = new FixedImageDisplayer(pathName, 20 + 900, 720 - 180 * 2043 / 915, 180, 180 * 2043 / 915, panel);
         for(Sprite sprite: sprites){
             addSprite(sprite);
         }
-        //scoreBoard = new ScoreBoard(0, 10, 10);
+        
+        scoreboard = new ScoreBoard(20 + 0,970, 210);
         //addSprite(scoreboard);
 
-        var timerBackground = new FixedImageDisplayer("assets/newtimer.png", 900, 0, 180, 138, panel);
-        var scoreboardBackground = new FixedImageDisplayer("assets/scoreboard.png",900,140,180,180,panel);
+        var timerBackground = new FixedImageDisplayer("assets/newtimer.png", 20 + 900, 0, 180, 138, panel);
+        var scoreboardBackground = new FixedImageDisplayer("assets/scoreboard.png",20 + 900,140,180,180,panel);
         var orderListBackground = new FixedImageDisplayer("assets/orderlistbg.png", 0, 600, 900, 120, panel);
         
         addSprite(timerBackground);
@@ -123,6 +122,10 @@ public abstract class World {
 
     public int getScore(){
         return this.scoreboard.getScore();
+    }
+
+    public Timer getTimer() {
+        return timer;
     }
 
     public void setScoreboard(ScoreBoard scoreboard){
