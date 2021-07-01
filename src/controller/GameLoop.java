@@ -58,13 +58,13 @@ public abstract class GameLoop {
             case 1:
                 worldWidth = 1080;
                 worldHeight = 720;
-                world = new WorldExample6(new CharacterCollisionHandler(), worldWidth, worldHeight, Sprites, gameview.getCanvas());
+                world = new WorldExample3(new CharacterCollisionHandler(), worldWidth, worldHeight, Sprites, gameview.getCanvas());
                 game.setWorld(world);
                 break;
             case 2:
                 worldWidth = 1080;
                 worldHeight = 720;
-                world = new WorldExample3(new CharacterCollisionHandler(), worldWidth, worldHeight, Sprites, gameview.getCanvas());
+                world = new WorldExample2(new CharacterCollisionHandler(), worldWidth, worldHeight, Sprites, gameview.getCanvas());
                 game.setWorld(world);
                 break;
             case 3:
@@ -76,7 +76,15 @@ public abstract class GameLoop {
             case 4:
                 worldWidth = 1080;
                 worldHeight = 720;
-                world = new WorldExample5(new CharacterCollisionHandler(), worldWidth, worldHeight, Sprites, gameview.getCanvas());
+                world = new WorldExample5(new CharacterCollisionHandler(), worldWidth, worldHeight, Sprites,
+                        gameview.getCanvas());
+                game.setWorld(world);
+                break;
+            case 5:
+                worldWidth = 1080;
+                worldHeight = 720;
+                world = new WorldExample6(new CharacterCollisionHandler(), worldWidth, worldHeight, Sprites,
+                        gameview.getCanvas());
                 game.setWorld(world);
                 break;
             default:

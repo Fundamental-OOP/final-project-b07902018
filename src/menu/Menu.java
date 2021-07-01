@@ -78,7 +78,7 @@ public class Menu extends JPanel {
                         playerNum.setText(String.format("%d", playernum));
                         break;
                     case "W":
-                        worldnum = worldnum % 3 + 1;
+                        worldnum = worldnum % 5 + 1;
                         worldNum.setText(String.format("%d", worldnum));
                         break;
                     case "Start":
